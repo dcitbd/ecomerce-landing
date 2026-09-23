@@ -3,7 +3,7 @@
 > **Product Specialization:** Office Equipment & Security Systems  
 > **Location:** Chaudhari Plaza Ground Floor Room No 3, Paduar Bazar, Bishwa Road, Comilla.  
 > **Hotlines:** 01581 703 822 | 0181 827 3838  
-> **Main Shop Link:** [https://tinyurl.com/Dream-Cart-BD](https://tinyurl.com/Dream-Cart-BD)
+> **Main Shop Link:** [Dream Cart BD](https://tinyurl.com/dreamcartbd-shop)
 
 ---
 
