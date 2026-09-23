@@ -474,7 +474,7 @@
             <span class="badge bg-warning text-dark ms-1" id="modal-product-discount">ছাড়</span>
             <span class="badge bg-success ms-1" id="modal-free-delivery-badge" style="display: none;"></span>
           </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeProductModal()"></button>
         </div>
         <div class="modal-body pt-2">
           <div class="row g-4">
@@ -608,6 +608,12 @@
 
             </div>
           </div>
+        </div>
+        <div class="modal-footer border-0 pt-0 justify-content-between">
+          <span class="small text-muted"><i class="bi bi-shield-check text-success me-1"></i> ড্রিম কার্ট বিডি শতভাগ জেনুইন প্রোডাক্ট</span>
+          <button type="button" class="btn btn-secondary btn-sm px-4 fw-bold" data-bs-dismiss="modal" onclick="closeProductModal()">
+            <i class="bi bi-x-circle me-1"></i> বন্ধ করুন (Close)
+          </button>
         </div>
       </div>
     </div>
@@ -799,7 +805,7 @@
               <p class="text-danger fw-bold mb-0" style="font-size: 0.8rem;">স্মার্ট অফিস ও প্রযুক্তির বিশ্বস্ত ঠিকানা — you make.</p>
             </div>
           </div>
-          <p class="small text-muted">
+          <p class="small text-white">
             Dream Cart BD বাংলাদেশের অন্যতম বিশ্বস্ত অফিস ইকুইপমেন্ট ও বিজনেস গ্যাজেট সরবরাহকারী প্রতিষ্ঠান। কুমিল্লা ও ঢাকাসহ সারা বাংলাদেশে হোম ডেলিভারি ও বিক্রয়োত্তর সেবা প্রদান করে আসছি।
           </p>
           <div class="d-flex gap-2">
@@ -813,7 +819,7 @@
 
         <div class="col-lg-4 col-md-6">
           <h5 class="text-white fw-bold mb-3">যোগাযোগের ঠিকানা ও তথ্য</h5>
-          <ul class="list-unstyled small text-muted">
+          <ul class="list-unstyled small text-white">
             <li class="mb-2">
               <i class="bi bi-geo-alt-fill text-danger me-2"></i>
               <strong>দোকানের ঠিকানা:</strong> চৌধুরী প্লাজা গ্রাউন্ড ফ্লোর, রুম নম্বর ৩, পদুয়ার বাজার বিশ্বরোড, কুমিল্লা (chaudhari plaza ground floor room number 3 paduar Bazar, bishwa Road comilla)
@@ -839,7 +845,7 @@
 
         <div class="col-lg-4 col-md-12">
           <h5 class="text-white fw-bold mb-3">পেমেন্ট ও অফার</h5>
-          <div class="small text-muted mb-3">
+          <div class="small text-white mb-3">
             <div><strong class="text-white">বিকাশ:</strong> ০১৮৭৯৬৫৩১৪৩ (পার্সোনাল), ০১৫৮১৭০৩৮২২ (পেমেন্ট মার্চেন্ট)</div>
             <div><strong class="text-white">নগদ:</strong> ০১৮৭৯৬৫৩১৪৩ (পার্সোনাল) | <strong class="text-white">রকেট:</strong> ০১৫৮১৭০৩৮২২</div>
             <div><strong class="text-white">ইসলামী ব্যাংক:</strong> 20508070200030208 (Jainal Abedin)</div>
@@ -853,7 +859,7 @@
         </div>
       </div>
 
-      <div class="border-top border-secondary pt-3 text-center text-muted small">
+      <div class="border-top border-secondary pt-3 text-center text-white small">
         <p class="mb-0">© 2026 Dream Cart BD. সর্বস্বত্ব সংরক্ষিত | স্লোগান: <strong>স্মার্ট অফিস ও প্রযুক্তির বিশ্বস্ত ঠিকানা — you make.</strong></p>
       </div>
     </div>

@@ -20,6 +20,7 @@ let activeOrderStatusFilter = 'all'; // 'all', 'Pending', 'Confirmed', 'Processi
 function initAdmin() {
   checkAdminAuth();
   refreshAdminData();
+  populateCategoryDropdowns();
   setupEventListeners();
 }
 
@@ -285,6 +286,7 @@ window.toggleProductActive = function(productId, isActive) {
 };
 
 window.openAddProductModal = function() {
+  populateCategoryDropdowns();
   document.getElementById('productFormModalTitle').innerText = 'নতুন প্রোডাক্ট যুক্ত করুন';
   document.getElementById('product-edit-form').reset();
   document.getElementById('pf-product-id').value = '';
@@ -303,6 +305,7 @@ window.openAddProductModal = function() {
 };
 
 window.openEditProductModal = function(productId) {
+  populateCategoryDropdowns();
   const prod = adminProducts.find(p => p.id === productId);
   if (!prod) return;
 
@@ -379,21 +382,16 @@ window.handleProductFormSubmit = function(e) {
     return;
   }
 
-  const categoryNames = {
-    'Cash & Security': 'ক্যাশ ও সিকিউরিটি',
-    'Paper & Shredders': 'পেপার ও শ্রেডার',
-    'Office Furniture': 'অফিস ফার্নিচার',
-    'POS & Barcode': 'পিওএস ও বারকোড',
-    'Electronics & Presentation': 'ইলেকট্রনিক্স ও প্রযুক্তি',
-    'Binding & Lamination': 'বাইন্ডিং ও লেমিনেশন'
-  };
+  const allCats = typeof getStoredCategories === 'function' ? getStoredCategories() : (typeof INITIAL_CATEGORIES !== 'undefined' ? INITIAL_CATEGORIES : []);
+  const matchedCat = allCats.find(c => c.id === category || c.name === category);
+  const catBnName = matchedCat ? matchedCat.name : category;
 
   if (id) {
     const existing = adminProducts.find(p => p.id === id);
     if (existing) {
       existing.title = title;
       existing.category = category;
-      existing.categoryBn = categoryNames[category] || category;
+      existing.categoryBn = catBnName;
       existing.regularPrice = regularPrice;
       existing.salePrice = salePrice;
       existing.stock = stock;
@@ -413,7 +411,7 @@ window.handleProductFormSubmit = function(e) {
       title: title,
       englishTitle: title,
       category: category,
-      categoryBn: categoryNames[category] || category,
+      categoryBn: catBnName,
       regularPrice: regularPrice,
       salePrice: salePrice,
       stock: stock,
@@ -728,4 +726,120 @@ function setupEventListeners() {
 
   document.getElementById('admin-product-search')?.addEventListener('input', renderProductsTable);
   document.getElementById('admin-product-cat-filter')?.addEventListener('change', renderProductsTable);
+}
+
+
+/* ==========================================================================
+   Category Management & Dynamic Dropdowns (Requirement 2)
+   ========================================================================== */
+window.populateCategoryDropdowns = function() {
+  const cats = typeof getStoredCategories === 'function' ? getStoredCategories() : (typeof INITIAL_CATEGORIES !== 'undefined' ? INITIAL_CATEGORIES : []);
+  
+  // 1. Filter dropdown in product list
+  const filterSelect = document.getElementById('admin-product-cat-filter');
+  if (filterSelect) {
+    const currentVal = filterSelect.value || 'all';
+    filterSelect.innerHTML = `<option value="all">সকল ক্যাটাগরি</option>` + 
+      cats.filter(c => c.id !== 'all').map(c => `
+        <option value="${c.id}">${c.name}</option>
+      `).join('');
+    filterSelect.value = currentVal;
+  }
+
+  // 2. Category select in Add/Edit product form (#pf-category)
+  const formSelect = document.getElementById('pf-category');
+  if (formSelect) {
+    const currentVal = formSelect.value;
+    formSelect.innerHTML = cats.filter(c => c.id !== 'all').map(c => `
+      <option value="${c.id}">${c.name}</option>
+    `).join('');
+    if (currentVal) formSelect.value = currentVal;
+  }
+
+  renderCategoriesListModal();
+};
+
+window.openCategoryModal = function() {
+  populateCategoryDropdowns();
+  const form = document.getElementById('category-add-form');
+  if (form) form.reset();
+  const modalEl = document.getElementById('categoryModal');
+  if (modalEl) new bootstrap.Modal(modalEl).show();
+};
+
+window.handleAddCategorySubmit = function(e) {
+  e.preventDefault();
+  const nameBn = document.getElementById('cat-name-bn').value.trim();
+  const nameEn = document.getElementById('cat-name-en').value.trim() || nameBn;
+  const icon = document.getElementById('cat-icon-select').value || 'bi-tag-fill';
+
+  if (!nameBn) {
+    alert('ক্যাটাগরির নাম (বাংলা) প্রদান করা আবশ্যক!');
+    return;
+  }
+
+  const cats = typeof getStoredCategories === 'function' ? getStoredCategories() : (typeof INITIAL_CATEGORIES !== 'undefined' ? INITIAL_CATEGORIES : []);
+  
+  // Check duplicate
+  const exists = cats.find(c => c.id.toLowerCase() === nameEn.toLowerCase() || c.name.toLowerCase() === nameBn.toLowerCase());
+  if (exists) {
+    alert('এই ক্যাটাগরি ইতিমধ্যে বিদ্যমান আছে!');
+    return;
+  }
+
+  const newCat = {
+    id: nameEn,
+    name: nameBn,
+    icon: icon
+  };
+
+  cats.push(newCat);
+  if (typeof saveStoredCategories === 'function') {
+    saveStoredCategories(cats);
+  } else {
+    localStorage.setItem('dreamcart_categories', JSON.stringify(cats));
+  }
+  
+  populateCategoryDropdowns();
+  document.getElementById('category-add-form').reset();
+  alert(`"${nameBn}" ক্যাটাগরি সফলভাবে যুক্ত হয়েছে! এটি এখন ফিল্টার ও প্রোডাক্ট আপলোডিং-এ ব্যবহার করা যাবে।`);
+};
+
+window.deleteCategory = function(catId) {
+  if (catId === 'all') {
+    alert('ডিফল্ট "সব প্রোডাক্ট" ক্যাটাগরি মুছে ফেলা যাবে না!');
+    return;
+  }
+  if (!confirm(`আপনি কি নিশ্চিতভাবে এই ক্যাটাগরি মুছে ফেলতে চান?`)) return;
+
+  let cats = typeof getStoredCategories === 'function' ? getStoredCategories() : (typeof INITIAL_CATEGORIES !== 'undefined' ? INITIAL_CATEGORIES : []);
+  cats = cats.filter(c => c.id !== catId);
+  if (typeof saveStoredCategories === 'function') {
+    saveStoredCategories(cats);
+  } else {
+    localStorage.setItem('dreamcart_categories', JSON.stringify(cats));
+  }
+  populateCategoryDropdowns();
+  renderProductsTable();
+};
+
+function renderCategoriesListModal() {
+  const container = document.getElementById('admin-categories-list-tbody');
+  if (!container) return;
+  const cats = typeof getStoredCategories === 'function' ? getStoredCategories() : (typeof INITIAL_CATEGORIES !== 'undefined' ? INITIAL_CATEGORIES : []);
+
+  container.innerHTML = cats.map(c => `
+    <tr>
+      <td><i class="bi ${c.icon || 'bi-tag'} fs-5 text-primary"></i></td>
+      <td><strong>${c.name}</strong></td>
+      <td><code>${c.id}</code></td>
+      <td class="text-end">
+        ${c.id === 'all' ? '<span class="badge bg-secondary">ডিফল্ট</span>' : `
+          <button type="button" class="btn btn-sm btn-outline-danger" onclick="deleteCategory('${c.id}')" title="ক্যাটাগরি মুছুন">
+            <i class="bi bi-trash"></i>
+          </button>
+        `}
+      </td>
+    </tr>
+  `).join('');
 }

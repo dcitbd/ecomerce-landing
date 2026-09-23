@@ -1054,3 +1054,21 @@ function getStoredOrders() {
 function saveStoredOrders(orders) {
   localStorage.setItem('dreamcart_orders', JSON.stringify(orders));
 }
+
+
+function getStoredCategories() {
+  const stored = localStorage.getItem('dreamcart_categories');
+  if (stored) {
+    try {
+      return JSON.parse(stored);
+    } catch (e) {
+      console.error('Error parsing stored categories', e);
+    }
+  }
+  localStorage.setItem('dreamcart_categories', JSON.stringify(INITIAL_CATEGORIES));
+  return INITIAL_CATEGORIES;
+}
+
+function saveStoredCategories(categories) {
+  localStorage.setItem('dreamcart_categories', JSON.stringify(categories));
+}

@@ -130,6 +130,9 @@
             <i class="bi bi-box-seam"></i> প্রোডাক্ট ম্যানেজমেন্ট
             <span class="badge bg-primary ms-auto" id="sidebar-product-count">20</span>
           </a>
+          <a href="#section-categories" class="admin-nav-item" onclick="openCategoryModal(); return false;">
+            <i class="bi bi-folder-plus"></i> এড / ম্যানেজ ক্যাটাগরি
+          </a>
           <a href="#section-settings" class="admin-nav-item" onclick="switchAdminTab('settings', this)">
             <i class="bi bi-gear-fill"></i> শপ সেটিংস ও গাইড
           </a>
@@ -158,7 +161,10 @@
               <button type="button" class="btn btn-sm btn-outline-secondary me-2" onclick="refreshAdminData()">
                 <i class="bi bi-arrow-clockwise"></i> রিফ্রেশ ডাটা
               </button>
-              <button type="button" class="btn btn-sm btn-primary" onclick="openAddProductModal()">
+              <button type="button" class="btn btn-sm btn-success me-2 fw-bold" onclick="openCategoryModal()">
+                <i class="bi bi-folder-plus me-1"></i> এড ক্যাটাগরি
+              </button>
+              <button type="button" class="btn btn-sm btn-primary fw-bold" onclick="openAddProductModal()">
                 <i class="bi bi-plus-circle me-1"></i> নতুন প্রোডাক্ট যোগ
               </button>
             </div>
@@ -379,6 +385,9 @@
               <p class="text-muted small mb-0">এক্টিভ/ডি-এক্টিভ টগল, লো স্টক কাউন্টার, এডিট ও আপলোড সিস্টেম</p>
             </div>
             <div class="d-flex gap-2">
+              <button class="btn btn-success btn-sm fw-bold" onclick="openCategoryModal()">
+                <i class="bi bi-folder-plus me-1"></i> এড ক্যাটাগরি
+              </button>
               <button class="btn btn-outline-danger btn-sm" onclick="confirmResetProducts()">
                 <i class="bi bi-arrow-counterclockwise me-1"></i> ডিফল্ট ২০ প্রোডাক্ট রিস্টোর
               </button>
@@ -726,6 +735,78 @@
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Category Management & Add Category Modal (Requirement 2) -->
+  <div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title fw-bold"><i class="bi bi-folder-plus me-2"></i> ক্যাটাগরি ম্যানেজমেন্ট ও নতুন ক্যাটাগরি এড</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <!-- Add Category Form -->
+          <div class="card p-3 border-0 bg-light rounded-3 mb-4 shadow-sm">
+            <h6 class="fw-bold mb-3 text-success"><i class="bi bi-plus-circle me-1"></i> নতুন ক্যাটাগরি যুক্ত করুন:</h6>
+            <form id="category-add-form" onsubmit="handleAddCategorySubmit(event)">
+              <div class="row g-3">
+                <div class="col-md-5">
+                  <label class="form-label small fw-bold">ক্যাটাগরির নাম (বাংলা) <span class="text-danger">*</span></label>
+                  <input type="text" id="cat-name-bn" class="form-control form-control-sm" placeholder="যেমন: কম্পিউটার ও এক্সেসরিজ" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label small fw-bold">ক্যাটাগরি আইডি / ইংরেজি নাম</label>
+                  <input type="text" id="cat-name-en" class="form-control form-control-sm" placeholder="যেমন: Computers & Laptops">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small fw-bold">আইকন নির্বাচন</label>
+                  <select id="cat-icon-select" class="form-select form-select-sm">
+                    <option value="bi-tag-fill">🏷️ জেনারেল ট্যাগ</option>
+                    <option value="bi-laptop">💻 ল্যাপটপ / পিসি</option>
+                    <option value="bi-printer">🖨️ প্রিন্টার ও স্ক্যানার</option>
+                    <option value="bi-shield-check">🛡️ সিকিউরিটি ও সেফ</option>
+                    <option value="bi-chair">🪑 অফিস ফার্নিচার</option>
+                    <option value="bi-tools">🛠️ টেকনিক্যাল টুলস</option>
+                    <option value="bi-box-seam">📦 প্যাকিং ও সাপ্লাই</option>
+                    <option value="bi-camera-video">📷 ক্যামেরা ও অপটিক্যাল</option>
+                  </select>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-success btn-sm px-4 fw-bold shadow-sm">
+                    <i class="bi bi-check2-circle me-1"></i> ক্যাটাগরি সেভ করুন
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Existing Categories List -->
+          <div>
+            <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-list-check me-1"></i> বর্তমান ক্যাটাগরি তালিকা (ফিল্টারিং ও আপলোডিংয়ে সক্রিয়):</h6>
+            <div class="table-responsive border rounded-3 bg-white">
+              <table class="table table-hover align-middle mb-0 small">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width: 50px;">আইকন</th>
+                    <th>ক্যাটাগরির নাম (বাংলা)</th>
+                    <th>আইডি (English)</th>
+                    <th class="text-end" style="width: 90px;">অ্যাকশন</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-categories-list-tbody">
+                  <!-- Dynamically populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">বন্ধ করুন</button>
+        </div>
       </div>
     </div>
   </div>

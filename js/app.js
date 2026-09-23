@@ -94,9 +94,10 @@ function initVisitorCounter() {
 function renderCategoryTabs() {
   const container = document.getElementById('category-tabs-container');
   if (!container) return;
-  container.innerHTML = INITIAL_CATEGORIES.map(cat => `
+  const categoriesList = typeof getStoredCategories === 'function' ? getStoredCategories() : INITIAL_CATEGORIES;
+  container.innerHTML = categoriesList.map(cat => `
     <button class="filter-btn ${activeCategory === cat.id ? 'active' : ''}" onclick="selectCategory('${cat.id}')">
-      <i class="bi ${cat.icon}"></i> ${cat.name}
+      <i class="bi ${cat.icon || 'bi-tag-fill'}"></i> ${cat.name}
     </button>
   `).join('');
 }
@@ -360,9 +361,32 @@ window.openProductModal = function(productId) {
 
   const modalEl = document.getElementById('productViewModal');
   if (modalEl) {
-    const modal = new bootstrap.Modal(modalEl);
+    let modal = bootstrap.Modal.getInstance(modalEl);
+    if (!modal) {
+      modal = new bootstrap.Modal(modalEl);
+    }
     modal.show();
     modalEl.addEventListener('hidden.bs.modal', stopModalAutoSlide, { once: true });
+  }
+};
+
+window.closeProductModal = function() {
+  stopModalAutoSlide();
+  const modalEl = document.getElementById('productViewModal');
+  if (modalEl) {
+    let modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) {
+      modal.hide();
+    }
+    // Fail-safe cleanup to ensure backdrop and display close instantly
+    setTimeout(() => {
+      modalEl.classList.remove('show');
+      modalEl.style.display = 'none';
+      document.body.classList.remove('modal-open');
+      document.body.style.removeProperty('overflow');
+      document.body.style.removeProperty('padding-right');
+      document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+    }, 200);
   }
 };
 

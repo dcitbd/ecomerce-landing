@@ -1199,3 +1199,68 @@ a {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   Footer All White Text Enhancement (User Request)
+   ========================================================================== */
+.site-footer,
+.site-footer *,
+.site-footer p,
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6,
+.site-footer span,
+.site-footer small,
+.site-footer strong,
+.site-footer li,
+.site-footer a,
+.site-footer div,
+.site-footer .text-muted,
+.site-footer .text-secondary,
+.site-footer .small {
+  color: #ffffff !important;
+}
+
+.site-footer a:hover {
+  color: #93c5fd !important;
+  text-decoration: underline;
+}
+
+.site-footer .border-secondary,
+.site-footer .border-top {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.site-footer .btn-outline-secondary {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+.site-footer .btn-outline-secondary:hover {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Modal Close Button Styling & Fix */
+.modal-product-view .modal-header {
+  position: relative;
+  z-index: 1060;
+}
+.modal-product-view .btn-close {
+  opacity: 1 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 10px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  cursor: pointer !important;
+  z-index: 1065 !important;
+  position: relative !important;
+  transition: all 0.2s ease !important;
+}
+.modal-product-view .btn-close:hover {
+  background-color: #f1f5f9 !important;
+  transform: scale(1.1) !important;
+}
