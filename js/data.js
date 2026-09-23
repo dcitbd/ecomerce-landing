@@ -1,6 +1,8 @@
-// Dream Cart BD - Official Initial Store Database & Configuration
-// Slogan: you make. | Office Equipment Specialist
-// Location: Chaudhari Plaza Ground Floor Room No 3, Paduar Bazar, Bishwa Road, Comilla
+// Dream Cart BD - Official Store Database & Configuration
+// Slogan: স্মার্ট অফিস ও প্রযুক্তির বিশ্বস্ত ঠিকানা — you make.
+// Logo: https://pictures-bangladesh.jijistatic.com/2033199_MjAwLTIwMC03Nzk0Y2Y2Yzkx.jpg
+// Hotlines: 01581 703 822 | 0181 827 3838
+// Location: chaudhari plaza ground floor room number 3 paduar Bazar, bishwa Road comilla.
 
 const INITIAL_PRODUCTS = [
   {
@@ -42,7 +44,8 @@ const INITIAL_PRODUCTS = [
       "অটো স্টার্ট, স্টপ এবং ব্যাচ কাউন্টিং মোড সুবিধা"
     ],
     "description": "ড্রিম কার্ট বিডি-র এই প্রফেশনাল মানি কাউন্টিং মেশিনটি যেকোনো শপ, শোরুম, ব্যাংক বা করপোরেট অফিসের জন্য অপরিহার্য। এটি অতি দ্রুত গতিতে টাকা গণনার পাশাপাশি নিখুঁতভাবে জাল নোট ও ছেঁড়া নোট শনাক্ত করতে পারে। এক্সটার্নাল ডিসপ্লে থাকায় কাস্টমারও সামনে থেকে স্পষ্ট দেখতে পায়।",
-    "warranty": "২ বছরের কমপ্লিট সার্ভিস ওয়ারেন্টি ও লাইফটাইম টেকনিক্যাল সাপোর্ট।"
+    "warranty": "২ বছরের কমপ্লিট সার্ভিস ওয়ারেন্টি ও লাইফটাইম টেকনিক্যাল সাপোর্ট।",
+    "isActive": true
   },
   {
     "id": "DCB-002",
@@ -82,7 +85,8 @@ const INITIAL_PRODUCTS = [
       "সহজে সরানোর জন্য স্মুথ মুভিং হুইল"
     ],
     "description": "অফিসের গোপনীয় নথিপত্র, ব্যাংকিং তথ্য ও ব্যক্তিগত ডাটা সুরক্ষিত রাখতে এই ক্রস-কাট পেপার শ্রেডারটি অত্যন্ত কার্যকরী। নিখুঁতভাবে কাগজ টুকরো টুকরো করে নিরাপত্তা নিশ্চিত করে।",
-    "warranty": "১ বছরের পার্টস ও রিপ্লেসমেন্ট ওয়ারেন্টি।"
+    "warranty": "১ বছরের পার্টস ও রিপ্লেসমেন্ট ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-003",
@@ -122,7 +126,8 @@ const INITIAL_PRODUCTS = [
       "অভ্যন্তরে কার্পেট প্যাডিং ও অলংকার/টাকার সিক্রেট ড্রয়ার"
     ],
     "description": "আপনার মূল্যবান ক্যাশ, পাসপোর্ট, চেক বই ও অফিসিয়াল গুরুত্বপূর্ণ ডকুমেন্টের শতভাগ সুরক্ষায় আধুনিক ডিজিটাল সেফ ভল্ট। সহজে পরিচালনাযোগ্য ডিজিটাল কিপ্যাড সহ নির্ভরযোগ্য লক সিস্টেম।",
-    "warranty": "৩ বছরের সার্ভিস ও রিপেয়ার ওয়ারেন্টি।"
+    "warranty": "৩ বছরের সার্ভিস ও রিপেয়ার ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-004",
@@ -163,7 +168,8 @@ const INITIAL_PRODUCTS = [
       "অ্যাডজাস্টেবল হেডরেস্ট ও ৩ডি প্যাডেড আর্মরেস্ট"
     ],
     "description": "অফিসে দীর্ঘক্ষণ ক্লান্তিহীন ও আরামদায়ক কাজের জন্য এই এক্সিকিউটিভ এরগোনোমিক চেয়ারটি সেরা পছন্দ। আপনার শরীরের স্বাভাবিক ভঙ্গিমা বজায় রেখে সর্বোচ্চ আরাম ও স্থায়িত্ব প্রদান করে।",
-    "warranty": "২ বছরের হাইড্রোলিক ও হুইল রিপ্লেসমেন্ট ওয়ারেন্টি।"
+    "warranty": "২ বছরের হাইড্রোলিক ও হুইল রিপ্লেসমেন্ট ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-005",
@@ -203,7 +209,8 @@ const INITIAL_PRODUCTS = [
       "অটোমেটিক সেন্সিং মোড ও সুবিধাজনক স্ট্যান্ড"
     ],
     "description": "সুপারশপ, ফার্মেসি, গুদাম ও যেকোনো রিটেল ব্যবসার ইনভেন্টরি দ্রুত ও সহজে নিয়ন্ত্রণের জন্য এই সুপারফাস্ট বারকোড স্ক্যানার অত্যন্ত জনপ্রিয়। কোনো ড্রাইভার ছাড়াই প্লাগ অ্যান্ড প্লে।",
-    "warranty": "১ বছরের ফুল রিপ্লেসমেন্ট ওয়ারেন্টি।"
+    "warranty": "১ বছরের ফুল রিপ্লেসমেন্ট ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-006",
@@ -242,7 +249,8 @@ const INITIAL_PRODUCTS = [
       "অটোমেটিক পেপার কাটার ও পেপার উইডথ অ্যাডজাস্টমেন্ট"
     ],
     "description": "ই-কমার্স সেলার ও অফিস বিলিংয়ের জন্য সবচেয়ে নির্ভরযোগ্য থার্মাল প্রিন্টার। পরিষ্কার ও দীর্ঘস্থায়ী প্রিন্ট দেয় যা সহজে মোছে না। কালি কেনার বাড়তি খরচ সম্পূর্ণ শূন্য।",
-    "warranty": "১ বছরের সার্ভিস ও হেড ওয়ারেন্টি।"
+    "warranty": "১ বছরের সার্ভিস ও হেড ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-007",
@@ -281,7 +289,8 @@ const INITIAL_PRODUCTS = [
       "আইডি কার্ড থেকে শুরু করে সার্টিফিকেট ও এ-৩ সাইজ ড্রয়িং উপযোগী"
     ],
     "description": "অফিসের গুরুত্বপূর্ণ সার্টিফিকেট, চুক্তিপত্র, আইডি কার্ড ও ছবিকে পানি এবং ধূলোবালি থেকে আজীবন সুরক্ষিত রাখতে প্রিমিয়াম লেমিনেটর মেশিন। স্মুথ ফিনিশিং ও দীর্ঘমেয়াদী নির্ভরযোগ্যতা।",
-    "warranty": "১ বছরের পার্টস ওয়ারেন্টি।"
+    "warranty": "১ বছরের পার্টস ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-008",
@@ -320,7 +329,8 @@ const INITIAL_PRODUCTS = [
       "লেট কামিং, ওভারটাইম ও লিভ ট্র্যাকিং অ্যালগরিদম"
     ],
     "description": "অফিস কর্মীদের কাজের সময় ও উপস্থিতি নিখুঁতভাবে ট্র্যাকিং করতে কৃত্রিম বুদ্ধিমত্তা সমৃদ্ধ বায়োমেট্রিক হাজিরা মেশিন। কোনো জটিল সফটওয়্যার ছাড়া সহজেই এক্সেল শিটে হাজিরা রিপোর্ট পাওয়া যায়।",
-    "warranty": "১ বছরের রিপ্লেসমেন্ট ওয়ারেন্টি ও ফ্রি ইনস্টলেশন গাইড।"
+    "warranty": "১ বছরের রিপ্লেসমেন্ট ওয়ারেন্টি ও ফ্রি ইনস্টলেশন গাইড।",
+    "isActive": true
   },
   {
     "id": "DCB-009",
@@ -359,7 +369,8 @@ const INITIAL_PRODUCTS = [
       "টানা ১২ ঘণ্টা কথা বলার রিচার্জেবল শক্তিশালী ব্যাটারি"
     ],
     "description": "অফিস কনফারেন্স বা ক্লায়েন্ট মিটিংয়ে দূর থেকে স্পষ্টভাবে কথা বলার জন্য প্রিমিয়াম স্পিকারফোন। রুমের যেকোনো কোণ থেকে কথা বললে বিপরীত পাশের মানুষ একদম স্ফটিকের মতো পরিষ্কার শুনবে।",
-    "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।"
+    "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-010",
@@ -399,7 +410,8 @@ const INITIAL_PRODUCTS = [
       "বিল্ট-ইন ক্যাবল ম্যানেজমেন্ট ট্রে ও ইউএসবি ফাস্ট চার্জিং পোর্ট"
     ],
     "description": "সারাদিন বসে থাকার স্বাস্থ্যঝুঁকি কাটিয়ে সুস্থ ও প্রাণবন্তভাবে কাজের জন্য আধুনিক ইলেকট্রিক স্মার্ট ডেস্ক। বোতাম চাপলেই বসে থেকে দাঁড়িয়ে কাজের উচ্চতায় রূপান্তরিত হয়।",
-    "warranty": "৩ বছরের মোটর ও ফ্রেম গ্যারান্টি।"
+    "warranty": "৩ বছরের মোটর ও ফ্রেম গ্যারান্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-011",
@@ -439,7 +451,8 @@ const INITIAL_PRODUCTS = [
       "নন-স্লিপ সফট হ্যান্ডেল গ্রিপ ও অ্যান্টি-স্কিড বেস রাবার"
     ],
     "description": "অফিস ফাইল, অডিট রিপোর্ট, বই এবং বড় নথিপত্র এক ক্লিকে মজবুতভাবে স্ট্যাপল করার জন্য শক্তিশালী ইন্ডাস্ট্রিয়াল স্ট্যাপলার। কম পরিশ্রমে সর্বোচ্চ কার্যক্ষমতা দেয়।",
-    "warranty": "১ বছরের ফ্রি সার্ভিসিং ওয়ারেন্টি।"
+    "warranty": "১ বছরের ফ্রি সার্ভিসিং ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-012",
@@ -478,7 +491,8 @@ const INITIAL_PRODUCTS = [
       "দেয়াল ও ছাদ উভয় স্থানে সহজে ইনস্টলেশন সুবিধা"
     ],
     "description": "অফিস প্রেজেন্টেশন, ট্রেনিং ক্লাস এবং করপোরেট কনফারেন্সের জন্য সেরা মানের মোটরাইজড প্রজেক্টর স্ক্রিন। রিমোটের বাটনে স্পর্শ করলেই স্ক্রিন নিচ থেকে উপরে নিখুঁতভাবে ওঠানামা করে।",
-    "warranty": "২ বছরের মোটর ওয়ারেন্টি।"
+    "warranty": "২ বছরের মোটর ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-013",
@@ -517,7 +531,8 @@ const INITIAL_PRODUCTS = [
       "সামনের স্লট দিয়ে ড্রয়ার না খুলেই চেক বা বড় নোট ভেতরে রাখার সুবিধা"
     ],
     "description": "দোকান ও সুপারশপের ক্যাশ কাউন্টারে দ্রুত এবং নিরাপদ টাকা সংরক্ষণের জন্য এই মেটাল ক্যাশ ড্রয়ারটি অত্যন্ত কার্যকর। এটি অটোমেটিক থার্মাল প্রিন্টারের সাথে কানেক্ট হয়ে কাজ করে।",
-    "warranty": "১ বছরের লক ও মেকানিজম ওয়ারেন্টি।"
+    "warranty": "১ বছরের লক ও মেকানিজম ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-014",
@@ -557,7 +572,8 @@ const INITIAL_PRODUCTS = [
       "সফট ৭-কালার অ্যাম্বিয়েন্ট ওয়ার্কস্পেস লাইটিং মোড"
     ],
     "description": "এসি রুমে দীর্ঘক্ষণ থাকলে ত্বক ও গলার শুষ্কতা রোধে এবং অফিসের পরিবেশ সুরভিত রাখতে এই হিউমিডিফায়ার অপরিহার্য। এটি কাজের একাগ্রতা বাড়ায় এবং পরিবেশ সতেজ রাখে।",
-    "warranty": "৬ মাসের সার্ভিস ওয়ারেন্টি।"
+    "warranty": "৬ মাসের সার্ভিস ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-015",
@@ -596,7 +612,8 @@ const INITIAL_PRODUCTS = [
       "নিচে আলাদা ওয়েস্ট পেপার স্টোরেজ বক্স ড্রয়ার"
     ],
     "description": "অফিস প্রেজেন্টেশন বুকলেট, বার্ষিক রিপোর্ট ও প্রজেক্ট ফাইল সুন্দরভাবে স্পাইরাল বাইন্ডিং করার জন্য একটি স্বয়ংসম্পূর্ণ মেশিন। অতি সহজে পরিচালনা করা যায়।",
-    "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।"
+    "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-016",
@@ -635,7 +652,8 @@ const INITIAL_PRODUCTS = [
       "প্রতিটি সকেটে চাইল্ড সেফটি শাটল সুরক্ষা লক"
     ],
     "description": "অফিসের ডেস্কটপ কম্পিউটার, ল্যাপটপ, প্রিন্টার ও গ্যাজেটকে অতিরিক্ত ভোল্টেজ এবং শর্ট সার্কিট থেকে সুরক্ষিত রাখতে স্মার্ট সার্জ প্রটেকশন পাওয়ার স্ট্রিপ। প্রিমিয়াম কোয়ালিটির তার ও সকেট।",
-    "warranty": "১ বছরের রিপ্লেসমেন্ট গ্যারান্টি।"
+    "warranty": "১ বছরের রিপ্লেসমেন্ট গ্যারান্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-017",
@@ -674,7 +692,8 @@ const INITIAL_PRODUCTS = [
       "অটোমেটিক পেপার ক্ল্যাম্পিং লক সিস্টেম"
     ],
     "description": "অফিসের ফটো প্রিন্টিং, ভিজিটিং কার্ড, ফ্লায়ার এবং পেপার কাটিংয়ের জন্য নিখুঁত ও দ্রুত কাটিং গিলোতিন মেশিন। ধাতব বেসপ্লেট থাকায় এটি অত্যন্ত স্থিতিশীল ও টেকসই।",
-    "warranty": "১ বছরের সার্ভিস সাপোর্ট।"
+    "warranty": "১ বছরের সার্ভিস সাপোর্ট।",
+    "isActive": true
   },
   {
     "id": "DCB-018",
@@ -714,7 +733,8 @@ const INITIAL_PRODUCTS = [
       "অফিসের টেবিলের নিচে অনায়াসে ফিট হয়ে যায়"
     ],
     "description": "অফিস ফাইলিং, গুরুত্বপূর্ণ খাতা ও ব্যক্তিগত গ্যাজেট পরিপাটি ও লক করে রাখার জন্য মেটাল মোবাইল কেবিনেট। চাকার সাহায্যে সহজেই এক জায়গা থেকে অন্য জায়গায় সরানো যায়।",
-    "warranty": "২ বছরের চ্যানেল ও লক মেকানিজম ওয়ারেন্টি।"
+    "warranty": "২ বছরের চ্যানেল ও লক মেকানিজম ওয়ারেন্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-019",
@@ -754,7 +774,8 @@ const INITIAL_PRODUCTS = [
       "১০ থেকে ১৭.৩ ইঞ্চি পর্যন্ত সব ব্র্যান্ডের ল্যাপটপ ও ট্যাবলেটের সাথে পারফেক্ট"
     ],
     "description": "ল্যাপটপে কাজ করার সময় ঘাড়ের এবং পিঠের টান দূর করতে প্রিমিয়াম অ্যালুমিনিয়াম ল্যাপটপ স্ট্যান্ড। এটি আপনার ওয়ার্কস্টেশনকে আকর্ষণীয় ও আধুনিক রূপ দেয়।",
-    "warranty": "১ বছরের রিপ্লেসমেন্ট গ্যারান্টি।"
+    "warranty": "১ বছরের রিপ্লেসমেন্ট গ্যারান্টি।",
+    "isActive": true
   },
   {
     "id": "DCB-020",
@@ -793,7 +814,8 @@ const INITIAL_PRODUCTS = [
       "কমপ্যাক্ট ডিজাইন যা যেকোনো ক্যাশ কাউন্টারে অল্প জায়গায় বসে"
     ],
     "description": "ক্যাশ কাউন্টারে যেকোনো জাল নোট তাৎক্ষণিকভাবে চিনে নিতে এই ইউভি নোট ডিটেক্টরটি বিশ্বস্ত সমাধান। আসল টাকার নিরাপত্তা সুতা ও লুকায়িত সিল তৎক্ষণাৎ জ্বলজ্বল করে ওঠে।",
-    "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।"
+    "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।",
+    "isActive": true
   }
 ];
 const INITIAL_CATEGORIES = [
@@ -835,14 +857,28 @@ const INITIAL_CATEGORIES = [
 ];
 const STORE_CONFIG = {
   "shopName": "Dream Cart BD",
-  "slogan": "you make.",
+  "slogan": "স্মার্ট অফিস ও প্রযুক্তির বিশ্বস্ত ঠিকানা — you make.",
+  "englishSlogan": "Smart Office Solutions, Trusted Everywhere — you make.",
+  "logoUrl": "https://pictures-bangladesh.jijistatic.com/2033199_MjAwLTIwMC03Nzk0Y2Y2Yzkx.jpg",
   "phones": [
-    "01581 703 822",
-    "0181 827 3838"
+    {
+      "display": "01581 703 822",
+      "raw": "01581703822",
+      "label": "হটলাইন ১"
+    },
+    {
+      "display": "0181 827 3838",
+      "raw": "01818273838",
+      "label": "হটলাইন ২"
+    }
   ],
   "address": "chaudhari plaza ground floor room number 3 paduar Bazar, bishwa Road comilla.",
+  "addressBn": "চৌধুরী প্লাজা গ্রাউন্ড ফ্লোর রুম নং ৩, পদুয়ার বাজার বিশ্বরোড, কুমিল্লা।",
   "productType": "office equipment",
+  "productTypeBn": "অফিস ইকুইপমেন্ট ও সিকিউরিটি সল্যুশন",
   "mainShopUrl": "https://tinyurl.com/Dream-Cart-BD",
+  "freeDeliveryThreshold": 2000,
+  "onlineDiscountPercent": 4,
   "deliveryAreas": [
     {
       "id": "cumilla",
@@ -874,8 +910,7 @@ const STORE_CONFIG = {
       "branch": "Comilla Branch",
       "accountName": "Jainal Abedin"
     }
-  },
-  "onlineDiscountPercent": 5
+  }
 };
 
 // Database Initializer (Sync with localStorage)
@@ -883,7 +918,9 @@ function getStoredProducts() {
   const stored = localStorage.getItem('dreamcart_products');
   if (stored) {
     try {
-      return JSON.parse(stored);
+      const parsed = JSON.parse(stored);
+      // Ensure all products have isActive flag
+      return parsed.map(p => ({ isActive: p.isActive !== false, ...p }));
     } catch (e) {
       console.error('Error parsing stored products', e);
     }
@@ -905,7 +942,7 @@ function getStoredOrders() {
       console.error('Error parsing stored orders', e);
     }
   }
-  // Sample starter order for admin demonstration
+  // Sample starter orders for admin demonstration with 4% discount & Free Delivery rules
   const sampleOrders = [
     {
       orderId: "DCB-98402",
@@ -916,7 +953,7 @@ function getStoredOrders() {
       fullAddress: "বাড়ি নং ৪২, রোড ৭, কান্দিরপাড়, কুমিল্লা সদর",
       deliveryAreaId: "cumilla",
       deliveryAreaName: "কুমিল্লার ভিতর",
-      deliveryFee: 90,
+      deliveryFee: 0, // Free delivery because subtotal >= 2000!
       paymentMethod: "bkash",
       paymentMethodName: "বিকাশ পেমেন্ট",
       senderNumber: "01712345678",
@@ -934,9 +971,9 @@ function getStoredOrders() {
         }
       ],
       subtotal: 13800,
-      discountPercent: 5,
-      discountAmount: 690,
-      totalPayable: 13200,
+      discountPercent: 4,
+      discountAmount: 552, // 4% of 13800
+      totalPayable: 13248, // 13800 - 552 + 0
       status: "Processing",
       statusBn: "প্রসেসিং হচ্ছে",
       notes: "জরুরিভাবে ডেলিভারি দেওয়ার অনুরোধ করা হয়েছে।"
@@ -950,7 +987,7 @@ function getStoredOrders() {
       fullAddress: "সেক্টর ৩, রোড ৯, উত্তরা, ঢাকা-১২৩০",
       deliveryAreaId: "dhaka",
       deliveryAreaName: "ঢাকার ভিতরে",
-      deliveryFee: 110,
+      deliveryFee: 0, // Free delivery because subtotal >= 2000!
       paymentMethod: "cod",
       paymentMethodName: "ক্যাশ অন ডেলিভারি (Cash on Delivery)",
       senderNumber: "",
@@ -970,10 +1007,44 @@ function getStoredOrders() {
       subtotal: 25000,
       discountPercent: 0,
       discountAmount: 0,
-      totalPayable: 25110,
+      totalPayable: 25000,
       status: "Shipped",
       statusBn: "কুরিয়ারে পাঠানো হয়েছে",
       notes: "কল করে ডেলিভারি কনফার্ম করা হয়েছে।"
+    },
+    {
+      orderId: "DCB-98400",
+      orderDate: new Date(Date.now() - 3600000 * 36).toISOString(),
+      customerName: "কাজী সাখাওয়াত হোসেন",
+      phone: "01812345678",
+      email: "sakhawat.pos@yahoo.com",
+      fullAddress: "চকবাজার মোড়, কুমিল্লা",
+      deliveryAreaId: "cumilla",
+      deliveryAreaName: "কুমিল্লার ভিতর",
+      deliveryFee: 90, // Under 2000 BDT example!
+      paymentMethod: "nagad",
+      paymentMethodName: "নগদ পেমেন্ট",
+      senderNumber: "01812345678",
+      trxId: "NGD773190",
+      isOnlinePayment: true,
+      items: [
+        {
+          productId: "DCB-016",
+          title: "মাল্টি-সকেট স্মার্ট পাওয়ার এক্সটেনশন বোর্ড ফাস্ট চার্জিং সহ",
+          color: "ম্যাট ব্ল্যাক উইথ রেড ইন্ডিকেটর",
+          size: "২ মিটার ক্যাবল (Standard)",
+          price: 1500,
+          quantity: 1,
+          image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
+        }
+      ],
+      subtotal: 1500,
+      discountPercent: 4,
+      discountAmount: 60, // 4% of 1500
+      totalPayable: 1530, // 1500 - 60 + 90
+      status: "Delivered",
+      statusBn: "ডেলিভারড সম্পন্ন",
+      notes: "পণ্য রিসিভ করেছেন।"
     }
   ];
   localStorage.setItem('dreamcart_orders', JSON.stringify(sampleOrders));

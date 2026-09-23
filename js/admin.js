@@ -1,5 +1,7 @@
 // Dream Cart BD - Official Admin Panel Logic
-// Slogan: you make. | Office Equipment Specialist
+// Slogan: স্মার্ট অফিস ও প্রযুক্তির বিশ্বস্ত ঠিকানা — you make.
+// Hotlines: 01581 703 822 | 0181 827 3838
+// Logo: https://pictures-bangladesh.jijistatic.com/2033199_MjAwLTIwMC03Nzk0Y2Y2Yzkx.jpg
 
 document.addEventListener('DOMContentLoaded', () => {
   initAdmin();
@@ -9,14 +11,15 @@ let adminOrders = [];
 let adminProducts = [];
 let activeViewingOrder = null;
 
+// Product Filter State (Requirement 4)
+let activeProductFilter = 'all'; // 'all', 'active', 'inactive', 'low_stock'
+
+// Order Filter State (Requirement 5)
+let activeOrderStatusFilter = 'all'; // 'all', 'Pending', 'Confirmed', 'Processing', 'Shipped', 'Delivered', 'Cancelled'
+
 function initAdmin() {
-  // Check Authentication
   checkAdminAuth();
-
-  // Load Data
   refreshAdminData();
-
-  // Setup Event Listeners
   setupEventListeners();
 }
 
@@ -71,13 +74,15 @@ window.switchAdminTab = function(tabName, linkEl = null) {
 };
 
 /* ==========================================================================
-   Data Refresh & Metrics
+   Data Refresh & Dashboard Metrics (Requirement 6)
    ========================================================================== */
 window.refreshAdminData = function() {
   adminOrders = getStoredOrders();
   adminProducts = getStoredProducts();
 
   updateDashboardMetrics();
+  updateProductCounters();
+  updateOrderCounters();
   renderOrdersTable();
   renderProductsTable();
 };
@@ -85,23 +90,30 @@ window.refreshAdminData = function() {
 function updateDashboardMetrics() {
   const totalRev = adminOrders.reduce((sum, o) => sum + (o.totalPayable || 0), 0);
   const pendingOrders = adminOrders.filter(o => o.status === 'Pending' || o.status === 'Processing');
+  const deliveredOrders = adminOrders.filter(o => o.status === 'Delivered');
+  const activeProds = adminProducts.filter(p => p.isActive !== false);
+  const lowStockProds = adminProducts.filter(p => p.stock <= 5);
 
   const revEl = document.getElementById('stat-total-revenue');
   const ordersEl = document.getElementById('stat-total-orders');
   const pendingEl = document.getElementById('stat-pending-orders');
+  const deliveredEl = document.getElementById('stat-delivered-orders');
   const prodsEl = document.getElementById('stat-total-products');
+  const lowStockEl = document.getElementById('stat-low-stock-alert');
   const sidebarPending = document.getElementById('sidebar-pending-badge');
   const sidebarProds = document.getElementById('sidebar-product-count');
 
   if (revEl) revEl.innerText = `৳${totalRev.toLocaleString()}`;
   if (ordersEl) ordersEl.innerText = adminOrders.length;
   if (pendingEl) pendingEl.innerText = pendingOrders.length;
-  if (prodsEl) prodsEl.innerText = adminProducts.length;
+  if (deliveredEl) deliveredEl.innerText = deliveredOrders.length;
+  if (prodsEl) prodsEl.innerText = activeProds.length;
+  if (lowStockEl) lowStockEl.innerText = lowStockProds.length;
   if (sidebarPending) sidebarPending.innerText = pendingOrders.length;
   if (sidebarProds) sidebarProds.innerText = adminProducts.length;
 
-  // Recent 5 orders for dashboard
   renderDashboardRecentOrders();
+  renderDashboardLowStock();
 }
 
 function renderDashboardRecentOrders() {
@@ -130,33 +142,350 @@ function renderDashboardRecentOrders() {
       <td>${getStatusBadge(o.status)}</td>
       <td class="text-end">
         <button class="btn btn-sm btn-outline-primary" onclick="viewOrderDetails('${o.orderId}')">
-          <i class="bi bi-eye"></i> বিস্তারিত
+          <i class="bi bi-eye"></i> চালান
         </button>
       </td>
     </tr>
   `).join('');
 }
 
-/* ==========================================================================
-   Orders Management
-   ========================================================================== */
-function setupEventListeners() {
-  // Order search & filter
-  const searchInput = document.getElementById('order-search-input');
-  const statusFilter = document.getElementById('order-status-filter');
-  const paymentFilter = document.getElementById('order-payment-filter');
+function renderDashboardLowStock() {
+  const tbody = document.getElementById('dashboard-low-stock-tbody');
+  if (!tbody) return;
 
-  if (searchInput) searchInput.addEventListener('input', renderOrdersTable);
-  if (statusFilter) statusFilter.addEventListener('change', renderOrdersTable);
-  if (paymentFilter) paymentFilter.addEventListener('change', renderOrdersTable);
+  const low = adminProducts.filter(p => p.stock <= 5);
+  if (low.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="4" class="text-center py-3 text-success"><i class="bi bi-check-circle me-1"></i> সকল প্রোডাক্টের পর্যাপ্ত স্টক রয়েছে।</td></tr>`;
+    return;
+  }
 
-  // Product search & filter
-  const prodSearch = document.getElementById('admin-product-search');
-  const prodCat = document.getElementById('admin-product-cat-filter');
-
-  if (prodSearch) prodSearch.addEventListener('input', renderProductsTable);
-  if (prodCat) prodCat.addEventListener('change', renderProductsTable);
+  tbody.innerHTML = low.map(p => `
+    <tr>
+      <td><img src="${p.images[0]}" style="width: 36px; height: 36px; object-fit: cover; border-radius: 6px;"></td>
+      <td><strong>${p.title}</strong></td>
+      <td><span class="badge bg-danger">${p.stock} টি অবশিষ্ট</span></td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-outline-primary py-0" onclick="openEditProductModal('${p.id}')">স্টক বাড়ান</button>
+      </td>
+    </tr>
+  `).join('');
 }
+
+/* ==========================================================================
+   Product Management with Live On-click Filter Counters (Requirement 4)
+   ========================================================================== */
+function updateProductCounters() {
+  const allCount = adminProducts.length;
+  const activeCount = adminProducts.filter(p => p.isActive !== false).length;
+  const inactiveCount = adminProducts.filter(p => p.isActive === false).length;
+  const lowStockCount = adminProducts.filter(p => p.stock <= 5).length;
+
+  const allEl = document.getElementById('cnt-prod-all');
+  const actEl = document.getElementById('cnt-prod-active');
+  const inactEl = document.getElementById('cnt-prod-inactive');
+  const lowEl = document.getElementById('cnt-prod-low');
+
+  if (allEl) allEl.innerText = allCount;
+  if (actEl) actEl.innerText = activeCount;
+  if (inactEl) inactEl.innerText = inactiveCount;
+  if (lowEl) lowEl.innerText = lowStockCount;
+
+  // Highlight active counter card
+  document.querySelectorAll('.prod-counter-card').forEach(card => {
+    card.classList.toggle('active', card.getAttribute('data-filter') === activeProductFilter);
+  });
+}
+
+window.filterProductsByCounter = function(filterType) {
+  activeProductFilter = filterType;
+  updateProductCounters();
+  renderProductsTable();
+};
+
+function renderProductsTable() {
+  const tbody = document.getElementById('admin-products-tbody');
+  const countBadge = document.getElementById('admin-products-count-badge');
+  if (!tbody) return;
+
+  const searchTerm = (document.getElementById('admin-product-search')?.value || '').toLowerCase().trim();
+  const catTerm = document.getElementById('admin-product-cat-filter')?.value || 'all';
+
+  let filtered = adminProducts.filter(p => {
+    // 1. Counter Card Filter
+    if (activeProductFilter === 'active' && p.isActive === false) return false;
+    if (activeProductFilter === 'inactive' && p.isActive !== false) return false;
+    if (activeProductFilter === 'low_stock' && p.stock > 5) return false;
+
+    // 2. Search & Category
+    const matchSearch = !searchTerm || p.title.toLowerCase().includes(searchTerm) || (p.id && p.id.toLowerCase().includes(searchTerm));
+    const matchCat = (catTerm === 'all') || (p.category === catTerm);
+    return matchSearch && matchCat;
+  });
+
+  if (countBadge) countBadge.innerText = `${filtered.length} টি প্রোডাক্ট প্রদর্শিত`;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="8" class="text-center py-5 text-muted"><i class="bi bi-inbox fs-2 d-block mb-1"></i>কোনো প্রোডাক্ট পাওয়া যায়নি।</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(p => {
+    const isActive = (p.isActive !== false);
+    const isLowStock = p.stock <= 5;
+
+    return `
+      <tr class="${!isActive ? 'table-light opacity-75' : ''}">
+        <td>
+          <img src="${p.images[0]}" alt="${p.title}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0;">
+        </td>
+        <td>
+          <div class="fw-bold">${p.title}</div>
+          <small class="text-muted">আইডি: ${p.id} | <span class="badge bg-light text-dark border">${p.categoryBn || p.category}</span></small>
+          <div class="small text-primary"><i class="bi bi-images me-1"></i>${p.images.length} টি ছবি</div>
+        </td>
+        <td class="text-muted text-decoration-line-through">৳${p.regularPrice.toLocaleString()}</td>
+        <td class="fw-bold text-dark">৳${p.salePrice.toLocaleString()}</td>
+        <td>
+          <span class="badge ${p.stock > 0 ? (isLowStock ? 'bg-warning text-dark' : 'bg-success') : 'bg-danger'}">
+            ${p.stock} টি ${isLowStock ? '(লো স্টক)' : ''}
+          </span>
+        </td>
+        <td>
+          <!-- Active / Inactive Status Switch (Requirement 4) -->
+          <div class="form-check form-switch">
+            <input class="form-check-input cursor-pointer" type="checkbox" role="switch" ${isActive ? 'checked' : ''} onchange="toggleProductActive('${p.id}', this.checked)">
+            <label class="form-check-label small fw-bold ${isActive ? 'text-success' : 'text-danger'}">
+              ${isActive ? 'এক্টিভ' : 'ডি-এক্টিভ'}
+            </label>
+          </div>
+        </td>
+        <td class="text-end">
+          <div class="btn-group btn-group-sm">
+            <button class="btn btn-outline-primary" onclick="openEditProductModal('${p.id}')" title="এডিট করুন">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button class="btn btn-outline-danger" onclick="deleteProduct('${p.id}')" title="ডিলিট করুন">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+window.toggleProductActive = function(productId, isActive) {
+  const prod = adminProducts.find(p => p.id === productId);
+  if (!prod) return;
+  prod.isActive = isActive;
+  saveStoredProducts(adminProducts);
+  updateDashboardMetrics();
+  updateProductCounters();
+  renderProductsTable();
+};
+
+window.openAddProductModal = function() {
+  document.getElementById('productFormModalTitle').innerText = 'নতুন প্রোডাক্ট যুক্ত করুন';
+  document.getElementById('product-edit-form').reset();
+  document.getElementById('pf-product-id').value = '';
+  document.getElementById('pf-is-active').checked = true;
+
+  setupImageInputs([
+    'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80'
+  ]);
+
+  const modalEl = document.getElementById('productFormModal');
+  new bootstrap.Modal(modalEl).show();
+};
+
+window.openEditProductModal = function(productId) {
+  const prod = adminProducts.find(p => p.id === productId);
+  if (!prod) return;
+
+  document.getElementById('productFormModalTitle').innerText = 'প্রোডাক্ট এডিট করুন';
+  document.getElementById('pf-product-id').value = prod.id;
+  document.getElementById('pf-title').value = prod.title;
+  document.getElementById('pf-category').value = prod.category;
+  document.getElementById('pf-regular-price').value = prod.regularPrice;
+  document.getElementById('pf-sale-price').value = prod.salePrice;
+  document.getElementById('pf-stock').value = prod.stock;
+  document.getElementById('pf-is-active').checked = (prod.isActive !== false);
+  document.getElementById('pf-colors').value = (prod.colors || []).join(', ');
+  document.getElementById('pf-sizes').value = (prod.sizes || []).join(', ');
+  document.getElementById('pf-badge').value = prod.badge || '';
+  document.getElementById('pf-warranty').value = prod.warranty || '';
+  document.getElementById('pf-highlights').value = (prod.highlights || []).join('\n');
+  document.getElementById('pf-desc').value = prod.description || '';
+
+  setupImageInputs(prod.images || []);
+
+  const modalEl = document.getElementById('productFormModal');
+  new bootstrap.Modal(modalEl).show();
+};
+
+function setupImageInputs(images) {
+  const container = document.getElementById('pf-images-container');
+  if (!container) return;
+  container.innerHTML = images.map((url, idx) => `
+    <div class="input-group input-group-sm mb-2 image-input-row">
+      <span class="input-group-text bg-light">${idx + 1}</span>
+      <input type="url" class="form-control pf-img-url" value="${url}" placeholder="https://..." required>
+      <button type="button" class="btn btn-outline-danger" onclick="this.closest('.image-input-row').remove()"><i class="bi bi-trash"></i></button>
+    </div>
+  `).join('');
+}
+
+window.addImageUrlInput = function() {
+  const container = document.getElementById('pf-images-container');
+  if (!container) return;
+  const count = container.querySelectorAll('.image-input-row').length + 1;
+  const row = document.createElement('div');
+  row.className = 'input-group input-group-sm mb-2 image-input-row';
+  row.innerHTML = `
+    <span class="input-group-text bg-light">${count}</span>
+    <input type="url" class="form-control pf-img-url" placeholder="https://images.unsplash.com/..." required>
+    <button type="button" class="btn btn-outline-danger" onclick="this.closest('.image-input-row').remove()"><i class="bi bi-trash"></i></button>
+  `;
+  container.appendChild(row);
+};
+
+window.handleProductFormSubmit = function(e) {
+  e.preventDefault();
+
+  const id = document.getElementById('pf-product-id').value;
+  const title = document.getElementById('pf-title').value.trim();
+  const category = document.getElementById('pf-category').value;
+  const regularPrice = parseFloat(document.getElementById('pf-regular-price').value) || 0;
+  const salePrice = parseFloat(document.getElementById('pf-sale-price').value) || 0;
+  const stock = parseInt(document.getElementById('pf-stock').value) || 0;
+  const isActive = document.getElementById('pf-is-active').checked;
+  
+  const colorsRaw = document.getElementById('pf-colors').value.split(',').map(s => s.trim()).filter(Boolean);
+  const sizesRaw = document.getElementById('pf-sizes').value.split(',').map(s => s.trim()).filter(Boolean);
+  const badge = document.getElementById('pf-badge').value.trim();
+  const warranty = document.getElementById('pf-warranty').value.trim();
+  const highlightsRaw = document.getElementById('pf-highlights').value.split('\n').map(s => s.trim()).filter(Boolean);
+  const desc = document.getElementById('pf-desc').value.trim();
+
+  const imgInputs = document.querySelectorAll('.pf-img-url');
+  const images = Array.from(imgInputs).map(inp => inp.value.trim()).filter(Boolean);
+
+  if (images.length === 0) {
+    alert('কমপক্ষে একটি প্রোডাক্ট ইমেজ URL প্রদান করতে হবে!');
+    return;
+  }
+
+  const categoryNames = {
+    'Cash & Security': 'ক্যাশ ও সিকিউরিটি',
+    'Paper & Shredders': 'পেপার ও শ্রেডার',
+    'Office Furniture': 'অফিস ফার্নিচার',
+    'POS & Barcode': 'পিওএস ও বারকোড',
+    'Electronics & Presentation': 'ইলেকট্রনিক্স ও প্রযুক্তি',
+    'Binding & Lamination': 'বাইন্ডিং ও লেমিনেশন'
+  };
+
+  if (id) {
+    const existing = adminProducts.find(p => p.id === id);
+    if (existing) {
+      existing.title = title;
+      existing.category = category;
+      existing.categoryBn = categoryNames[category] || category;
+      existing.regularPrice = regularPrice;
+      existing.salePrice = salePrice;
+      existing.stock = stock;
+      existing.isActive = isActive;
+      existing.colors = colorsRaw.length ? colorsRaw : ['স্ট্যান্ডার্ড কালার'];
+      existing.sizes = sizesRaw.length ? sizesRaw : ['স্ট্যান্ডার্ড'];
+      existing.badge = badge;
+      existing.warranty = warranty;
+      existing.highlights = highlightsRaw.length ? highlightsRaw : ['উচ্চ মানসম্পন্ন ও টেকসই'];
+      existing.description = desc;
+      existing.images = images;
+    }
+  } else {
+    const newId = `DCB-${Math.floor(100 + Math.random() * 900)}`;
+    adminProducts.unshift({
+      id: newId,
+      title: title,
+      englishTitle: title,
+      category: category,
+      categoryBn: categoryNames[category] || category,
+      regularPrice: regularPrice,
+      salePrice: salePrice,
+      stock: stock,
+      isActive: isActive,
+      rating: 4.9,
+      reviewsCount: 12,
+      badge: badge || 'নতুন',
+      isFeatured: true,
+      colors: colorsRaw.length ? colorsRaw : ['ক্ল্যাসিক ব্ল্যাক', 'সিলভার'],
+      sizes: sizesRaw.length ? sizesRaw : ['স্ট্যান্ডার্ড সাইজ'],
+      images: images,
+      highlights: highlightsRaw.length ? highlightsRaw : ['১০০% অরিজিনাল অফিস সামগ্রী'],
+      description: desc,
+      warranty: warranty || '১ বছরের অফিসিয়াল সার্ভিস ওয়ারেন্টি'
+    });
+  }
+
+  saveStoredProducts(adminProducts);
+  refreshAdminData();
+
+  const modalEl = document.getElementById('productFormModal');
+  bootstrap.Modal.getInstance(modalEl)?.hide();
+  alert('প্রোডাক্ট সফলভাবে সংরক্ষণ করা হয়েছে!');
+};
+
+window.deleteProduct = function(productId) {
+  if (!confirm(`আপনি কি নিশ্চিতভাবে #${productId} প্রোডাক্টটি মুছে ফেলতে চান?`)) return;
+  adminProducts = adminProducts.filter(p => p.id !== productId);
+  saveStoredProducts(adminProducts);
+  refreshAdminData();
+};
+
+window.confirmResetProducts = function() {
+  if (confirm('আপনি কি পূর্বের ডিফল্ট ২০টি অফিস প্রোডাক্টে রিস্টোর করতে চান?')) {
+    localStorage.removeItem('dreamcart_products');
+    adminProducts = getStoredProducts();
+    refreshAdminData();
+    alert('ডিফল্ট ২০টি অফিস প্রোডাক্ট রিস্টোর সম্পন্ন হয়েছে!');
+  }
+};
+
+/* ==========================================================================
+   Order Management with Status Counter Cards (Requirement 5)
+   ========================================================================== */
+function updateOrderCounters() {
+  const total = adminOrders.length;
+  const pending = adminOrders.filter(o => o.status === 'Pending').length;
+  const confirmed = adminOrders.filter(o => o.status === 'Confirmed').length;
+  const processing = adminOrders.filter(o => o.status === 'Processing').length;
+  const shipped = adminOrders.filter(o => o.status === 'Shipped').length;
+  const delivered = adminOrders.filter(o => o.status === 'Delivered').length;
+  const cancelled = adminOrders.filter(o => o.status === 'Cancelled').length;
+
+  const setT = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
+  setT('cnt-ord-all', total);
+  setT('cnt-ord-pending', pending);
+  setT('cnt-ord-confirmed', confirmed);
+  setT('cnt-ord-processing', processing);
+  setT('cnt-ord-shipped', shipped);
+  setT('cnt-ord-delivered', delivered);
+  setT('cnt-ord-cancelled', cancelled);
+
+  document.querySelectorAll('.order-status-counter-card').forEach(card => {
+    card.classList.toggle('active', card.getAttribute('data-status') === activeOrderStatusFilter);
+  });
+}
+
+window.filterOrdersByStatusCard = function(status) {
+  activeOrderStatusFilter = status;
+  updateOrderCounters();
+  renderOrdersTable();
+};
 
 function renderOrdersTable() {
   const tbody = document.getElementById('admin-orders-tbody');
@@ -164,45 +493,50 @@ function renderOrdersTable() {
   if (!tbody) return;
 
   const searchTerm = (document.getElementById('order-search-input')?.value || '').toLowerCase().trim();
-  const statusTerm = document.getElementById('order-status-filter')?.value || 'all';
   const paymentTerm = document.getElementById('order-payment-filter')?.value || 'all';
 
   let filtered = adminOrders.filter(o => {
-    const matchSearch = !searchTerm ||
-      o.orderId.toLowerCase().includes(searchTerm) ||
-      o.customerName.toLowerCase().includes(searchTerm) ||
-      o.phone.toLowerCase().includes(searchTerm) ||
-      (o.fullAddress && o.fullAddress.toLowerCase().includes(searchTerm));
+    // 1. Status Filter via On-click Counter Card
+    if (activeOrderStatusFilter !== 'all' && o.status !== activeOrderStatusFilter) return false;
 
-    const matchStatus = (statusTerm === 'all') || (o.status === statusTerm);
-    const matchPayment = (paymentTerm === 'all') || (o.paymentMethod === paymentTerm);
+    // 2. Payment Method Filter
+    if (paymentTerm !== 'all' && o.paymentMethod !== paymentTerm) return false;
 
-    return matchSearch && matchStatus && matchPayment;
+    // 3. Search Term Filter
+    if (searchTerm) {
+      const match = o.orderId.toLowerCase().includes(searchTerm) ||
+        o.customerName.toLowerCase().includes(searchTerm) ||
+        o.phone.toLowerCase().includes(searchTerm) ||
+        (o.fullAddress && o.fullAddress.toLowerCase().includes(searchTerm));
+      if (!match) return false;
+    }
+
+    return true;
   });
 
-  if (countText) countText.innerText = `${filtered.length} টি অর্ডার পাওয়া গেছে`;
+  if (countText) countText.innerText = `${filtered.length} টি অর্ডার প্রদর্শিত`;
 
   if (filtered.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="8" class="text-center py-5 text-muted">কোনো অর্ডার পাওয়া যায়নি।</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="8" class="text-center py-5 text-muted"><i class="bi bi-inbox fs-2 d-block mb-1"></i>কোনো অর্ডার পাওয়া যায়নি।</td></tr>`;
     return;
   }
 
   tbody.innerHTML = filtered.map(o => {
     const dateStr = new Date(o.orderDate).toLocaleDateString('bn-BD', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    const isFree = (o.subtotal >= 2000) || o.isFreeDelivery;
+
     return `
       <tr>
-        <td>
-          <span class="badge bg-dark fs-6">${o.orderId}</span>
-        </td>
+        <td><span class="badge bg-dark fs-6">${o.orderId}</span></td>
         <td><small class="text-muted">${dateStr}</small></td>
         <td>
           <strong>${o.customerName}</strong><br>
           <small><i class="bi bi-telephone text-primary me-1"></i>${o.phone}</small><br>
-          <small class="text-muted text-truncate d-inline-block" style="max-width: 200px;">${o.fullAddress}</small>
+          <small class="text-muted text-truncate d-inline-block" style="max-width: 180px;">${o.fullAddress}</small>
         </td>
         <td>
           <span class="badge ${o.isOnlinePayment ? 'bg-success' : 'bg-secondary'}">${o.paymentMethodName || o.paymentMethod}</span>
-          ${o.discountAmount > 0 ? `<div class="small text-success fw-bold">৫% ছাড়: -৳${o.discountAmount}</div>` : ''}
+          ${o.discountAmount > 0 ? `<div class="small text-success fw-bold">৪% ছাড়: -৳${o.discountAmount}</div>` : ''}
         </td>
         <td>
           ${o.trxId ? `
@@ -212,7 +546,7 @@ function renderOrdersTable() {
         </td>
         <td>
           <div class="fw-bold text-danger">৳${(o.totalPayable || 0).toLocaleString()}</div>
-          <small class="text-muted">ডেলিভারি: ৳${o.deliveryFee}</small>
+          <small class="text-muted">ডেলিভারি: ${isFree ? '<span class="text-success fw-bold">ফ্রি (০৳)</span>' : '৳' + o.deliveryFee}</small>
         </td>
         <td>
           <select class="form-select form-select-sm" onchange="quickUpdateOrderStatus('${o.orderId}', this.value)">
@@ -226,10 +560,10 @@ function renderOrdersTable() {
         </td>
         <td class="text-end">
           <div class="btn-group btn-group-sm">
-            <button class="btn btn-outline-primary" onclick="viewOrderDetails('${o.orderId}')" title="বিস্তারিত চালান দেখুন">
-              <i class="bi bi-eye"></i>
+            <button class="btn btn-outline-primary" onclick="viewOrderDetails('${o.orderId}')" title="চালান দেখুন / এডিট">
+              <i class="bi bi-pencil-square"></i>
             </button>
-            <button class="btn btn-outline-danger" onclick="deleteOrder('${o.orderId}')" title="অর্ডার ডিলিট করুন">
+            <button class="btn btn-outline-danger" onclick="deleteOrder('${o.orderId}')" title="মুছে ফেলুন">
               <i class="bi bi-trash"></i>
             </button>
           </div>
@@ -241,20 +575,13 @@ function renderOrdersTable() {
 
 function getStatusBadge(status) {
   switch (status) {
-    case 'Pending':
-      return '<span class="badge bg-warning text-dark">নতুন অর্ডার</span>';
-    case 'Confirmed':
-      return '<span class="badge bg-info text-white">কনফার্মড</span>';
-    case 'Processing':
-      return '<span class="badge bg-primary">প্রসেসিং</span>';
-    case 'Shipped':
-      return '<span class="badge bg-indigo text-white" style="background:#6366f1;">কুরিয়ারে পাঠানো</span>';
-    case 'Delivered':
-      return '<span class="badge bg-success">ডেলিভারড সম্পন্ন</span>';
-    case 'Cancelled':
-      return '<span class="badge bg-danger">বাতিল</span>';
-    default:
-      return `<span class="badge bg-secondary">${status}</span>`;
+    case 'Pending': return '<span class="badge bg-warning text-dark">নতুন অর্ডার</span>';
+    case 'Confirmed': return '<span class="badge bg-info text-white">কনফার্মড</span>';
+    case 'Processing': return '<span class="badge bg-primary">প্রসেসিং</span>';
+    case 'Shipped': return '<span class="badge text-white" style="background:#6366f1;">কুরিয়ারে পাঠানো</span>';
+    case 'Delivered': return '<span class="badge bg-success">ডেলিভারড</span>';
+    case 'Cancelled': return '<span class="badge bg-danger">বাতিল</span>';
+    default: return `<span class="badge bg-secondary">${status}</span>`;
   }
 }
 
@@ -264,6 +591,7 @@ window.quickUpdateOrderStatus = function(orderId, newStatus) {
   order.status = newStatus;
   saveStoredOrders(adminOrders);
   updateDashboardMetrics();
+  updateOrderCounters();
 };
 
 window.viewOrderDetails = function(orderId) {
@@ -277,13 +605,13 @@ window.viewOrderDetails = function(orderId) {
   document.getElementById('adm-view-order-date').innerText = new Date(order.orderDate).toLocaleString('bn-BD');
   document.getElementById('adm-view-order-status').innerHTML = getStatusBadge(order.status);
   
-  document.getElementById('adm-view-cust-name').innerText = order.customerName;
-  const phoneEl = document.getElementById('adm-view-cust-phone');
-  phoneEl.innerText = order.phone;
-  phoneEl.href = `tel:${order.phone}`;
-  document.getElementById('adm-view-cust-email').innerText = order.email || 'দেওয়া হয়নি';
-  document.getElementById('adm-view-cust-address').innerText = order.fullAddress;
-  document.getElementById('adm-view-area-name').innerText = order.deliveryAreaName || 'সাধারণ';
+  // Editable fields in modal (Requirement 5)
+  document.getElementById('adm-edit-cust-name').value = order.customerName || '';
+  document.getElementById('adm-edit-cust-phone').value = order.phone || '';
+  document.getElementById('adm-edit-cust-email').value = order.email || '';
+  document.getElementById('adm-edit-cust-address').value = order.fullAddress || '';
+  document.getElementById('adm-edit-status-select').value = order.status || 'Pending';
+  document.getElementById('adm-edit-notes').value = order.notes || '';
 
   document.getElementById('adm-view-payment-method').innerText = order.paymentMethodName || order.paymentMethod;
 
@@ -296,14 +624,13 @@ window.viewOrderDetails = function(orderId) {
     onlineBox.style.display = 'none';
   }
 
-  // Render items
   const itemsTbody = document.getElementById('adm-view-items-tbody');
   if (itemsTbody) {
     itemsTbody.innerHTML = order.items.map(i => `
       <tr>
         <td>
           <strong>${i.title}</strong><br>
-          <small class="text-muted">কালার: ${i.color} | সাইজ: ${i.size}</small>
+          <small class="text-muted">${i.color} | ${i.size}</small>
         </td>
         <td class="text-center">${i.quantity}</td>
         <td class="text-end">৳${i.price.toLocaleString()}</td>
@@ -312,8 +639,9 @@ window.viewOrderDetails = function(orderId) {
     `).join('');
   }
 
+  const isFree = (order.subtotal >= 2000) || order.isFreeDelivery;
   document.getElementById('adm-view-subtotal').innerText = `৳${order.subtotal.toLocaleString()}`;
-  document.getElementById('adm-view-delivery').innerText = `৳${order.deliveryFee.toLocaleString()}`;
+  document.getElementById('adm-view-delivery').innerHTML = isFree ? '<span class="text-success fw-bold">ফ্রি (৳০)</span>' : `৳${order.deliveryFee.toLocaleString()}`;
   document.getElementById('adm-view-total').innerText = `৳${order.totalPayable.toLocaleString()}`;
 
   const discountRow = document.getElementById('adm-view-discount-row');
@@ -324,38 +652,31 @@ window.viewOrderDetails = function(orderId) {
     discountRow.style.display = 'none';
   }
 
-  const notesBox = document.getElementById('adm-view-notes-box');
-  if (order.notes) {
-    notesBox.style.display = 'block';
-    document.getElementById('adm-view-notes').innerText = order.notes;
-  } else {
-    notesBox.style.display = 'none';
-  }
-
-  // Status selector in modal
-  document.getElementById('adm-modal-status-select').value = order.status;
-
-  // WhatsApp Button
-  const waBtn = document.getElementById('adm-modal-btn-wa');
-  if (waBtn) {
-    const waText = `Hello ${order.customerName}, Dream Cart BD থেকে আপনার অর্ডার (#${order.orderId}) সম্পর্কে যোগাযোগ করা হচ্ছে।`;
-    waBtn.href = `https://wa.me/88${order.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(waText)}`;
-  }
+  // Setup Dual WhatsApp contact links in modal (Requirement 7)
+  const waMsg = encodeURIComponent(`Hello ${order.customerName}, Dream Cart BD থেকে আপনার #${order.orderId} অর্ডার সংক্রান্ত যোগাযোগ।`);
+  const wa1 = document.getElementById('adm-modal-wa1');
+  const wa2 = document.getElementById('adm-modal-wa2');
+  if (wa1) wa1.href = `https://wa.me/88${order.phone.replace(/[^0-9]/g, '')}?text=${waMsg}`;
 
   const modalEl = document.getElementById('adminOrderDetailsModal');
-  const modal = new bootstrap.Modal(modalEl);
-  modal.show();
+  new bootstrap.Modal(modalEl).show();
 };
 
-window.updateOrderStatusFromModal = function() {
+window.saveOrderEditsFromModal = function() {
   if (!activeViewingOrder) return;
-  const newStatus = document.getElementById('adm-modal-status-select').value;
-  activeViewingOrder.status = newStatus;
+  activeViewingOrder.customerName = document.getElementById('adm-edit-cust-name').value.trim();
+  activeViewingOrder.phone = document.getElementById('adm-edit-cust-phone').value.trim();
+  activeViewingOrder.email = document.getElementById('adm-edit-cust-email').value.trim();
+  activeViewingOrder.fullAddress = document.getElementById('adm-edit-cust-address').value.trim();
+  activeViewingOrder.status = document.getElementById('adm-edit-status-select').value;
+  activeViewingOrder.notes = document.getElementById('adm-edit-notes').value.trim();
+
   saveStoredOrders(adminOrders);
   updateDashboardMetrics();
+  updateOrderCounters();
   renderOrdersTable();
-  document.getElementById('adm-view-order-status').innerHTML = getStatusBadge(newStatus);
-  alert('অর্ডার স্ট্যাটাস সফলভাবে আপডেট হয়েছে!');
+
+  alert('অর্ডার তথ্য সফলভাবে আপডেট হয়েছে!');
 };
 
 window.deleteOrder = function(orderId) {
@@ -395,260 +716,16 @@ window.exportOrdersToCSV = function() {
   });
 
   const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.setAttribute("href", url);
-  link.setAttribute("download", `DreamCartBD_Orders_${Date.now()}.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `DreamCartBD_Orders_${Date.now()}.csv`;
+  a.click();
 };
 
-/* ==========================================================================
-   Product Management
-   ========================================================================== */
-function renderProductsTable() {
-  const tbody = document.getElementById('admin-products-tbody');
-  const countBadge = document.getElementById('admin-products-count-badge');
-  if (!tbody) return;
+function setupEventListeners() {
+  document.getElementById('order-search-input')?.addEventListener('input', renderOrdersTable);
+  document.getElementById('order-payment-filter')?.addEventListener('change', renderOrdersTable);
 
-  const searchTerm = (document.getElementById('admin-product-search')?.value || '').toLowerCase().trim();
-  const catTerm = document.getElementById('admin-product-cat-filter')?.value || 'all';
-
-  let filtered = adminProducts.filter(p => {
-    const matchSearch = !searchTerm || p.title.toLowerCase().includes(searchTerm) || (p.id && p.id.toLowerCase().includes(searchTerm));
-    const matchCat = (catTerm === 'all') || (p.category === catTerm);
-    return matchSearch && matchCat;
-  });
-
-  if (countBadge) countBadge.innerText = `${filtered.length} টি প্রোডাক্ট`;
-
-  if (filtered.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7" class="text-center py-5 text-muted">কোনো প্রোডাক্ট পাওয়া যায়নি।</td></tr>`;
-    return;
-  }
-
-  tbody.innerHTML = filtered.map(p => `
-    <tr>
-      <td>
-        <img src="${p.images[0]}" alt="${p.title}" style="width: 55px; height: 55px; object-fit: cover; border-radius: 8px; border: 1px solid #e2e8f0;">
-      </td>
-      <td>
-        <div class="fw-bold">${p.title}</div>
-        <small class="text-muted">আইডি: ${p.id} | ক্যাটাগরি: <span class="badge bg-light text-dark border">${p.categoryBn || p.category}</span></small>
-        <div class="small text-primary"><i class="bi bi-images me-1"></i>${p.images.length} টি ছবি আপলোড করা আছে</div>
-      </td>
-      <td class="text-muted text-decoration-line-through">৳${p.regularPrice.toLocaleString()}</td>
-      <td class="fw-bold text-dark">৳${p.salePrice.toLocaleString()}</td>
-      <td>
-        <span class="badge ${p.stock > 0 ? 'bg-success' : 'bg-danger'}">${p.stock} টি</span>
-      </td>
-      <td>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" ${p.stock > 0 ? 'checked' : ''} onchange="toggleProductStock('${p.id}', this.checked)">
-          <label class="form-check-label small">${p.stock > 0 ? 'ইন স্টক' : 'স্টক আউট'}</label>
-        </div>
-      </td>
-      <td class="text-end">
-        <div class="btn-group btn-group-sm">
-          <button class="btn btn-outline-primary" onclick="openEditProductModal('${p.id}')" title="এডিট করুন">
-            <i class="bi bi-pencil-square"></i>
-          </button>
-          <button class="btn btn-outline-danger" onclick="deleteProduct('${p.id}')" title="ডিলিট করুন">
-            <i class="bi bi-trash"></i>
-          </button>
-        </div>
-      </td>
-    </tr>
-  `).join('');
+  document.getElementById('admin-product-search')?.addEventListener('input', renderProductsTable);
+  document.getElementById('admin-product-cat-filter')?.addEventListener('change', renderProductsTable);
 }
-
-window.toggleProductStock = function(productId, inStock) {
-  const prod = adminProducts.find(p => p.id === productId);
-  if (!prod) return;
-  prod.stock = inStock ? (prod.stock > 0 ? prod.stock : 10) : 0;
-  saveStoredProducts(adminProducts);
-  updateDashboardMetrics();
-};
-
-/* ==========================================================================
-   Add / Edit Product Modal Logic
-   ========================================================================== */
-window.openAddProductModal = function() {
-  document.getElementById('productFormModalTitle').innerText = 'নতুন প্রোডাক্ট যুক্ত করুন';
-  document.getElementById('product-edit-form').reset();
-  document.getElementById('pf-product-id').value = '';
-
-  // Setup default 5 image input fields
-  setupImageInputs([
-    'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80'
-  ]);
-
-  const modalEl = document.getElementById('productFormModal');
-  const modal = new bootstrap.Modal(modalEl);
-  modal.show();
-};
-
-window.openEditProductModal = function(productId) {
-  const prod = adminProducts.find(p => p.id === productId);
-  if (!prod) return;
-
-  document.getElementById('productFormModalTitle').innerText = 'প্রোডাক্ট এডিট করুন';
-  document.getElementById('pf-product-id').value = prod.id;
-  document.getElementById('pf-title').value = prod.title;
-  document.getElementById('pf-category').value = prod.category;
-  document.getElementById('pf-regular-price').value = prod.regularPrice;
-  document.getElementById('pf-sale-price').value = prod.salePrice;
-  document.getElementById('pf-stock').value = prod.stock;
-  document.getElementById('pf-colors').value = (prod.colors || []).join(', ');
-  document.getElementById('pf-sizes').value = (prod.sizes || []).join(', ');
-  document.getElementById('pf-badge').value = prod.badge || '';
-  document.getElementById('pf-warranty').value = prod.warranty || '';
-  document.getElementById('pf-highlights').value = (prod.highlights || []).join('\n');
-  document.getElementById('pf-desc').value = prod.description || '';
-
-  setupImageInputs(prod.images || []);
-
-  const modalEl = document.getElementById('productFormModal');
-  const modal = new bootstrap.Modal(modalEl);
-  modal.show();
-};
-
-function setupImageInputs(images) {
-  const container = document.getElementById('pf-images-container');
-  if (!container) return;
-
-  container.innerHTML = images.map((url, idx) => `
-    <div class="input-group input-group-sm mb-2 image-input-row">
-      <span class="input-group-text bg-light">${idx + 1}</span>
-      <input type="url" class="form-control pf-img-url" value="${url}" placeholder="https://example.com/image.jpg" required>
-      <button type="button" class="btn btn-outline-danger" onclick="this.closest('.image-input-row').remove()">
-        <i class="bi bi-trash"></i>
-      </button>
-    </div>
-  `).join('');
-}
-
-window.addImageUrlInput = function() {
-  const container = document.getElementById('pf-images-container');
-  if (!container) return;
-  const count = container.querySelectorAll('.image-input-row').length + 1;
-  const row = document.createElement('div');
-  row.className = 'input-group input-group-sm mb-2 image-input-row';
-  row.innerHTML = `
-    <span class="input-group-text bg-light">${count}</span>
-    <input type="url" class="form-control pf-img-url" placeholder="https://images.unsplash.com/..." required>
-    <button type="button" class="btn btn-outline-danger" onclick="this.closest('.image-input-row').remove()">
-      <i class="bi bi-trash"></i>
-    </button>
-  `;
-  container.appendChild(row);
-};
-
-window.handleProductFormSubmit = function(e) {
-  e.preventDefault();
-
-  const id = document.getElementById('pf-product-id').value;
-  const title = document.getElementById('pf-title').value.trim();
-  const category = document.getElementById('pf-category').value;
-  const regularPrice = parseFloat(document.getElementById('pf-regular-price').value) || 0;
-  const salePrice = parseFloat(document.getElementById('pf-sale-price').value) || 0;
-  const stock = parseInt(document.getElementById('pf-stock').value) || 0;
-  
-  const colorsRaw = document.getElementById('pf-colors').value.split(',').map(s => s.trim()).filter(Boolean);
-  const sizesRaw = document.getElementById('pf-sizes').value.split(',').map(s => s.trim()).filter(Boolean);
-  
-  const badge = document.getElementById('pf-badge').value.trim();
-  const warranty = document.getElementById('pf-warranty').value.trim();
-  const highlightsRaw = document.getElementById('pf-highlights').value.split('\n').map(s => s.trim()).filter(Boolean);
-  const desc = document.getElementById('pf-desc').value.trim();
-
-  const imgInputs = document.querySelectorAll('.pf-img-url');
-  const images = Array.from(imgInputs).map(inp => inp.value.trim()).filter(Boolean);
-
-  if (images.length === 0) {
-    alert('কমপক্ষে একটি প্রোডাক্ট ইমেজ URL প্রদান করতে হবে!');
-    return;
-  }
-
-  const categoryNames = {
-    'Cash & Security': 'ক্যাশ ও সিকিউরিটি',
-    'Paper & Shredders': 'পেপার ও শ্রেডার',
-    'Office Furniture': 'অফিস ফার্নিচার',
-    'POS & Barcode': 'পিওএস ও বারকোড',
-    'Electronics & Presentation': 'ইলেকট্রনিক্স ও প্রযুক্তি',
-    'Binding & Lamination': 'বাইন্ডিং ও লেমিনেশন'
-  };
-
-  if (id) {
-    // Edit existing
-    const existing = adminProducts.find(p => p.id === id);
-    if (existing) {
-      existing.title = title;
-      existing.category = category;
-      existing.categoryBn = categoryNames[category] || category;
-      existing.regularPrice = regularPrice;
-      existing.salePrice = salePrice;
-      existing.stock = stock;
-      existing.colors = colorsRaw.length ? colorsRaw : ['স্ট্যান্ডার্ড কালার'];
-      existing.sizes = sizesRaw.length ? sizesRaw : ['স্ট্যান্ডার্ড'];
-      existing.badge = badge;
-      existing.warranty = warranty;
-      existing.highlights = highlightsRaw.length ? highlightsRaw : ['উচ্চ মানসম্পন্ন ও টেকসই'];
-      existing.description = desc;
-      existing.images = images;
-    }
-  } else {
-    // Add new product
-    const newId = `DCB-${Math.floor(100 + Math.random() * 900)}`;
-    adminProducts.unshift({
-      id: newId,
-      title: title,
-      englishTitle: title,
-      category: category,
-      categoryBn: categoryNames[category] || category,
-      regularPrice: regularPrice,
-      salePrice: salePrice,
-      stock: stock,
-      rating: 4.9,
-      reviewsCount: 15,
-      badge: badge || 'নতুন',
-      isFeatured: true,
-      colors: colorsRaw.length ? colorsRaw : ['ক্ল্যাসিক ব্ল্যাক', 'সিলভার'],
-      sizes: sizesRaw.length ? sizesRaw : ['স্ট্যান্ডার্ড সাইজ'],
-      images: images,
-      highlights: highlightsRaw.length ? highlightsRaw : ['১০০% অরিজিনাল ও টেকসই মেটেরিয়াল'],
-      description: desc,
-      warranty: warranty || '১ বছরের অফিসিয়াল সার্ভিস ওয়ারেন্টি'
-    });
-  }
-
-  saveStoredProducts(adminProducts);
-  refreshAdminData();
-
-  const modalEl = document.getElementById('productFormModal');
-  const modal = bootstrap.Modal.getInstance(modalEl);
-  if (modal) modal.hide();
-
-  alert('প্রোডাক্ট সফলভাবে সংরক্ষণ করা হয়েছে!');
-};
-
-window.deleteProduct = function(productId) {
-  if (!confirm(`আপনি কি নিশ্চিতভাবে এই প্রোডাক্টটি (${productId}) ডিলিট করতে চান?`)) return;
-  adminProducts = adminProducts.filter(p => p.id !== productId);
-  saveStoredProducts(adminProducts);
-  refreshAdminData();
-};
-
-window.confirmResetProducts = function() {
-  if (confirm('আপনি কি পূর্বের ডিফল্ট ২০টি অফিস ইকুইপমেন্ট প্রোডাক্টে ফিরিয়ে নিতে চান? এতে আপনার কাস্টম এডিট করা প্রোডাক্ট মুছে যাবে।')) {
-    localStorage.removeItem('dreamcart_products');
-    adminProducts = getStoredProducts();
-    refreshAdminData();
-    alert('ডিফল্ট ২০টি অফিস প্রোডাক্ট সফলভাবে রিস্টোর হয়েছে!');
-  }
-};

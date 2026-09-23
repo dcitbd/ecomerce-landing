@@ -1047,3 +1047,155 @@ a {
     font-size: 20px;
   }
 }
+
+/* ==========================================================================
+   New Brand Logo & Visual Enhancements
+   ========================================================================== */
+.brand-logo-img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  border: 2px solid #2563eb;
+  background: #ffffff;
+}
+.admin-logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.invoice-logo-img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+/* Free Delivery Bar */
+.free-delivery-box {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1.5px dashed #16a34a;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+.free-delivery-progress {
+  height: 8px;
+  border-radius: 10px;
+  background: #e2e8f0;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.free-delivery-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  transition: width 0.4s ease;
+}
+
+/* Interactive Admin Filter Counter Cards */
+.admin-counter-card {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.admin-counter-card:hover {
+  transform: translateY(-3px);
+  border-color: #93c5fd;
+  box-shadow: var(--shadow-md);
+}
+.admin-counter-card.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+.admin-counter-card.active::after {
+  content: '✓ ফিল্টার্ড';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.counter-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Dual Hotline Widget */
+.dual-hotline-dropdown .dropdown-menu {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  min-width: 250px;
+}
+.hotline-btn-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #0f172a;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+}
+.hotline-btn-item:hover {
+  background: #f1f5f9;
+}
+.hotline-wa {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+.hotline-wa:hover {
+  background: #dcfce7;
+  color: #14532d;
+}
+.hotline-call {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+.hotline-call:hover {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+/* Floating Hotline Expandable Menu */
+.floating-hotline-panel {
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  width: 270px;
+  z-index: 1040;
+  display: none;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
