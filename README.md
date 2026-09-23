@@ -2,7 +2,7 @@
 
 > **Slogan:** *You make.*  
 > **Specialization:** Office Equipment & Commercial Security Systems  
-> **Live Demo:** [Visit Dream Cart BD](https://tinyurl.com/Dream-Cart-BD)
+> **Live Demo:** [Visit Dream Cart BD](https://tinyurl.com/dreamcartbd-shop)
 
 ---
 
@@ -18,7 +18,7 @@
 | :--- | :--- |
 | **Storefront Location** | Room No. 3 (Ground Floor), Chaudhari Plaza, Paduar Bazar, Bishwa Road, Comilla, Bangladesh |
 | **Hotlines** | `+880 1581 703 822` / `+880 181 827 3838` |
-| **Platform Link** | [tinyurl.com/Dream-Cart-BD](https://tinyurl.com/Dream-Cart-BD) |
+| **Platform Link** | [https://tinyurl.com/dreamcartbd-shop](https://tinyurl.com/dreamcartbd-shop) |
 | **Default Admin PIN** | `1234` |
 
 ---
