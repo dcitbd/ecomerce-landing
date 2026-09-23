@@ -1,82 +1,103 @@
-# 🛒 Dream Cart BD — Official E-Commerce & Management System
-
-> **Slogan:** *You make.*  
-> **Specialization:** Office Equipment & Commercial Security Systems  
-> **Live Demo:** [Visit Dream Cart BD](https://tinyurl.com/dreamcartbd-shop)
-
----
-
-## 📌 Executive Summary
-
-**Dream Cart BD** is a high-conversion, client-side e-commerce platform built to streamline the purchase and management of high-tier office technology and security supplies. Designed with pure performance and zero-dependency deployment in mind, it combines a responsive storefront with dynamic checkout intelligence, automatic shipping calculations, localized payments, and an administrative control suite powered by persistent browser storage.
+# 🛒 Dream Cart BD — Official E-Commerce Landing Page & Admin Panel
+> **Slogan:** you make.  
+> **Product Specialization:** Office Equipment & Security Systems  
+> **Location:** Chaudhari Plaza Ground Floor Room No 3, Paduar Bazar, Bishwa Road, Comilla.  
+> **Hotlines:** 01581 703 822 | 0181 827 3838  
+> **Main Shop Link:** [https://tinyurl.com/Dream-Cart-BD](https://tinyurl.com/Dream-Cart-BD)
 
 ---
 
-## 🏢 Business & Contact Details
+## 🌟 প্রজেক্টের বৈশিষ্ট্যসমূহ (Features Overview)
 
-| Parameter | Information |
-| :--- | :--- |
-| **Storefront Location** | Room No. 3 (Ground Floor), Chaudhari Plaza, Paduar Bazar, Bishwa Road, Comilla, Bangladesh |
-| **Hotlines** | `+880 1581 703 822` / `+880 181 827 3838` |
-| **Platform Link** | [https://tinyurl.com/dreamcartbd-shop](https://tinyurl.com/dreamcartbd-shop) |
-| **Default Admin PIN** | `1234` |
+1. **আধুনিক ও কনভার্শন-অপটিমাইজড ল্যান্ডিং পেজ (`index.html`):**
+   - প্রিমিয়াম ও আকর্ষণীয় ব্যানার, সোশ্যাল প্রুফ, ট্রাস্ট ব্যাজ এবং রেসপনসিভ লেআউট।
+   - **অফার কাউন্টডাউন টাইমার (Offer Counter):** দিন, ঘণ্টা, মিনিট ও সেকেন্ড সহ লাইভ কাউন্টডাউন।
+   - **লাইভ ভিজিটর কাউন্টার (Visitors Counter):** লাইভ ভিজিটর ও মোট ভিজিট সংখ্যা ডায়নামিকালি প্রদর্শন।
+   - **অ্যাকশন বাটন:** প্রতিটি প্রোডাক্টে *অর্ডার করুন*, *কার্টে যোগ করুন*, *হোয়াটসঅ্যাপে অর্ডার*, এবং *সরাসরি কল করুন* বাটন যুক্ত।
 
----
+2. **২০টি প্রফেশনাল অফিস ইকুইপমেন্ট প্রোডাক্ট প্রি-লোডেড:**
+   - ডাবল সেন্সর মানি কাউন্টিং মেশিন, পেপার শ্রেডার, ডিজিটাল সেফ লকার, এরগোনোমিক মেশ চেয়ার, ওয়্যারলেস বারকোড স্ক্যানার, থার্মাল প্রিন্টার, বায়োমেট্রিক হাজিরা মেশিন, কনফারেন্স স্পিকারফোন, স্ট্যান্ডিং ডেস্ক ইত্যাদি।
+   - প্রতিটি প্রোডাক্টে **৫ থেকে ১০টি হাই-রেজ্যুলেশন ছবি**।
+   - প্রোডাক্ট সিঙ্গেল ভিউ মোডালে **অটো-স্লাইড ইমেজ ক্যারোসেল (Auto-slideshow)**।
+   - প্রোডাক্টের **কালার ও সাইজ/ভ্যারিয়েন্ট সিলেক্ট করার অপশন**।
 
-## 🌟 Key Architectural Features
+3. **আর্টিফিশিয়াল ইন্টেলিজেন্স (AI) অ্যাড্রেস ডিটেকশন ও ডেলিভারি ক্যালকুলেটর:**
+   - গ্রাহক ঠিকানার বক্সে ঠিকানা লেখার সাথে সাথেই এআই স্বয়ংক্রিয়ভাবে এলাকা শনাক্ত করে ডেলিভারি চার্জ নির্ধারণ করে:
+     - **কুমিল্লার ভিতর:** ৯০ ৳
+     - **ঢাকার ভিতরে:** ১১০ ৳
+     - **কুমিল্লা ও ঢাকার বাইরে:** ১৩৫ ৳ মাত্র
 
-### 1. Modern Conversion-Focused Front Store (`index.html`)
-* **Urgency & Social Proof Engine:** Integrated live countdown offer timers alongside simulated active/total visitor metrics.
-* **Direct Multi-Action Anchors:** Single-click paths to Cart, Direct Order Form, WhatsApp Checkout, and Direct Dialing.
-* **Pre-Seeded Catalog:** Configured with 20 professional-grade commercial office items (Double Sensor Money Counters, Paper Shredders, Digital Safes, Ergonomic Chairs, Wireless Scanners, Biometric Devices, Standing Desks, etc.).
-* **Media-Rich Modals:** 5–10 high-resolution image galleries per item with automated cycling and dynamic color/variant selectors.
+4. **স্মার্ট পেমেন্ট গেটওয়ে ও ৫% অনলাইন ছাড়:**
+   - ক্যাশ অন ডেলিভারি (COD)
+   - বিকাশ (bKash): `০১৮৭৯৬৫৩১৪৩` (পার্সোনাল) ও `০১৫৮১৭০৩৮২২` (পেমেন্ট মার্চেন্ট শুধুমাত্র)
+   - নগদ (Nagad): `০১৮৭৯৬৫৩১৪৩` (পার্সোনাল মাত্র)
+   - রকেট (Rocket): `০১৫৮১৭০৩৮২২` (পার্সোনাল)
+   - ব্যাংক পেমেন্ট: `20508070200030208`, Islami Bank BD Limited, Account Name: **Jainal Abedin**
+   - **৫% ইনস্ট্যান্ট ক্যাশব্যাক:** অনলাইনে পেমেন্ট সিলেক্ট করলেই সাবটোটাল থেকে ৫% টাকা স্বয়ংক্রিয়ভাবে মাইনাস হয়ে যায়!
+   - অনলাইন পেমেন্টে ট্রানজেকশন আইডি (TrxID) ও প্রেরকের নম্বর ফিল্ড সক্রিয় হয়।
 
-### 2. Algorithmic Address & Automated Shipping Engine
-The checkout module parses address inputs via dynamic matching to assign local shipping zones without external API dependencies:
+5. **অর্ডার কনফার্মেশন ও কাস্টমার ইমেইল সিস্টেম:**
+   - অর্ডার করার পর স্বয়ংক্রিয়ভাবে ইউনিক অর্ডার আইডি (#DCB-XXXXX) তৈরি হয়।
+   - গ্রাহকের জন্য **মুদ্রণযোগ্য মেমো / ইনভয়েস (Printable Invoice)** তৈরি হয়।
+   - স্বয়ংক্রিয় **কাস্টমার ইমেইল কনফার্মেশন প্রিভিউ** এবং ১-ক্লিকে মেইল পাঠানোর সুবিধা।
+   - ১-ক্লিকে সম্পূর্ণ অর্ডারের তথ্য হোয়াটসঅ্যাপে পাঠানোর বোতাম।
 
-| Destination Zone | Delivery Fee |
-| :--- | :--- |
-| **Cumilla Intra-City** | 90 ৳ |
-| **Dhaka Intra-City** | 110 ৳ |
-| **Rest of Bangladesh** | 135 ৳ |
-
-### 3. Integrated Payment Matrix & Automatic Discounts
-Selecting any online payment gateway applies an instant **5% discount** to the cart subtotal while rendering transaction capture fields (Sender Mobile & TrxID):
-
-* **bKash:** `01879653143` (Personal) / `01581703822` (Merchant)
-* **Nagad:** `01879653143` (Personal)
-* **Rocket:** `01581703822` (Personal)
-* **Bank Wire:** Islami Bank Bangladesh Limited  
-  * **Account Name:** Jainal Abedin  
-  * **Account Number:** `20508070200030208`
-* **Cash On Delivery (COD):** Native integration without pre-payment requirements.
-
-### 4. Post-Purchase Fulfillment Pipeline
-* **Token Generation:** Generates deterministic unique order handles (e.g., `#DCB-XXXXX`).
-* **Invoicing:** Production of client-side printable PDF/hardcopy invoices.
-* **Customer Routing:** 1-click WhatsApp transmission strings alongside native client email invoice previews.
-
-### 5. Protected Administrative Hub (`admin.html`)
-* **Security Layer:** PIN-gated interface (`1234` baseline).
-* **Analytics Bar:** Real-time visibility into Gross Revenue, Total Placements, and Pending Actions.
-* **Order Processing Table:** Sort, inspect TrxID details, toggle statuses (`Pending`, `Confirmed`, `Shipped`, `Delivered`, `Cancelled`), output single invoices, or export data to standard `.csv`.
-* **Inventory Control Suite:** Real-time addition of multi-image products, variant registration, pricing adjustments, deletions, and active/inactive stock toggling.
-* **Data Layer:** Zero-latency persistence and cross-tab hydration via browser `localStorage`.
+6. **অ্যাডমিন কন্ট্রোল প্যানেল (`admin.html`):**
+   - পিন প্রোটেকশন (ডিফল্ট পিন: `1234`)
+   - মোট রেভিনিউ, মোট অর্ডার ও পেন্ডিং অর্ডার মেট্রিক্স।
+   - **অর্ডার ম্যানেজমেন্ট:** অর্ডার ফিল্টার, স্ট্যাটাস পরিবর্তন (Pending, Confirmed, Shipped, Delivered, Cancelled), TrxID ভেরিফিকেশন, ইনভয়েস প্রিন্ট ও CSV ডাউনলোড।
+   - **প্রোডাক্ট ম্যানেজমেন্ট:** নতুন প্রোডাক্ট তৈরি (মাল্টি-ইমেজ URL, কালার, সাইজ, দাম সহ), এডিট, ডিলিট এবং স্টক অন/অফ সুইচ।
+   - ব্রাউজারের `localStorage`-এর মাধ্যমে রিয়েলটাইম সিনক্রোনাইজেশন।
 
 ---
 
-## 📂 Project Directory Structure
+## 🚀 গিটহাব পেজেস-এ পাবলিশ করার নিয়ম (GitHub Pages Deployment)
 
-```text
+এটি একটি ১০০% পিওর ক্লায়েন্ট-সাইড (HTML, CSS, JS, Bootstrap) অ্যাপ্লিকেশন। কোনো ব্যাকএন্ড সার্ভার বা ডাটাবেস ইন্সটলেশন ছাড়াই সরাসরি GitHub Pages-এ আজীবন সম্পূর্ণ ফ্রিতে লাইভ রাখা যাবে।
+
+### ধাপসমূহ:
+1. **GitHub-এ যান:** [github.com](https://github.com)-এ লগইন করে **New Repository**-তে ক্লিক করুন।
+2. **রিপোজিটরি নাম দিন:** যেমন `dream-cart-bd` (Public রাখুন)।
+3. **ফাইল আপলোড করুন:** এই ফোল্ডারের ফাইলগুলো আপলোড করুন:
+   ```text
+   index.html
+   admin.html
+   README.md
+   css/
+     └── style.css
+   js/
+     ├── data.js
+     ├── app.js
+     └── admin.js
+   ```
+4. **GitHub Pages চালু করুন:**
+   - আপনার রিপোজিটরির **Settings** ট্যাবে যান।
+   - বাম পাশের মেনু থেকে **Pages** সিলেক্ট করুন।
+   - **Build and deployment** সেকশনে:
+     - Branch: `main` (বা `master`)
+     - Folder: `/(root)`
+   - **Save** বাটনে ক্লিক করুন।
+5. **লাইভ লিংক:**
+   - ১-২ মিনিট পর আপনার সাইট লাইভ হয়ে যাবে: `https://<your-username>.github.io/dream-cart-bd/`
+   - অ্যাডমিন প্যানেল লিংক: `https://<your-username>.github.io/dream-cart-bd/admin.html`
+   - অ্যাডমিন ডিফল্ট পিন: `1234`
+
+---
+
+## 📂 ফাইল স্ট্রাকচার
+
+```
 dream-cart-bd/
-├── index.html          # Public storefront, checkout, and AI routing logic
-├── admin.html          # Secure administrative control panel
+├── index.html        # মূল কাস্টমার ল্যান্ডিং পেজ ও চেকআউট
+├── admin.html        # অ্যাডমিন কন্ট্রোল প্যানেল
+├── README.md         # প্রজেক্ট ও ডিপ্লয়মেন্ট নির্দেশিকা
 ├── css/
-│   └── style.css       # Layouts, UI tokens, transitions, and media queries
-├── js/
-│   ├── app.js          # Cart logic, address detection, and checkout flows
-│   └── admin.js        # Auth gate, metrics, inventory CRUD, and CSV exports
-├── assets/
-│   ├── images/         # Static visual assets and seed product catalog media
-│   └── icons/          # System iconography
-└── README.md           # Operational documentation
+│   └── style.css     # রেসপনসিভ ও মডার্ন স্টাইলিং
+└── js/
+    ├── data.js       # ২০টি প্রোডাক্টের ডাটাবেস ও স্টোর কনফিগারেশন
+    ├── app.js        # কাস্টমার সাইটের লজিক, AI অ্যাড্রেস ডিটেকশন ও কার্ট
+    └── admin.js      # অ্যাডমিন ড্যাশবোর্ড, অর্ডার ও প্রোডাক্ট ম্যানেজমেন্ট
+```
+
+---
+*© 2026 Dream Cart BD. All rights reserved. | you make.*

@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream Cart BD | অফিস ইকুইপমেন্ট ও সিকিউরিটি সল্যুশন | you make.</title>
+  <meta name="description" content="Dream Cart BD - সেরা মানের অফিস ইকুইপমেন্ট, পেপার শ্রেডার, মানি কাউন্টিং মেশিন, এরগোনোমিক চেয়ার, সেফ লকার ও ক্যাশ ড্রয়ার। অনলাইন পেমেন্টে ৫% ক্যাশ ছাড়!">
+  
+  <!-- Bootstrap 5 CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts: Hind Siliguri (Bengali) & Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --cta: #e11d48;
+      --success: #10b981;
+      --bg-soft: #f8fafc;
+    }
+    body {
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-soft);
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      font-weight: 700;
+    }
+    .top-bar-ticker {
+      background: linear-gradient(90deg, #0f172a, #1e1b4b, #0f172a);
+      color: #fff;
+      font-size: 0.88rem;
+      padding: 8px 0;
+    }
+    .discount-pill {
+      background: #e11d48;
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(225, 29, 72, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+    }
+    .site-header {
+      background: #ffffff;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
+    .brand-icon-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    }
+    .brand-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.1;
+    }
+    .brand-name span { color: #2563eb; }
+    .brand-slogan {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #e11d48;
+      margin: 0;
+    }
+    .hero-section {
+      background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.12) 0%, #f8fafc 70%), #ffffff;
+      padding: 35px 0 45px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .countdown-container {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border-radius: 14px;
+      padding: 18px 22px;
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+      margin-bottom: 22px;
+    }
+    .time-unit {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .time-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .time-label {
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+    .social-proof-bar {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 50px;
+      padding: 6px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #10b981;
+      border-radius: 50%;
+      position: relative;
+    }
+    .live-dot::after {
+      content: '';
+      position: absolute;
+      top: -3px; left: -3px; right: -3px; bottom: -3px;
+      border-radius: 50%;
+      background-color: rgba(16, 185, 129, 0.4);
+      animation: ripple 1.5s infinite;
+    }
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    .product-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.12);
+      border-color: #93c5fd;
+    }
+    .product-img-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 72%;
+      background: #f1f5f9;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .product-img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+    .badge-discount {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: #e11d48;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      z-index: 2;
+    }
+    .gallery-count-pill {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+    .product-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .product-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.38;
+      margin-bottom: 8px;
+      height: 2.8em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      cursor: pointer;
+    }
+    .product-title:hover { color: #2563eb; }
+    .price-block {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .current-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .original-price {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+    .online-save-chip {
+      background: #dcfce7;
+      color: #166534;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .btn-order-now {
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-order-now:hover {
+      background: #be123c;
+      color: #ffffff;
+    }
+    .btn-add-cart {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-add-cart:hover {
+      background: #dbeafe;
+    }
+    .filter-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 4px;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #ffffff;
+    }
+    .ai-address-badge {
+      background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+      border: 1.5px dashed #3b82f6;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .delivery-radio-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .delivery-radio-card.active {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+    .payment-card-opt {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+      cursor: pointer;
+      background: #ffffff;
+      position: relative;
+    }
+    .payment-card-opt.active {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+    .account-copy-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border: 1px solid #fed7aa;
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-top: 4px;
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .floating-actions-container {
+      position: fixed;
+      bottom: 25px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1030;
+    }
+    .floating-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .float-wa { background: #25d366; }
+    .float-call { background: #2563eb; }
+    .float-cart { background: #e11d48; position: relative; }
+    .cart-floating-count {
+      position: absolute;
+      top: -3px; right: -3px;
+      background: #0f172a;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+    }
+    .variant-chip {
+      padding: 5px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #cbd5e1;
+      background: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      margin: 4px;
+    }
+    .variant-chip.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
+    .modal-gallery-main {
+      position: relative;
+      background: #f8fafc;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 350px;
+    }
+    .modal-gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      z-index: 5;
+    }
+    .nav-prev { left: 10px; }
+    .nav-next { right: 10px; }
+    .thumb-item {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .thumb-item.active {
+      border-color: #2563eb;
+    }
+    .thumb-item img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .btn-visit-main-shop {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+    @media print {
+      body * { visibility: hidden; }
+      .printable-invoice, .printable-invoice * { visibility: visible; }
+      .printable-invoice { position: absolute; left: 0; top: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar-ticker">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <span class="discount-pill">🔥 মেগা অফার</span>
+        <span>অনলাইন পেমেন্ট করলেই (বিকাশ / নগদ / রকেট / ব্যাংক) মোট দামের উপর <strong>৫% ফ্ল্যাট ডিসকাউন্ট!</strong></span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span><i class="bi bi-geo-alt-fill text-danger me-1"></i> পদুয়ার বাজার বিশ্বরোড, কুমিল্লা</span>
+        <a href="tel:01581703822" class="text-white text-decoration-none fw-bold"><i class="bi bi-telephone-fill me-1 text-warning"></i> 01581 703 822</a>
+        <button class="btn btn-sm btn-outline-light py-0 px-2" onclick="toggleAdminView()"><i class="bi bi-shield-lock me-1"></i> অ্যাডমিন প্যানেল</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <div class="brand-icon-box"><i class="bi bi-cart3"></i></div>
+        <div>
+          <h1 class="brand-name">Dream Cart <span>BD</span></h1>
+          <p class="brand-slogan">you make.</p>
+        </div>
+      </div>
+
+      <div class="d-none d-lg-flex align-items-center gap-3">
+        <div class="social-proof-bar">
+          <span class="live-dot"></span>
+          <span>লাইভ ভিজিটর: <strong id="live-visitor-count" class="text-primary">128</strong> জন | মোট ভিজিট: <strong>14,520+</strong></span>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="https://tinyurl.com/Dream-Cart-BD" target="_blank" class="btn btn-outline-primary btn-sm d-none d-sm-inline-flex align-items-center gap-1">
+          <i class="bi bi-box-arrow-up-right"></i> ভিজিট মেইন শপ
+        </a>
+        <button class="btn btn-danger position-relative px-3 py-2 fw-bold rounded-pill" onclick="openCartDrawer()">
+          <i class="bi bi-cart-fill me-1"></i> কার্ট
+          <span class="badge bg-white text-danger rounded-pill" id="header-cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- STOREFRONT VIEW -->
+  <div id="storefront-view">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="badge bg-danger mb-2 px-3 py-2 fs-6">অফিস ইকুইপমেন্ট ও সিকিউরিটি হাব</span>
+            <h2 class="display-5 fw-bold mb-3">
+              আপনার ব্যবসার জন্য <br>
+              <span class="text-primary">সেরা মানের অফিস ইকুইপমেন্ট</span>
+            </h2>
+            <p class="lead text-muted mb-4">
+              টাকা গণনার মেশিন, পেপার শ্রেডার, ডিজিটাল সেফ লকার ও এক্সিকিউটিভ চেয়ার সহ সকল অফিস সামগ্রী সাশ্রয়ী দামে। কুমিল্লা ও ঢাকাসহ সারাদেশে হোম ডেলিভারি!
+            </p>
+
+            <!-- Offer Countdown Box -->
+            <div class="countdown-container">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="fw-bold text-warning"><i class="bi bi-clock-history me-1"></i> স্পেশাল মেগা অফার শেষ হতে বাকি:</span>
+                <span class="badge bg-danger">আজকের অফার</span>
+              </div>
+              <div class="d-flex gap-2">
+                <div class="time-unit"><div class="time-num" id="timer-days">01</div><div class="time-label">দিন</div></div>
+                <div class="time-unit"><div class="time-num" id="timer-hours">12</div><div class="time-label">ঘণ্টা</div></div>
+                <div class="time-unit"><div class="time-num" id="timer-minutes">45</div><div class="time-label">মিনিট</div></div>
+                <div class="time-unit"><div class="time-num" id="timer-seconds">30</div><div class="time-label">সেকেন্ড</div></div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#products-section" class="btn btn-primary btn-lg rounded-pill px-4 fw-bold">প্রোডাক্ট কালেকশন দেখুন</a>
+              <a href="tel:01581703822" class="btn btn-outline-dark btn-lg rounded-pill px-4 fw-bold"><i class="bi bi-telephone-fill me-1"></i> 01581 703 822</a>
+              <a href="https://wa.me/8801581703822?text=Hello%20Dream%20Cart%20BD" target="_blank" class="btn btn-success btn-lg rounded-pill px-4 fw-bold" style="background:#25d366;border:none;"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt="Office Equipment" class="img-fluid rounded-4 shadow border border-3 border-white">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Catalog Section -->
+    <section class="py-5" id="products-section">
+      <div class="container">
+        <div class="text-center mb-4">
+          <span class="text-primary fw-bold text-uppercase">DREAM CART BD OFFICIAL CATALOG</span>
+          <h2 class="fw-bold">আমাদের টপ রেটেড ২০টি অফিস ইকুইপমেন্ট</h2>
+          <p class="text-muted">ছবি বড় করে ও অটো-স্লাইডারে দেখতে যেকোনো প্রোডাক্টে ক্লিক করুন</p>
+        </div>
+
+        <!-- Filter & Search -->
+        <div class="d-flex flex-wrap justify-content-center mb-4" id="category-tabs-container"></div>
+
+        <div class="row g-3 mb-4 align-items-center">
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+              <input type="text" id="product-search-input" class="form-control" placeholder="প্রোডাক্টের নাম দিয়ে খুঁজুন...">
+            </div>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <span class="badge bg-secondary p-2" id="filtered-product-count">২০ টি প্রোডাক্ট</span>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="row" id="products-grid"></div>
+      </div>
+    </section>
+
+    <!-- Smart Order Form & Checkout Section -->
+    <section class="py-5 bg-white border-top" id="checkout-anchor">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="p-4 p-md-5 border rounded-4 shadow-sm bg-light">
+              <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+                <div>
+                  <span class="badge bg-danger mb-1">অর্ডার ফর্ম</span>
+                  <h3 class="fw-bold mb-0">অর্ডার কনফার্ম করতে তথ্য দিন</h3>
+                </div>
+                <div class="text-muted small">হটলাইন: <strong>01581 703 822</strong></div>
+              </div>
+
+              <form id="checkout-form" onsubmit="handleOrderSubmit(event)">
+                <div class="row g-4">
+                  <!-- Customer Details -->
+                  <div class="col-lg-6">
+                    <h5 class="fw-bold text-primary mb-3"><i class="bi bi-person-fill me-1"></i> ১. আপনার ঠিকানা ও ডেলিভারি তথ্য</h5>
+                    
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">আপনার নাম <span class="text-danger">*</span></label>
+                      <input type="text" id="custName" class="form-control" required placeholder="যেমন: মোহাম্মদ রফিকুল ইসলাম">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">মোবাইল নম্বর <span class="text-danger">*</span></label>
+                      <input type="tel" id="custPhone" class="form-control" required placeholder="01818273838 (১১ ডিজিট)">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">ইমেইল <span class="text-muted">(ঐচ্ছিক)</span></label>
+                      <input type="email" id="custEmail" class="form-control" placeholder="yourname@gmail.com">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">সম্পূর্ণ ঠিকানা <span class="text-danger">*</span></label>
+                      <textarea id="custAddress" class="form-control" rows="3" required placeholder="বাড়ি নং, রোড নং, এলাকা, থানা, জেলা (ঠিকানা লিখলে এআই দিয়ে স্বয়ংক্রিয়ভাবে ডেলিভারি চার্জ নির্ধারণ হবে)" oninput="runAIAddressDetection(this.value)"></textarea>
+                      
+                      <!-- AI Detection Box -->
+                      <div class="ai-address-badge" id="ai-status-box" style="display: none;">
+                        <i class="bi bi-cpu-fill fs-4 text-primary"></i>
+                        <div class="small" id="ai-status-text"></div>
+                      </div>
+                    </div>
+
+                    <!-- Delivery Areas -->
+                    <label class="form-label fw-bold">ডেলিভারি এরিয়া:</label>
+                    <div class="delivery-radio-card active" onclick="setDeliveryArea('cumilla')">
+                      <label class="mb-0 fw-bold"><input type="radio" name="areaRadio" value="cumilla" checked> কুমিল্লার ভিতর (Inside Cumilla)</label>
+                      <span class="badge bg-primary fs-6">৯০ ৳</span>
+                    </div>
+                    <div class="delivery-radio-card" onclick="setDeliveryArea('dhaka')">
+                      <label class="mb-0 fw-bold"><input type="radio" name="areaRadio" value="dhaka"> ঢাকার ভিতরে (Inside Dhaka)</label>
+                      <span class="badge bg-primary fs-6">১১০ ৳</span>
+                    </div>
+                    <div class="delivery-radio-card" onclick="setDeliveryArea('outside')">
+                      <label class="mb-0 fw-bold"><input type="radio" name="areaRadio" value="outside"> কুমিল্লা ও ঢাকার বাইরে (Outside)</label>
+                      <span class="badge bg-primary fs-6">১৩৫ ৳</span>
+                    </div>
+                  </div>
+
+                  <!-- Payment Details -->
+                  <div class="col-lg-6">
+                    <h5 class="fw-bold text-primary mb-3"><i class="bi bi-credit-card-2-front-fill me-1"></i> ২. পেমেন্ট ও অর্ডার বিবরণী</h5>
+
+                    <!-- Online discount banner -->
+                    <div class="alert alert-success d-flex align-items-center gap-2" id="online-save-banner" style="display: none;">
+                      <i class="bi bi-gift-fill fs-4"></i>
+                      <div class="small fw-bold">অভিনন্দন! অনলাইনে পেমেন্ট করায় আপনি ৫% ফ্ল্যাট ক্যাশ ছাড় পাচ্ছেন!</div>
+                    </div>
+
+                    <label class="form-label fw-bold">পেমেন্ট মেথড নির্বাচন করুন: <span class="text-danger">*</span></label>
+                    <div class="row g-2 mb-3">
+                      <div class="col-6 col-sm-4">
+                        <div class="payment-card-opt active" onclick="setPaymentMethod('cod')">
+                          <i class="bi bi-cash-stack text-success fs-4 d-block"></i>
+                          <small class="fw-bold">ক্যাশ অন ডেলিভারি</small>
+                        </div>
+                      </div>
+                      <div class="col-6 col-sm-4">
+                        <div class="payment-card-opt" onclick="setPaymentMethod('bkash')">
+                          <span class="badge bg-danger position-absolute top-0 end-0 m-1" style="font-size: 0.65rem;">৫% ছাড়</span>
+                          <i class="bi bi-phone-fill text-danger fs-4 d-block"></i>
+                          <small class="fw-bold">বিকাশ পেমেন্ট</small>
+                        </div>
+                      </div>
+                      <div class="col-6 col-sm-4">
+                        <div class="payment-card-opt" onclick="setPaymentMethod('nagad')">
+                          <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-1" style="font-size: 0.65rem;">৫% ছাড়</span>
+                          <i class="bi bi-wallet2 text-warning fs-4 d-block"></i>
+                          <small class="fw-bold">নগদ পেমেন্ট</small>
+                        </div>
+                      </div>
+                      <div class="col-6 col-sm-6">
+                        <div class="payment-card-opt" onclick="setPaymentMethod('rocket')">
+                          <span class="badge bg-primary position-absolute top-0 end-0 m-1" style="font-size: 0.65rem;">৫% ছাড়</span>
+                          <i class="bi bi-rocket-takeoff-fill text-primary fs-4 d-block"></i>
+                          <small class="fw-bold">রকেট পেমেন্ট</small>
+                        </div>
+                      </div>
+                      <div class="col-6 col-sm-6">
+                        <div class="payment-card-opt" onclick="setPaymentMethod('bank')">
+                          <span class="badge bg-success position-absolute top-0 end-0 m-1" style="font-size: 0.65rem;">৫% ছাড়</span>
+                          <i class="bi bi-bank fs-4 text-success d-block"></i>
+                          <small class="fw-bold">ব্যাংক ট্রান্সফার</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Payment instructions box -->
+                    <div id="payment-instructions" class="p-3 bg-white border border-warning rounded-3 mb-3" style="display: none;">
+                      <h6 class="fw-bold mb-2 text-dark" id="payment-inst-title"></h6>
+                      <div id="payment-inst-details"></div>
+                    </div>
+
+                    <!-- Online Payment Trx Inputs -->
+                    <div id="online-trx-inputs" class="p-3 bg-white border rounded-3 mb-3" style="display: none;">
+                      <div class="row g-2">
+                        <div class="col-6">
+                          <label class="small fw-bold">প্রেরকের নম্বর <span class="text-danger">*</span></label>
+                          <input type="text" id="senderNumber" class="form-control form-control-sm" placeholder="যেমন: 017xxxxxxxx">
+                        </div>
+                        <div class="col-6">
+                          <label class="small fw-bold">TrxID / ট্রানজেকশন আইডি <span class="text-danger">*</span></label>
+                          <input type="text" id="trxId" class="form-control form-control-sm" placeholder="যেমন: 9K4M87XL21">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Cart items summary in checkout -->
+                    <div class="p-3 bg-white border rounded-3 mb-3">
+                      <div class="fw-bold mb-2">নির্বাচিত প্রোডাক্ট:</div>
+                      <div id="checkout-items-box"></div>
+                    </div>
+
+                    <!-- Price calculation -->
+                    <div class="p-3 bg-white border rounded-3">
+                      <div class="d-flex justify-content-between mb-1">
+                        <span>সাবটোটাল:</span>
+                        <strong id="chk-subtotal">৳০</strong>
+                      </div>
+                      <div class="d-flex justify-content-between mb-1 text-success" id="chk-discount-row" style="display: none;">
+                        <span>অনলাইন পেমেন্ট ৫% ছাড়:</span>
+                        <strong id="chk-discount">-৳০</strong>
+                      </div>
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>ডেলিভারি চার্জ:</span>
+                        <strong id="chk-delivery">৳৯০</strong>
+                      </div>
+                      <div class="d-flex justify-content-between border-top pt-2 fs-5 fw-bold text-danger">
+                        <span>সর্বমোট বিল:</span>
+                        <span id="chk-total">৳০</span>
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-danger btn-lg w-100 mt-4 py-3 fw-bold rounded-3 shadow">
+                      <i class="bi bi-check2-circle me-1"></i> কনফার্ম অর্ডার করুন
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4 border-top border-secondary">
+      <div class="container">
+        <!-- Main Shop Card -->
+        <div class="p-4 p-md-5 rounded-4 text-center mb-5" style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 1px solid rgba(255,255,255,0.15);">
+          <h3 class="fw-bold text-white mb-2">Dream Cart BD-এর মূল অনলাইন শপ ভিজিট করুন</h3>
+          <p class="text-light mb-4">ক্যামেরা, অফিস গ্যাজেট ও সিকিউরিটি সামগ্রীর বিশাল কালেকশন সরাসরি আমাদের মেইন শপ থেকে দেখুন।</p>
+          <a href="https://tinyurl.com/Dream-Cart-BD" target="_blank" class="btn-visit-main-shop">
+            <i class="bi bi-shop"></i> ভিজিট মেইন শপ (https://tinyurl.com/Dream-Cart-BD)
+          </a>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-5">
+            <h4 class="fw-bold">Dream Cart <span class="text-primary">BD</span></h4>
+            <p class="text-danger fw-bold mb-2">you make.</p>
+            <p class="text-secondary small">
+              সেরা মানের অফিস ইকুইপমেন্ট ও আধুনিক সিকিউরিটি পণ্যের নির্ভরযোগ্য প্রতিষ্ঠান। কুমিল্লা ও ঢাকার ভিতরে দ্রুততম হোম ডেলিভারি।
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h6 class="fw-bold text-white mb-3">যোগাযোগের ঠিকানা</h6>
+            <div class="text-secondary small">
+              <p class="mb-1"><i class="bi bi-geo-alt-fill text-danger me-1"></i> চৌধুরী প্লাজা গ্রাউন্ড ফ্লোর রুম নং ৩, পদুয়ার বাজার বিশ্বরোড, কুমিল্লা।</p>
+              <p class="mb-1"><i class="bi bi-telephone-fill text-primary me-1"></i> 01581 703 822, 0181 827 3838</p>
+              <p class="mb-0"><i class="bi bi-envelope text-warning me-1"></i> info.dreamcartbd@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h6 class="fw-bold text-white mb-3">পেমেন্ট অ্যাকাউন্ট</h6>
+            <div class="text-secondary small">
+              <div>বিকাশ: 01879653143 (Personal), 01581703822 (Payment)</div>
+              <div>নগদ: 01879653143 | রকেট: 01581703822</div>
+              <div>ব্যাংক: Islami Bank (A/C: 20508070200030208)</div>
+              <button class="btn btn-outline-secondary btn-sm mt-3" onclick="toggleAdminView()"><i class="bi bi-lock me-1"></i> অ্যাডমিন লগইন</button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center text-secondary small border-top border-secondary pt-3 mt-4">
+          © 2026 Dream Cart BD. All Rights Reserved. | you make.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ADMIN PANEL VIEW -->
+  <div id="admin-view" style="display: none;" class="bg-light min-vh-100 pb-5">
+    <div class="bg-dark text-white p-3 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-danger fs-6">Admin Panel</span>
+        <h5 class="mb-0 fw-bold">Dream Cart BD Dashboard</h5>
+      </div>
+      <div>
+        <button class="btn btn-primary btn-sm me-2" onclick="toggleAdminView()"><i class="bi bi-arrow-left me-1"></i> কাস্টমার সাইট দেখুন</button>
+        <button class="btn btn-outline-danger btn-sm" onclick="adminLogout()"><i class="bi bi-power"></i> লগআউট</button>
+      </div>
+    </div>
+
+    <!-- Admin Pin Overlay -->
+    <div id="admin-auth-box" class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card p-4 shadow-sm border-0 text-center">
+            <i class="bi bi-shield-lock text-primary fs-1 mb-2"></i>
+            <h5 class="fw-bold">অ্যাডমিন প্রবেশ পিন দিন</h5>
+            <input type="password" id="admPin" class="form-control text-center my-3" placeholder="ডিফল্ট পিন: 1234" value="1234">
+            <button class="btn btn-primary w-100 fw-bold" onclick="loginAdmin()">লগইন করুন</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard Main Body -->
+    <div id="admin-main-body" class="container py-4" style="display: none;">
+      <!-- Stats Cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="card p-3 border-0 shadow-sm bg-white">
+            <div class="text-muted small">মোট রেভিনিউ</div>
+            <h3 class="fw-bold text-dark mb-0" id="adm-stat-rev">৳০</h3>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 border-0 shadow-sm bg-white">
+            <div class="text-muted small">মোট অর্ডার সংখ্যা</div>
+            <h3 class="fw-bold text-dark mb-0" id="adm-stat-orders">০</h3>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 border-0 shadow-sm bg-white">
+            <div class="text-muted small">পেন্ডিং / নতুন অর্ডার</div>
+            <h3 class="fw-bold text-danger mb-0" id="adm-stat-pending">০</h3>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 border-0 shadow-sm bg-white">
+            <div class="text-muted small">মোট প্রোডাক্ট</div>
+            <h3 class="fw-bold text-primary mb-0" id="adm-stat-prods">২০</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <ul class="nav nav-pills mb-4">
+        <li class="nav-item"><button class="nav-link active fw-bold" onclick="switchAdmSubTab('orders', this)">অর্ডার ম্যানেজমেন্ট</button></li>
+        <li class="nav-item"><button class="nav-link fw-bold" onclick="switchAdmSubTab('products', this)">প্রোডাক্ট ম্যানেজমেন্ট</button></li>
+      </ul>
+
+      <!-- Admin Orders Tab -->
+      <div id="adm-subtab-orders">
+        <div class="card border-0 shadow-sm p-3 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">অর্ডার তালিকা</h5>
+            <button class="btn btn-outline-success btn-sm" onclick="exportOrdersCSV()"><i class="bi bi-file-earmark-spreadsheet me-1"></i> CSV ডাউনলোড</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th>অর্ডার আইডি</th>
+                  <th>গ্রাহকের নাম ও ফোন</th>
+                  <th>ঠিকানা ও এরিয়া</th>
+                  <th>পেমেন্ট ও TrxID</th>
+                  <th>বিল</th>
+                  <th>স্ট্যাটাস</th>
+                  <th>অ্যাকশন</th>
+                </tr>
+              </thead>
+              <tbody id="adm-orders-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Products Tab -->
+      <div id="adm-subtab-products" style="display: none;">
+        <div class="card border-0 shadow-sm p-3 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold mb-0">প্রোডাক্ট তালিকা (২০টি অফিস পণ্য)</h5>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-danger btn-sm" onclick="resetDefaultProducts()">ডিফল্ট ২০ প্রোডাক্ট রিস্টোর</button>
+              <button class="btn btn-primary btn-sm" onclick="openAddProductModal()"><i class="bi bi-plus-lg me-1"></i> নতুন প্রোডাক্ট যোগ</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th>ছবি</th>
+                  <th>নাম ও ক্যাটাগরি</th>
+                  <th>রেগুলার প্রাইস</th>
+                  <th>সেলিং প্রাইস</th>
+                  <th>স্টক</th>
+                  <th>অ্যাকশন</th>
+                </tr>
+              </thead>
+              <tbody id="adm-products-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single Product View Modal with Auto-slideshow -->
+  <div class="modal fade" id="productModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="badge bg-primary" id="m-cat"></span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="modal-gallery-main">
+                <img id="m-main-img" src="" alt="Product">
+                <button class="gallery-nav-btn nav-prev" onclick="prevModalImg()"><i class="bi bi-chevron-left"></i></button>
+                <button class="gallery-nav-btn nav-next" onclick="nextModalImg()"><i class="bi bi-chevron-right"></i></button>
+              </div>
+              <div class="mt-2 text-nowrap overflow-x-auto pb-1" id="m-thumbs"></div>
+              <div class="small text-muted text-center mt-1"><i class="bi bi-play-circle me-1"></i> ছবিগুলো স্বয়ংক্রিয়ভাবে স্লাইড হচ্ছে</div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="fw-bold" id="m-title"></h4>
+              <div class="price-block my-2">
+                <span class="current-price fs-3 text-danger" id="m-price"></span>
+                <span class="original-price" id="m-reg"></span>
+              </div>
+              <div class="alert alert-success py-1 small mb-3">অনলাইন পেমেন্টে আরও ৫% ডিসকাউন্ট!</div>
+
+              <div class="mb-2">
+                <label class="small fw-bold text-muted">কালার পছন্দ করুন:</label>
+                <div id="m-colors"></div>
+              </div>
+              <div class="mb-3">
+                <label class="small fw-bold text-muted">সাইজ / ভ্যারিয়েন্ট:</label>
+                <div id="m-sizes"></div>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-danger py-2 fw-bold" onclick="orderFromModal()"><i class="bi bi-bag-check-fill me-1"></i> এখনই অর্ডার করুন</button>
+                <button class="btn btn-outline-primary py-2 fw-bold" onclick="addCartFromModal()"><i class="bi bi-cart-plus me-1"></i> কার্টে যোগ করুন</button>
+                <a href="#" id="m-wa-btn" target="_blank" class="btn btn-success py-2 fw-bold" style="background:#25d366;border:none;"><i class="bi bi-whatsapp me-1"></i> WhatsApp অর্ডার</a>
+              </div>
+              <hr>
+              <div class="small text-muted" id="m-desc"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-end" id="cartOffcanvas">
+    <div class="offcanvas-header bg-light border-bottom">
+      <h5 class="offcanvas-title fw-bold"><i class="bi bi-cart3 text-primary me-2"></i> শপিং কার্ট</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body" id="cart-drawer-items"></div>
+    <div class="offcanvas-footer p-3 border-top bg-light">
+      <div class="d-flex justify-content-between mb-3 fs-5 fw-bold">
+        <span>সাবটোটাল:</span>
+        <span class="text-danger" id="cart-drawer-subtotal">৳০</span>
+      </div>
+      <button class="btn btn-danger w-100 py-3 fw-bold rounded-3" onclick="proceedCheckout()">
+        অর্ডারে এগিয়ে যান (Checkout)
+      </button>
+    </div>
+  </div>
+
+  <!-- Order Success & Printable Invoice Modal -->
+  <div class="modal fade" id="orderSuccessModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title fw-bold"><i class="bi bi-check-circle-fill me-2"></i> অর্ডার সফলভাবে গৃহীত হয়েছে!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="printable-invoice">
+            <div class="d-flex justify-content-between border-bottom pb-3 mb-3">
+              <div>
+                <h3 class="fw-bold text-primary mb-0">Dream Cart BD</h3>
+                <div class="text-danger fw-bold small">you make. | Office Equipment</div>
+                <div class="small text-muted">চৌধুরী প্লাজা গ্রাউন্ড ফ্লোর রুম নং ৩, পদুয়ার বাজার বিশ্বরোড, কুমিল্লা</div>
+                <div class="small text-muted">হটলাইন: 01581 703 822, 0181 827 3838</div>
+              </div>
+              <div class="text-end">
+                <span class="badge bg-danger fs-6" id="suc-order-id"></span>
+                <div class="small text-muted mt-1" id="suc-order-date"></div>
+              </div>
+            </div>
+            <div class="row mb-3 small">
+              <div class="col-6">
+                <strong>গ্রাহক:</strong> <span id="suc-name"></span><br>
+                <strong>ফোন:</strong> <span id="suc-phone"></span><br>
+                <strong>ঠিকানা:</strong> <span id="suc-address"></span>
+              </div>
+              <div class="col-6 text-end">
+                <strong>পেমেন্ট:</strong> <span id="suc-payment"></span><br>
+                <div id="suc-trx-box" style="display: none;">
+                  <strong>TrxID:</strong> <span id="suc-trx" class="text-danger fw-bold"></span>
+                </div>
+              </div>
+            </div>
+            <table class="table table-bordered table-sm">
+              <thead class="table-light"><tr><th>আইটেম</th><th>পরিমাণ</th><th>একক দাম</th><th>মোট</th></tr></thead>
+              <tbody id="suc-items"></tbody>
+              <tfoot>
+                <tr><th colspan="3" class="text-end">সাবটোটাল:</th><td id="suc-subtotal" class="text-end"></td></tr>
+                <tr id="suc-disc-row" style="display: none;"><th colspan="3" class="text-end text-success">অনলাইন ৫% ছাড়:</th><td id="suc-discount" class="text-end text-success"></td></tr>
+                <tr><th colspan="3" class="text-end">ডেলিভারি চার্জ:</th><td id="suc-delivery" class="text-end"></td></tr>
+                <tr class="table-danger"><th colspan="3" class="text-end fs-6">সর্বমোট বিল:</th><th id="suc-total" class="text-end fs-6 text-danger"></th></tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Customer Simulated Email Preview -->
+          <div class="mt-4 p-3 bg-light border rounded">
+            <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-envelope-check me-1"></i> কাস্টমার কনফার্মেশন ইমেইল ড্রাফট (Customer Email Notification):</h6>
+            <div class="small p-2 bg-white border rounded" id="customer-email-preview"></div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <div>
+            <button class="btn btn-dark" onclick="window.print()"><i class="bi bi-printer me-1"></i> প্রিন্ট ইনভয়েস</button>
+            <a href="#" id="suc-wa-btn" target="_blank" class="btn btn-success" style="background:#25d366;border:none;"><i class="bi bi-whatsapp me-1"></i> WhatsApp-এ পাঠান</a>
+          </div>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Buttons -->
+  <div class="floating-actions-container">
+    <a href="https://wa.me/8801581703822" target="_blank" class="floating-btn float-wa" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+    <a href="tel:01581703822" class="floating-btn float-call" title="Call Now"><i class="bi bi-telephone-fill"></i></a>
+    <button class="floating-btn float-cart" onclick="openCartDrawer()" title="Cart">
+      <i class="bi bi-cart3"></i>
+      <span class="cart-floating-count" id="float-cart-count">0</span>
+    </button>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- STORE ENGINE & LOCAL STORAGE LOGIC -->
+  <script>
+
+// 20 Office Equipment Products
+const DEFAULT_PRODUCTS = [{"id": "DCB-001", "title": "ডুয়াল সেন্সর মানি কাউন্টিং মেশিন ও ফেক নোট ডিটেক্টর (Dual-Sensor Money Counter)", "englishTitle": "Dual-Sensor Heavy Duty Money Counting Machine with UV/MG/IR Fake Note Detection", "category": "Cash & Security", "categoryBn": "ক্যাশ ও সিকিউরিটি", "regularPrice": 16500, "salePrice": 13800, "stock": 18, "rating": 4.9, "reviewsCount": 67, "badge": "বেস্ট সেলার", "isFeatured": true, "colors": ["মার্বেল হোয়াইট (White)", "ম্যাট ব্ল্যাক (Black)", "মেটালিক গ্রে (Silver)"], "sizes": ["স্ট্যান্ডার্ড সংস্করণ (Standard LCD)", "ডাবল ডিসপ্লে প্রো (Dual Display Pro)", "ভয়েস অ্যালার্ট মাস্টার (Voice Edition)"], "images": ["https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80"], "highlights": ["প্রতি মিনিটে ১,০০০+ নোট নিখুঁত গণনার উচ্চ ক্ষমতা", "ইউভি (UV), এমজি (MG) এবং ইনফ্রারেড (IR) ট্রিপল ফেক নোট ডিটেকশন সেন্সর", "নতুন ও পুরাতন বাংলাদেশী টাকা ও ডলার ১০০% নির্ভরযোগ্যভাবে শনাক্ত করে", "গ্রাহকদের দেখার সুবিধার্থে আলাদা এক্সটার্নাল এলইডি ডিসপ্লে অন্তর্ভুক্ত", "অটো স্টার্ট, স্টপ এবং ব্যাচ কাউন্টিং মোড সুবিধা"], "description": "ড্রিম কার্ট বিডি-র এই প্রফেশনাল মানি কাউন্টিং মেশিনটি যেকোনো শপ, শোরুম, ব্যাংক বা করপোরেট অফিসের জন্য অপরিহার্য। এটি অতি দ্রুত গতিতে টাকা গণনার পাশাপাশি নিখুঁতভাবে জাল নোট ও ছেঁড়া নোট শনাক্ত করতে পারে। এক্সটার্নাল ডিসপ্লে থাকায় কাস্টমারও সামনে থেকে স্পষ্ট দেখতে পায়।", "warranty": "২ বছরের কমপ্লিট সার্ভিস ওয়ারেন্টি ও লাইফটাইম টেকনিক্যাল সাপোর্ট।"}, {"id": "DCB-002", "title": "হেভি ডিউটি ক্রস-কাট পেপার শ্রেডার মেশিন (Heavy Duty Paper Shredder)", "englishTitle": "Commercial Cross-Cut High Security Office Paper & CD Shredder", "category": "Paper & Shredders", "categoryBn": "পেপার ও শ্রেডার", "regularPrice": 14500, "salePrice": 11900, "stock": 14, "rating": 4.8, "reviewsCount": 42, "badge": "অফিস স্পেশাল", "isFeatured": true, "colors": ["ক্ল্যাসিক ব্ল্যাক (Black)", "ডার্ক গ্রে (Dark Grey)", "আইভরি হোয়াইট (White)"], "sizes": ["১৬ লিটার বিন (16L Standard)", "২১ লিটার জাম্বো (21L High Capacity)", "২৬ লিটার হেভি ডিউটি (26L Commercial)"], "images": ["https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"], "highlights": ["একসাথে ১০-১২ টি শিট পেপার অতি সূক্ষ্ম টুকরোতে কেটে ফেলে", "ক্রেডিট কার্ড, স্ট্যাপলার পিন এবং সিডি/ডিভিডি অনায়াসে ধ্বংস করার শক্তিশালি ব্লেড", "অতিরিক্ত গরম হওয়া প্রতিরোধে অটো-থার্মাল শাটঅফ সেন্সর", "জ্যাম-প্রুফ রিভার্স বাটন প্রযুক্তি", "সহজে সরানোর জন্য স্মুথ মুভিং হুইল"], "description": "অফিসের গোপনীয় নথিপত্র, ব্যাংকিং তথ্য ও ব্যক্তিগত ডাটা সুরক্ষিত রাখতে এই ক্রস-কাট পেপার শ্রেডারটি অত্যন্ত কার্যকরী। নিখুঁতভাবে কাগজ টুকরো টুকরো করে নিরাপত্তা নিশ্চিত করে।", "warranty": "১ বছরের পার্টস ও রিপ্লেসমেন্ট ওয়ারেন্টি।"}, {"id": "DCB-003", "title": "ডিজিটাল ইলেকট্রনিক ফায়ারপ্রুফ সেফ ভল্ট / লকার (Digital Electronic Safe Locker)", "englishTitle": "Heavy Steel Digital Keypad & Emergency Key Security Safe Box", "category": "Cash & Security", "categoryBn": "ক্যাশ ও সিকিউরিটি", "regularPrice": 18000, "salePrice": 14500, "stock": 9, "rating": 5.0, "reviewsCount": 58, "badge": "প্রিমিয়াম কোয়ালিটি", "isFeatured": true, "colors": ["ম্যাট ব্ল্যাক গোল্ডেন হ্যান্ডেল", "গ্রে মেটালিক", "চকচকে ক্রিম গোল্ড"], "sizes": ["২৫ সেমি কমপ্যাক্ট (Home Size)", "৩৫ সেমি অফিস সাইজ (Standard Office)", "৪৫ সেমি এক্সট্রা লার্জ (Commercial)"], "images": ["https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f8?auto=format&fit=crop&w=800&q=80"], "highlights": ["সলিড রিইনফোর্সড হেভি স্টিল বডি ও ডাবল লক বোল্ট", "ডিজিটাল পিন কোড এবং ইমার্জেন্সি মাস্টার কি ডাবল সিকিউরিটি", "ভুল পাসওয়ার্ড ৩ বার দিলে স্বয়ংক্রিয় অ্যালার্ম বেজে উঠবে", "দেয়াল বা মেঝের সাথে ফিক্সড করার জন্য হেভি অ্যাঙ্কর বোল্ট ফ্রি", "অভ্যন্তরে কার্পেট প্যাডিং ও অলংকার/টাকার সিক্রেট ড্রয়ার"], "description": "আপনার মূল্যবান ক্যাশ, পাসপোর্ট, চেক বই ও অফিসিয়াল গুরুত্বপূর্ণ ডকুমেন্টের শতভাগ সুরক্ষায় আধুনিক ডিজিটাল সেফ ভল্ট। সহজে পরিচালনাযোগ্য ডিজিটাল কিপ্যাড সহ নির্ভরযোগ্য লক সিস্টেম।", "warranty": "৩ বছরের সার্ভিস ও রিপেয়ার ওয়ারেন্টি।"}, {"id": "DCB-004", "title": "এরগোনোমিক হাই-ব্যাক এক্সিকিউটিভ মেশ অফিস চেয়ার (Ergonomic Executive Office Chair)", "englishTitle": "Breathable Mesh Ergonomic Swivel Executive Chair with Lumbar Support", "category": "Office Furniture", "categoryBn": "অফিস ফার্নিচার", "regularPrice": 15500, "salePrice": 12500, "stock": 25, "rating": 4.9, "reviewsCount": 89, "badge": "টপ রেটেড", "isFeatured": true, "colors": ["প্রিমিয়াম ব্ল্যাক (Jet Black)", "সফট গ্রে মেশ (Grey Mesh)", "রয়্যাল নেভি ব্লু (Navy Blue)"], "sizes": ["মিডিয়াম সাইজ (Regular)", "হাই-ব্যাক প্রো (With Headrest)", "এক্সিকিউটিভ রিক্লাইনিং (Reclining Footrest)"], "images": ["https://images.unsplash.com/photo-1580481077195-c3288b507299?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1589384267710-7a170981ca78?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1519947486511-46149fa0a254?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&w=800&q=80"], "highlights": ["অ্যাডজাস্টেবল লাম্বার সাপোর্ট যা দীর্ঘক্ষণ বসে কাজের ক্ষেত্রে পিঠের ব্যথা দূর করে", "শ্বাসপ্রশ্বাসযোগ্য হাই-ডেনসিটি কুলিং মেশ ফ্যাব্রিক", "ক্লাস-৪ হেভি ডিউটি হাইড্রোলিক গ্যাস লিফট (১৫০ কেজি পর্যন্ত বহনক্ষম)", "৩৬০ ডিগ্রি সাইলেন্ট পিইউ হুইল ও স্মুথ সুইভেল রকার মেকানিজম", "অ্যাডজাস্টেবল হেডরেস্ট ও ৩ডি প্যাডেড আর্মরেস্ট"], "description": "অফিসে দীর্ঘক্ষণ ক্লান্তিহীন ও আরামদায়ক কাজের জন্য এই এক্সিকিউটিভ এরগোনোমিক চেয়ারটি সেরা পছন্দ। আপনার শরীরের স্বাভাবিক ভঙ্গিমা বজায় রেখে সর্বোচ্চ আরাম ও স্থায়িত্ব প্রদান করে।", "warranty": "২ বছরের হাইড্রোলিক ও হুইল রিপ্লেসমেন্ট ওয়ারেন্টি।"}, {"id": "DCB-005", "title": "ওয়্যারলেস 1D/2D QR কোড ও বারকোড স্ক্যানার স্ট্যান্ড সহ (Wireless Barcode Scanner)", "englishTitle": "High-Speed 2.4G & Bluetooth 1D/2D QR Code Handheld Scanner with Base", "category": "POS & Barcode", "categoryBn": "পিওএস ও বারকোড", "regularPrice": 6500, "salePrice": 4800, "stock": 30, "rating": 4.8, "reviewsCount": 53, "badge": "হট অফার", "isFeatured": true, "colors": ["ম্যাট ব্ল্যাক অ্যান্ড ইয়েলো", "অল ব্ল্যাক ক্লাসিক", "হোয়াইট মেডিকেল গ্রেড"], "sizes": ["ওয়্যারলেস স্ট্যান্ড সহ (Base Stand Edition)", "ওয়্যারড ইউএসবি সংস্করণ (Direct USB)", "ব্লুটুথ পোর্টেবল মিনি (Pocket Mini)"], "images": ["https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1586769852044-692d6e3703f0?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=800&q=80"], "highlights": ["মোবাইল স্ক্রিন বা মনিটর থেকেও তাৎক্ষণিক কিউআর ও বারকোড দ্রুত স্ক্যান করে", "৫০ মিটার পর্যন্ত দীর্ঘ ওয়্যারলেস রেঞ্জ (2.4G ডঙ্গল ও ব্লুটুথ সংযোগ)", "এক চার্জে টানা ৩০ ঘণ্টা একটানা কাজ করার ২০০০ এমএএইচ রিচার্জেবল ব্যাটারি", "ড্রপ-রেজিস্ট্যান্ট রাবার কোটিং বডি (১.৫ মিটার পতনরোধী)", "অটোমেটিক সেন্সিং মোড ও সুবিধাজনক স্ট্যান্ড"], "description": "সুপারশপ, ফার্মেসি, গুদাম ও যেকোনো রিটেল ব্যবসার ইনভেন্টরি দ্রুত ও সহজে নিয়ন্ত্রণের জন্য এই সুপারফাস্ট বারকোড স্ক্যানার অত্যন্ত জনপ্রিয়। কোনো ড্রাইভার ছাড়াই প্লাগ অ্যান্ড প্লে।", "warranty": "১ বছরের ফুল রিপ্লেসমেন্ট ওয়ারেন্টি।"}, {"id": "DCB-006", "title": "থার্মাল বারকোড লেবেল ও পিওএস রিসিট প্রিন্টার (Thermal Label & Receipt Printer)", "englishTitle": "Direct Thermal High Resolution Shipping Label & POS Receipt Printer", "category": "POS & Barcode", "categoryBn": "পিওএস ও বারকোড", "regularPrice": 12500, "salePrice": 9800, "stock": 20, "rating": 4.9, "reviewsCount": 61, "badge": "দারুণ ডিল", "isFeatured": true, "colors": ["ডিপ ব্ল্যাক (Black)", "পার্ল হোয়াইট (White)"], "sizes": ["৩ ইঞ্চি মেমো প্রিন্টার (80mm Receipt)", "৪ ইঞ্চি শিপিং লেবেল প্রিন্টার (108mm Waybill)", "ডাবল মোড হাইব্রিড (Label+Receipt)"], "images": ["https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1589330694653-dad6d3240a2b?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80"], "highlights": ["কোনো কালি বা কার্টিজের ঝামেলা নেই — ডিরেক্ট থার্মাল প্রযুক্তি", "১৫০ মিমি/সেকেন্ড আল্ট্রা-ফাস্ট প্রিন্টিং স্পিড", "দারাজ, পাঠাও, রেডেক্স, স্টিডফাস্ট সহ সকল কুরিয়ারের শিপিং লেবেল সাপোর্ট", "ইউএসবি এবং ব্লুটুথ সংযোগ — মোবাইল ও পিসি উভয় থেকেই প্রিন্ট", "অটোমেটিক পেপার কাটার ও পেপার উইডথ অ্যাডজাস্টমেন্ট"], "description": "ই-কমার্স সেলার ও অফিস বিলিংয়ের জন্য সবচেয়ে নির্ভরযোগ্য থার্মাল প্রিন্টার। পরিষ্কার ও দীর্ঘস্থায়ী প্রিন্ট দেয় যা সহজে মোছে না। কালি কেনার বাড়তি খরচ সম্পূর্ণ শূন্য।", "warranty": "১ বছরের সার্ভিস ও হেড ওয়ারেন্টি।"}, {"id": "DCB-007", "title": "হেভি ডিউটি A3/A4 হট অ্যান্ড কোল্ড পাউচ লেমিনেটিং মেশিন (A3/A4 Laminator Machine)", "englishTitle": "Professional Multi-Roller Hot & Cold Document Laminating Machine", "category": "Binding & Lamination", "categoryBn": "বাইন্ডিং ও লেমিনেশন", "regularPrice": 8500, "salePrice": 6700, "stock": 16, "rating": 4.7, "reviewsCount": 38, "badge": "জনপ্রিয়", "isFeatured": true, "colors": ["মেটালিক ব্ল্যাক (Metallic Black)", "সিলভার হোয়াইট (Silver White)"], "sizes": ["A4 কমপ্যাক্ট সাইজ", "A3 প্রফেশনাল হেভি সাইজ", "A3 ডিজিটাল টেম্পারেচার ডিসপ্লে"], "images": ["https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80"], "highlights": ["৪-সিলিন্ডার হেভি রোলার যা বুদবুদহীন নিখুঁত লেমিনেশন নিশ্চিত করে", "হট এবং কোল্ড উভয় ধরনের লেমিনেশন শিট ব্যবহারের সুবিধা", "মাত্র ৩ মিনিটে দ্রুত প্রিহিটিং সিস্টেম ও রেডি ইন্ডিকেটর", "জ্যাম রিলিজ বাটন সহ ফরোয়ার্ড ও রিভার্স গিয়ার কন্ট্রোল", "আইডি কার্ড থেকে শুরু করে সার্টিফিকেট ও এ-৩ সাইজ ড্রয়িং উপযোগী"], "description": "অফিসের গুরুত্বপূর্ণ সার্টিফিকেট, চুক্তিপত্র, আইডি কার্ড ও ছবিকে পানি এবং ধূলোবালি থেকে আজীবন সুরক্ষিত রাখতে প্রিমিয়াম লেমিনেটর মেশিন। স্মুথ ফিনিশিং ও দীর্ঘমেয়াদী নির্ভরযোগ্যতা।", "warranty": "১ বছরের পার্টস ওয়ারেন্টি।"}, {"id": "DCB-008", "title": "স্মার্ট বায়োমেট্রিক ফিঙ্গারপ্রিন্ট ও ফেস রিকগনিশন অ্যাটেনডেন্স ডিভাইস (Biometric Attendance)", "englishTitle": "AI Face & Fingerprint Attendance Time Clock with WiFi & Cloud Export", "category": "Electronics & Presentation", "categoryBn": "ইলেকট্রনিক্স ও প্রযুক্তি", "regularPrice": 14000, "salePrice": 11500, "stock": 12, "rating": 4.9, "reviewsCount": 49, "badge": "AI টেকনোলজি", "isFeatured": true, "colors": ["স্যাটিন ব্ল্যাক (Black)", "ডার্ক মেটালিক টাইটানিয়াম"], "sizes": ["ফিঙ্গারপ্রিন্ট + আরএফআইডি কার্ড", "ফেস + ফিঙ্গারপ্রিন্ট + কার্ড হাইব্রিড", "ওয়াইফাই ক্লাউড সিঙ্ক প্রো"], "images": ["https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1508873696983-2df5293cb395?auto=format&fit=crop&w=800&q=80"], "highlights": ["০.৩ সেকেন্ডের মধ্যে নিখুঁত ফেস ও ফিঙ্গারপ্রিন্ট ভেরিফিকেশন", "পেনড্রাইভ দিয়ে এক্সেল ফরম্যাটে সরাসরি রিপোর্ট ডাউনলোড সুবিধা", "বিদ্যুৎ চলে গেলেও ২-৪ ঘণ্টা ব্যাকআপের জন্য ইন্টারনাল রিচার্জেবল ব্যাটারি", "১,০০০+ ফেস ও ৩,০০০+ ফিঙ্গারপ্রিন্ট ডাটা ধারণক্ষমতা", "লেট কামিং, ওভারটাইম ও লিভ ট্র্যাকিং অ্যালগরিদম"], "description": "অফিস কর্মীদের কাজের সময় ও উপস্থিতি নিখুঁতভাবে ট্র্যাকিং করতে কৃত্রিম বুদ্ধিমত্তা সমৃদ্ধ বায়োমেট্রিক হাজিরা মেশিন। কোনো জটিল সফটওয়্যার ছাড়া সহজেই এক্সেল শিটে হাজিরা রিপোর্ট পাওয়া যায়।", "warranty": "১ বছরের রিপ্লেসমেন্ট ওয়ারেন্টি ও ফ্রি ইনস্টলেশন গাইড।"}, {"id": "DCB-009", "title": "৩৬০° ওমনি-ডিরেকশনাল ব্লুটুথ কনফারেন্স স্পিকারফোন (Conference Speakerphone)", "englishTitle": "360-Degree Voice Pickup Wireless Conference Speaker with Noise Cancellation", "category": "Electronics & Presentation", "categoryBn": "ইলেকট্রনিক্স ও প্রযুক্তি", "regularPrice": 11500, "salePrice": 8900, "stock": 17, "rating": 4.8, "reviewsCount": 35, "badge": "স্মার্ট কনফারেন্স", "isFeatured": false, "colors": ["স্পেস গ্রে (Space Grey)", "ম্যাট ব্ল্যাক (Black)"], "sizes": ["৪-মাইক স্ট্যান্ডার্ড (৪-৬ জন)", "৬-মাইক প্রফেশনাল (৮-১২ জন মিটিং রুম)", "ডুয়াল ডেইজি-চেইন মেগা রুম"], "images": ["https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&fit=crop&w=800&q=80"], "highlights": ["৬টি বিল্ট-ইন মাইক্রোফোনে ৩৬০ ডিগ্রি সব দিক থেকে স্পষ্ট কণ্ঠ ধারণ", "অ্যাকোস্টিক ইকো ও ব্যাকগ্রাউন্ড নয়েজ ক্যান্সেলেশন ডিএসপি চিপ", "জুম, গুগল মিট, স্কাইপ এবং মাইক্রোসফ্ট টিমসের সাথে ১০০% সামঞ্জস্যপূর্ণ", "ব্লুটুথ ৫.০, ইউএসবি-সি এবং অক্স তিন উপায়ে কানেক্ট করার সুবিধা", "টানা ১২ ঘণ্টা কথা বলার রিচার্জেবল শক্তিশালী ব্যাটারি"], "description": "অফিস কনফারেন্স বা ক্লায়েন্ট মিটিংয়ে দূর থেকে স্পষ্টভাবে কথা বলার জন্য প্রিমিয়াম স্পিকারফোন। রুমের যেকোনো কোণ থেকে কথা বললে বিপরীত পাশের মানুষ একদম স্ফটিকের মতো পরিষ্কার শুনবে।", "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।"}, {"id": "DCB-010", "title": "মোটরাইজড হাইট অ্যাডজাস্টেবল ইলেকট্রিক স্ট্যান্ডিং ডেস্ক (Smart Electric Standing Desk)", "englishTitle": "Dual-Motor Ergonomic Sit-Stand Height Adjustable Smart Electric Desk", "category": "Office Furniture", "categoryBn": "অফিস ফার্নিচার", "regularPrice": 38000, "salePrice": 31500, "stock": 7, "rating": 5.0, "reviewsCount": 27, "badge": "লাক্সারি ওয়ার্কস্পেস", "isFeatured": true, "colors": ["ওয়ালনাট উড ফিনিশ (Walnut)", "ন্যাচারাল ওক টপ (Oak)", "সলিড হোয়াইট উইথ ব্ল্যাক ফ্রেম"], "sizes": ["১২০ × ৬০ সেমি (Standard)", "১৪০ × ৭০ সেমি (Large Desk)", "১৬০ × ৮০ সেমি (Executive Space)"], "images": ["https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"], "highlights": ["ডুয়াল সাইরেন্ট মোটর সহ সুপার স্মুথ হাইট অ্যাডজাস্টমেন্ট (৭০ সেমি থেকে ১২০ সেমি)", "৪ টি মেমোরি প্রি-সেট বাটন যা আপনার পছন্দের উচ্চতা স্বয়ংক্রিয়ভাবে মনে রাখে", "অ্যান্টি-কলিশন সেন্সর — নিচে কোনো বস্তু থাকলে স্বয়ংক্রিয়ভাবে থেমে যায়", "হেভি অ্যালয় স্টিল ফ্রেম যা ১২০ কেজি পর্যন্ত স্থিতিশীল ভার বহন করে", "বিল্ট-ইন ক্যাবল ম্যানেজমেন্ট ট্রে ও ইউএসবি ফাস্ট চার্জিং পোর্ট"], "description": "সারাদিন বসে থাকার স্বাস্থ্যঝুঁকি কাটিয়ে সুস্থ ও প্রাণবন্তভাবে কাজের জন্য আধুনিক ইলেকট্রিক স্মার্ট ডেস্ক। বোতাম চাপলেই বসে থেকে দাঁড়িয়ে কাজের উচ্চতায় রূপান্তরিত হয়।", "warranty": "৩ বছরের মোটর ও ফ্রেম গ্যারান্টি।"}, {"id": "DCB-011", "title": "হেভি ডিউটি ১০০-২৪০ শিট র‍্যাপিড পেপার স্ট্যাপলার (Heavy Duty Rapid Stapler)", "englishTitle": "Industrial Leverage 240-Sheet High Capacity Manual Paper Stapler", "category": "Paper & Shredders", "categoryBn": "পেপার ও শ্রেডার", "regularPrice": 3800, "salePrice": 2900, "stock": 35, "rating": 4.7, "reviewsCount": 44, "badge": "টেকসই", "isFeatured": false, "colors": ["মেটালিক গ্রে ও ব্লু", "ম্যাট ব্ল্যাক", "সিলভার ক্রোম"], "sizes": ["১০০ শিট ক্যাপাসিটি (Medium)", "১৭০ শিট ক্যাপাসিটি (Large)", "২৪০ শিট ক্যাপাসিটি (Industrial 23/24)"], "images": ["https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"], "highlights": ["এক চাপেই একসঙ্গে ১০০ থেকে ২৪০ টি কাগজ সহজে স্ট্যাপল করার লিভারেজ পাওয়ার", "অল-মেটাল অ্যালয় বডি যা বছরের পর বছর টেকসই সার্ভিস দেয়", "অ্যাডজাস্টেবল পেপার গাইড স্কেল — সমান দূরত্বে নিখুঁত বাইন্ডিং", "২৩/৬ থেকে ২৩/২৪ সাইজের সকল স্ট্যান্ডার্ড হেভি পিন সমর্থন", "নন-স্লিপ সফট হ্যান্ডেল গ্রিপ ও অ্যান্টি-স্কিড বেস রাবার"], "description": "অফিস ফাইল, অডিট রিপোর্ট, বই এবং বড় নথিপত্র এক ক্লিকে মজবুতভাবে স্ট্যাপল করার জন্য শক্তিশালী ইন্ডাস্ট্রিয়াল স্ট্যাপলার। কম পরিশ্রমে সর্বোচ্চ কার্যক্ষমতা দেয়।", "warranty": "১ বছরের ফ্রি সার্ভিসিং ওয়ারেন্টি।"}, {"id": "DCB-012", "title": "১০০-ইঞ্চি ইলেকট্রিক মোটরাইজড এইচডি প্রজেক্টর স্ক্রিন (100-Inch Electric Projector Screen)", "englishTitle": "100-Inch 16:9 4K Matte White Motorized Projector Screen with Wireless Remote", "category": "Electronics & Presentation", "categoryBn": "ইলেকট্রনিক্স ও প্রযুক্তি", "regularPrice": 14500, "salePrice": 11800, "stock": 11, "rating": 4.9, "reviewsCount": 29, "badge": "এইচডি ভিউ", "isFeatured": true, "colors": ["হোয়াইট মেটাল কেসিং উইথ ব্ল্যাক বর্ডার", "ব্ল্যাক ম্যাট কেসিং"], "sizes": ["৮৪ ইঞ্চি (4:3 Meeting)", "১০০ ইঞ্চি (16:9 Widescreen)", "১২০ ইঞ্চি (Large Hall Room)"], "images": ["https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80"], "highlights": ["১৬০ ডিগ্রি ওয়াইড ভিউয়িং অ্যাঙ্গেল সহ ৪কে আল্ট্রা এইচডি ম্যাট হোয়াইট ফ্যাব্রিক", "ওয়্যারলেস রিমোট কন্ট্রোল এবং ওয়াল সুইচ উভয় নিয়ন্ত্রণ ব্যবস্থা", "সুপার সাইলেন্ট ও মসৃণ টিউবুলার মোটর", "আলোর অপচয় রোধে পিছনের দিকে ব্ল্যাক-ব্যাকড কোটিং", "দেয়াল ও ছাদ উভয় স্থানে সহজে ইনস্টলেশন সুবিধা"], "description": "অফিস প্রেজেন্টেশন, ট্রেনিং ক্লাস এবং করপোরেট কনফারেন্সের জন্য সেরা মানের মোটরাইজড প্রজেক্টর স্ক্রিন। রিমোটের বাটনে স্পর্শ করলেই স্ক্রিন নিচ থেকে উপরে নিখুঁতভাবে ওঠানামা করে।", "warranty": "২ বছরের মোটর ওয়ারেন্টি।"}, {"id": "DCB-013", "title": "স্মার্ট হেভি-ডিউটি ক্যাশ ড্রয়ার আরজে১১ কানেক্টর সহ (Heavy Duty Cash Drawer RJ11)", "englishTitle": "Commercial 5 Bill 8 Coin Heavy Gauge Steel POS Cash Drawer with Microswitch", "category": "POS & Barcode", "categoryBn": "পিওএস ও বারকোড", "regularPrice": 5500, "salePrice": 4200, "stock": 24, "rating": 4.8, "reviewsCount": 51, "badge": "ক্যাশ ম্যানেজমেন্ট", "isFeatured": false, "colors": ["ম্যাট ব্ল্যাক মেটাল ফিনিশ", "আইভরি হোয়াইট"], "sizes": ["৪ বিল ও ৫ কয়েন স্লট", "৫ বিল ও ৮ কয়েন স্লট (Standard Large)", "রিমুভেবল ট্রিপল ট্রে ক্যাবিনেট"], "images": ["https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80"], "highlights": ["হেভি গেজ কোল্ড-রোল্ড স্টিল বডি ও টেকসই মেটাল ক্লিপ", "আরজে১১ (RJ11) ইন্টারফেস যা পিওএস প্রিন্টারে বিল কাটার সাথে সাথে অটোমেটিক খুলে যায়", "৩-পজিশন কি লক (অটোমেটিক, ম্যানুয়াল ওপেন এবং ফুল লক)", "৫টি নোটের বড় চেম্বার এবং ৮টি কয়েনের অ্যাডজাস্টেবল কম্পার্টমেন্ট", "সামনের স্লট দিয়ে ড্রয়ার না খুলেই চেক বা বড় নোট ভেতরে রাখার সুবিধা"], "description": "দোকান ও সুপারশপের ক্যাশ কাউন্টারে দ্রুত এবং নিরাপদ টাকা সংরক্ষণের জন্য এই মেটাল ক্যাশ ড্রয়ারটি অত্যন্ত কার্যকর। এটি অটোমেটিক থার্মাল প্রিন্টারের সাথে কানেক্ট হয়ে কাজ করে।", "warranty": "১ বছরের লক ও মেকানিজম ওয়ারেন্টি।"}, {"id": "DCB-014", "title": "আল্ট্রা-কোয়াইট অফিস এয়ার হিউমিডিফায়ার ও পিউরিফায়ার (Office Air Humidifier)", "englishTitle": "Large Capacity Ultrasonic Cool Mist Air Humidifier with Essential Oil Diffuser", "category": "Electronics & Presentation", "categoryBn": "ইলেকট্রনিক্স ও প্রযুক্তি", "regularPrice": 4200, "salePrice": 3200, "stock": 22, "rating": 4.8, "reviewsCount": 39, "badge": "ফ্রেশ এনভায়রনমেন্ট", "isFeatured": false, "colors": ["প্রিমিয়াম হোয়াইট ও রোজগোল্ড", "ম্যাট ব্ল্যাক উইথ এলইডি", "ন্যাচারাল উডগ্রেন ফিনিশ"], "sizes": ["২.৫ লিটার কমপ্যাক্ট", "৪.৫ লিটার অফিস সাইজ (টানা ২৪ ঘণ্টা)", "৬ লিটার লার্জ রুম উইথ রিমোট"], "images": ["https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80"], "highlights": ["এসি চালিত রুমের শুষ্কতা দূর করে বাতাসের আর্দ্রতা সঠিক রাখে", "অ্যারোমা এসেনশিয়াল অয়েল ব্যবহার করে মিষ্টি সুগন্ধ ছড়ানোর বিশেষ ট্রে", "অতিরিক্ত শব্দহীন আল্ট্রাসনিক প্রযুক্তি (শব্দ ২৫ ডেসিবেলেরও কম)", "পানি শেষ হয়ে গেলে স্বয়ংক্রিয়ভাবে বন্ধ হওয়ার সেফটি অটো-অফ ফিচার", "সফট ৭-কালার অ্যাম্বিয়েন্ট ওয়ার্কস্পেস লাইটিং মোড"], "description": "এসি রুমে দীর্ঘক্ষণ থাকলে ত্বক ও গলার শুষ্কতা রোধে এবং অফিসের পরিবেশ সুরভিত রাখতে এই হিউমিডিফায়ার অপরিহার্য। এটি কাজের একাগ্রতা বাড়ায় এবং পরিবেশ সতেজ রাখে।", "warranty": "৬ মাসের সার্ভিস ওয়ারেন্টি।"}, {"id": "DCB-015", "title": "অফিস স্পাইরাল ও কম্ব বাইন্ডিং মেশিন পাঞ্চিং টুল সহ (Comb Binding Machine)", "englishTitle": "Heavy Duty 21-Hole Manual Comb Binding Machine with Adjustable Margin", "category": "Binding & Lamination", "categoryBn": "বাইন্ডিং ও লেমিনেশন", "regularPrice": 9500, "salePrice": 7600, "stock": 15, "rating": 4.8, "reviewsCount": 31, "badge": "বাইন্ডিং প্রো", "isFeatured": false, "colors": ["মেটালিক ব্ল্যাক অ্যান্ড হোয়াইট", "ইন্ডাস্ট্রিয়াল গ্রে"], "sizes": ["A4 ২১ হোল (স্ট্যান্ডার্ড)", "A4/Letter ডুয়াল পাঞ্চিং মোড", "হেভি ডিউটি ৪০০ শিট বাইন্ডিং মেগা"], "images": ["https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"], "highlights": ["এক সাথে ১৫-১৮টি কাগজ নিখুঁতভাবে পাঞ্চ করার ক্ষমতা", "সর্বোচ্চ ৪৫০ শিট পর্যন্ত মোটা ডকুমেন্ট সুন্দরভাবে স্পাইরাল বাইন্ডিং করার সুবিধা", "কাগজের আকার অনুযায়ী ৩-লেভেল মার্জিন অ্যাডজাস্টার", "মজবুত স্টিল পাঞ্চিং ব্লেড যা দীর্ঘদিনেও ক্ষয়ে যায় না", "নিচে আলাদা ওয়েস্ট পেপার স্টোরেজ বক্স ড্রয়ার"], "description": "অফিস প্রেজেন্টেশন বুকলেট, বার্ষিক রিপোর্ট ও প্রজেক্ট ফাইল সুন্দরভাবে স্পাইরাল বাইন্ডিং করার জন্য একটি স্বয়ংসম্পূর্ণ মেশিন। অতি সহজে পরিচালনা করা যায়।", "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।"}, {"id": "DCB-016", "title": "মাল্টি-সকেট স্মার্ট পাওয়ার এক্সটেনশন বোর্ড ফাস্ট চার্জিং সহ (Smart Power Extension)", "englishTitle": "Surge Protector Power Strip with 6 Universal Sockets and 4 Fast USB Ports", "category": "Electronics & Presentation", "categoryBn": "ইলেকট্রনিক্স ও প্রযুক্তি", "regularPrice": 2800, "salePrice": 2100, "stock": 40, "rating": 4.9, "reviewsCount": 82, "badge": "সেফটি ফার্স্ট", "isFeatured": false, "colors": ["ম্যাট ব্ল্যাক উইথ রেড ইন্ডিকেটর", "প্রিমিয়াম হোয়াইট"], "sizes": ["২ মিটার ক্যাবল (Standard)", "৩ মিটার হেভি কর্ড (Long Range)", "৫ মিটার এক্সট্রা লং (Office Floor)"], "images": ["https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80"], "highlights": ["২৫০০ ওয়াট হেভি লোড ক্ষমতা — কম্পিউটার, প্রিন্টার ও মনিটর সুরক্ষায়", "বজ্রপাত ও হাই ভোল্টেজ সার্জ প্রটেকশন মেকানিজম", "৪টি স্মার্ট ইউএসবি ফাস্ট চার্জিং পোর্ট (মোবাইল চার্জিংয়ের জন্য অ্যাডাপ্টার লাগে না)", "৭৫০ ডিগ্রি সেলসিয়াস ফায়ার-রিটার্ডেন্ট টেকসই প্লাস্টিক শেল", "প্রতিটি সকেটে চাইল্ড সেফটি শাটল সুরক্ষা লক"], "description": "অফিসের ডেস্কটপ কম্পিউটার, ল্যাপটপ, প্রিন্টার ও গ্যাজেটকে অতিরিক্ত ভোল্টেজ এবং শর্ট সার্কিট থেকে সুরক্ষিত রাখতে স্মার্ট সার্জ প্রটেকশন পাওয়ার স্ট্রিপ। প্রিমিয়াম কোয়ালিটির তার ও সকেট।", "warranty": "১ বছরের রিপ্লেসমেন্ট গ্যারান্টি।"}, {"id": "DCB-017", "title": "ডুয়াল-রেল হেভি ডিউটি পেপার গিলোতিন কাটার মেশিন (Heavy Duty Paper Guillotine)", "englishTitle": "Precision Steel Blade A4/A3 Rotary & Guillotine Paper Trimmer", "category": "Paper & Shredders", "categoryBn": "পেপার ও শ্রেডার", "regularPrice": 5200, "salePrice": 3900, "stock": 19, "rating": 4.8, "reviewsCount": 36, "badge": "পারফেক্ট কাট", "isFeatured": false, "colors": ["ইন্ডাস্ট্রিয়াল হোয়াইট উইথ ব্ল্যাক স্কেল", "মেটালিক ব্লু"], "sizes": ["A4 সাইজ কাটার (Standard)", "A3 লার্জ কাটার (Professional)", "উইথ অটো-ক্ল্যাম্প প্রেসার বার"], "images": ["https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"], "highlights": ["সেলফ-শার্পেনিং স্টিল ব্লেড যা নিখুঁত সোজা কাটিং দেয়", "একবারে ২৫-৩০ শিট কাগজ অনায়াসে মসৃণভাবে কেটে ফেলে", "সঠিক মাপের জন্য ইঞ্চি ও মিলিমিটার গ্রিড সম্বলিত স্টিল বেসপ্লেট", "কাটিং করার সময় হাত সুরক্ষিত রাখতে ট্রান্সপারেন্ট সেফটি গার্ড", "অটোমেটিক পেপার ক্ল্যাম্পিং লক সিস্টেম"], "description": "অফিসের ফটো প্রিন্টিং, ভিজিটিং কার্ড, ফ্লায়ার এবং পেপার কাটিংয়ের জন্য নিখুঁত ও দ্রুত কাটিং গিলোতিন মেশিন। ধাতব বেসপ্লেট থাকায় এটি অত্যন্ত স্থিতিশীল ও টেকসই।", "warranty": "১ বছরের সার্ভিস সাপোর্ট।"}, {"id": "DCB-018", "title": "৩-ড্রয়ার স্টিল মেটাল মোবাইল পেডেস্টাল ফাইল কেবিনেট (Steel Mobile File Cabinet)", "englishTitle": "Heavy Duty 3-Drawer Under Desk Metal Locking File Cabinet with Rolling Wheels", "category": "Office Furniture", "categoryBn": "অফিস ফার্নিচার", "regularPrice": 16500, "salePrice": 13400, "stock": 10, "rating": 4.9, "reviewsCount": 24, "badge": "অর্গানাইজড ডেস্ক", "isFeatured": false, "colors": ["ম্যাট ব্ল্যাক (Matt Black)", "স্মুথ অফ-হোয়াইট (Off White)", "লাইট গ্রে (Light Grey)"], "sizes": ["স্ট্যান্ডার্ড আন্ডার-ডেস্ক (39×50×60 cm)", "উইথ কুশন টপ সিটিং (Dual Use)", "ওয়াইড ৪-ড্রয়ার এক্সিকিউটিভ"], "images": ["https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=800&q=80"], "highlights": ["০১ টি চাবি ঘুরিয়ে এক সাথে তিনটি ড্রয়ারই নিরাপদ লক করার কেন্দ্রীয় সিস্টেম", "হেভি ডিউটি স্টেইনলেস স্টিল কোল্ড-রোল্ড শিট কনস্ট্রাকশন", "নিচে ৫টি স্মুথ ক্যাস্টর হুইল (সামনের চাকায় অ্যান্টি-টিপিং সেফটি হুইল)", "ফুল এক্সটেনশন ড্রয়ার চ্যানেল — পেছনে থাকা ফাইলও অনায়াসে বের করা যায়", "অফিসের টেবিলের নিচে অনায়াসে ফিট হয়ে যায়"], "description": "অফিস ফাইলিং, গুরুত্বপূর্ণ খাতা ও ব্যক্তিগত গ্যাজেট পরিপাটি ও লক করে রাখার জন্য মেটাল মোবাইল কেবিনেট। চাকার সাহায্যে সহজেই এক জায়গা থেকে অন্য জায়গায় সরানো যায়।", "warranty": "২ বছরের চ্যানেল ও লক মেকানিজম ওয়ারেন্টি।"}, {"id": "DCB-019", "title": "এরগোনোমিক অ্যালুমিনিয়াম ল্যাপটপ ও মনিটর রাইজার স্ট্যান্ড (Ergonomic Laptop Stand)", "englishTitle": "Adjustable Multi-Angle Heavy Aluminum Alloy Laptop Riser with Heat Dissipation", "category": "Electronics & Presentation", "categoryBn": "ইলেকট্রনিক্স ও প্রযুক্তি", "regularPrice": 3200, "salePrice": 2400, "stock": 45, "rating": 5.0, "reviewsCount": 97, "badge": "বেস্ট সেলার", "isFeatured": true, "colors": ["ম্যাকবুক সিলভার (Space Silver)", "স্পেস গ্রে (Space Grey)", "ম্যাট ব্ল্যাক (Black)"], "sizes": ["কমপ্যাক্ট ফোল্ডেবল (Portable)", "হেভি ডুয়াল-রড হাইট অ্যাডজাস্টেবল", "উইথ ৩৬০° রোটেটিং বেস (Rotating Pro)"], "images": ["https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1589384267710-7a170981ca78?auto=format&fit=crop&w=800&q=80"], "highlights": ["প্রিমিয়াম সিএনসি অ্যালুমিনিয়াম অ্যালয় বডি — ১০ কেজি পর্যন্ত ওজন ধারণক্ষমতা", "ঘাড় ও চোখের স্ট্রেন কমাতে আই-লেভেল অনুযায়ী মাল্টি-অ্যাঙ্গেল হাইট অ্যাডজাস্টমেন্ট", "ল্যাপটপ অতিরিক্ত গরম হওয়া রোধে ওপেন ভেন্টিলেশন ও হিট ডিসিপেশন ডিজাইন", "ডিভাইসে স্ক্র্যাচ পড়া রোধে নন-স্লিপ সিলিকন প্যাড কোটিং", "১০ থেকে ১৭.৩ ইঞ্চি পর্যন্ত সব ব্র্যান্ডের ল্যাপটপ ও ট্যাবলেটের সাথে পারফেক্ট"], "description": "ল্যাপটপে কাজ করার সময় ঘাড়ের এবং পিঠের টান দূর করতে প্রিমিয়াম অ্যালুমিনিয়াম ল্যাপটপ স্ট্যান্ড। এটি আপনার ওয়ার্কস্টেশনকে আকর্ষণীয় ও আধুনিক রূপ দেয়।", "warranty": "১ বছরের রিপ্লেসমেন্ট গ্যারান্টি।"}, {"id": "DCB-020", "title": "আল্ট্রাভায়োলেট ইউভি ও ম্যাগনেটিক নকল নোট ভেরিফায়ার ডিটেক্টর (UV Fake Note Detector)", "englishTitle": "Portable UV & Magnetic Ink Desktop Counterfeit Currency Verifier Lamp", "category": "Cash & Security", "categoryBn": "ক্যাশ ও সিকিউরিটি", "regularPrice": 3500, "salePrice": 2600, "stock": 28, "rating": 4.8, "reviewsCount": 46, "badge": "ইনস্ট্যান্ট চেক", "isFeatured": false, "colors": ["ডিপ ব্ল্যাক (Black)", "ম্যাট গ্রে"], "sizes": ["সিঙ্গেল ইউভি বাল্ব (Standard)", "ডাবল টিউব হাই-পাওয়ার (16W Extra Bright)", "উইথ ম্যাগনেটিক সেন্সর বিভার"], "images": ["https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80"], "highlights": ["পাওয়ারফুল ডুয়াল ১৬ ওয়াট আল্ট্রাভায়োলেট (UV) ল্যাম্প", "টাকার সিকিউরিটি থ্রেড, ওয়াটারমার্ক ও ফ্লোরোসেন্ট প্যাটার্ন স্পষ্ট ফুটিয়ে তোলে", "ম্যাগনেটিক (MG) সেন্সরের ছোঁয়ায় আসল টাকার কালি যাচাই করার সুবিধা", "টাকার পাশাপাশি পাসপোর্ট, ড্রাইভিং লাইসেন্স ও স্ট্যাম্প যাচাই উপযোগী", "কমপ্যাক্ট ডিজাইন যা যেকোনো ক্যাশ কাউন্টারে অল্প জায়গায় বসে"], "description": "ক্যাশ কাউন্টারে যেকোনো জাল নোট তাৎক্ষণিকভাবে চিনে নিতে এই ইউভি নোট ডিটেক্টরটি বিশ্বস্ত সমাধান। আসল টাকার নিরাপত্তা সুতা ও লুকায়িত সিল তৎক্ষণাৎ জ্বলজ্বল করে ওঠে।", "warranty": "১ বছরের সার্ভিস ওয়ারেন্টি।"}];
+
+const CATEGORIES = [
+  {"id": "all", "name": "সব প্রোডাক্ট", "icon": "bi-grid-fill"},
+  {"id": "Cash & Security", "name": "ক্যাশ ও সিকিউরিটি", "icon": "bi-shield-check"},
+  {"id": "Paper & Shredders", "name": "পেপার ও শ্রেডার", "icon": "bi-file-earmark-break"},
+  {"id": "Office Furniture", "name": "অফিস ফার্নিচার", "icon": "bi-chair"},
+  {"id": "POS & Barcode", "name": "পিওএস ও বারকোড", "icon": "bi-upc-scan"},
+  {"id": "Electronics & Presentation", "name": "ইলেকট্রনিক্স ও প্রযুক্তি", "icon": "bi-display"},
+  {"id": "Binding & Lamination", "name": "বাইন্ডিং ও লেমিনেশন", "icon": "bi-journal-bookmark"}
+];
+
+let products = [];
+let cart = [];
+let activeCat = 'all';
+let activeModalProd = null;
+let activeModalIdx = 0;
+let modalSlideTimer = null;
+
+let checkout = {
+  area: 'cumilla',
+  fee: 90,
+  method: 'cod',
+  isOnline: false,
+  discount: 0,
+  subtotal: 0,
+  total: 0,
+  directItem: null
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  initStore();
+});
+
+function initStore() {
+  const storedP = localStorage.getItem('dreamcart_products');
+  products = storedP ? JSON.parse(storedP) : DEFAULT_PRODUCTS;
+  if (!storedP) localStorage.setItem('dreamcart_products', JSON.stringify(DEFAULT_PRODUCTS));
+
+  const storedC = localStorage.getItem('dreamcart_cart');
+  cart = storedC ? JSON.parse(storedC) : [];
+
+  renderCategories();
+  renderProducts();
+  initCountdown();
+  initVisitorCounter();
+  updateCartBadges();
+  calcCheckout();
+}
+
+function initCountdown() {
+  setInterval(() => {
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    const diff = Math.max(0, end - new Date());
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / 1000 / 60) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('timer-hours').innerText = pad(h);
+    document.getElementById('timer-minutes').innerText = pad(m);
+    document.getElementById('timer-seconds').innerText = pad(s);
+  }, 1000);
+}
+
+function initVisitorCounter() {
+  let v = 128;
+  setInterval(() => {
+    v = Math.max(90, Math.min(180, v + Math.floor(Math.random() * 5) - 2));
+    const el = document.getElementById('live-visitor-count');
+    if (el) el.innerText = v;
+  }, 4000);
+}
+
+function renderCategories() {
+  const c = document.getElementById('category-tabs-container');
+  if (!c) return;
+  c.innerHTML = CATEGORIES.map(cat => `
+    <button class="filter-btn ${activeCat === cat.id ? 'active' : ''}" onclick="filterCat('${cat.id}')">
+      <i class="bi ${cat.icon}"></i> ${cat.name}
+    </button>
+  `).join('');
+}
+
+function filterCat(id) {
+  activeCat = id;
+  renderCategories();
+  renderProducts();
+}
+
+function renderProducts() {
+  const g = document.getElementById('products-grid');
+  const search = (document.getElementById('product-search-input')?.value || '').toLowerCase().trim();
+  if (!g) return;
+
+  const filtered = products.filter(p => {
+    const matchCat = (activeCat === 'all') || (p.category === activeCat);
+    const matchSearch = !search || p.title.toLowerCase().includes(search) || p.categoryBn.toLowerCase().includes(search);
+    return matchCat && matchSearch;
+  });
+
+  document.getElementById('filtered-product-count').innerText = `${filtered.length} টি প্রোডাক্ট`;
+
+  g.innerHTML = filtered.map(p => {
+    const discPct = Math.round(((p.regularPrice - p.salePrice) / p.regularPrice) * 100);
+    const save5 = Math.round(p.salePrice * 0.05);
+    return `
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+          <div class="product-img-wrapper" onclick="openModal('${p.id}')">
+            <img src="${p.images[0]}" alt="${p.title}" class="product-img">
+            <span class="badge-discount">${discPct}% ছাড়</span>
+            <span class="gallery-count-pill"><i class="bi bi-images"></i> ${p.images.length} ছবি</span>
+          </div>
+          <div class="product-content">
+            <span class="text-primary small fw-bold">${p.categoryBn}</span>
+            <h3 class="product-title" onclick="openModal('${p.id}')">${p.title}</h3>
+            <div class="price-block">
+              <span class="current-price">৳${p.salePrice.toLocaleString()}</span>
+              <span class="original-price">৳${p.regularPrice.toLocaleString()}</span>
+            </div>
+            <div class="online-save-chip">
+              <i class="bi bi-lightning-charge-fill"></i> অনলাইনে পেমেন্টে আরও ৳${save5} ছাড়!
+            </div>
+            <div class="d-grid gap-2 mt-auto">
+              <div class="d-flex gap-1">
+                <button class="btn btn-order-now flex-grow-1" onclick="quickBuy('${p.id}')"><i class="bi bi-bag-check-fill"></i> অর্ডার করুন</button>
+                <button class="btn btn-add-cart" onclick="addCart('${p.id}')"><i class="bi bi-cart-plus"></i></button>
+              </div>
+              <div class="d-flex gap-1">
+                <button class="btn btn-sm btn-outline-secondary flex-grow-1" onclick="openModal('${p.id}')"><i class="bi bi-eye"></i> বিস্তারিত</button>
+                <a href="https://wa.me/8801581703822?text=${encodeURIComponent('Hello Dream Cart BD, ' + p.title + ' অর্ডার করতে চাই')}" target="_blank" class="btn btn-sm btn-success" style="background:#25d366;border:none;"><i class="bi bi-whatsapp"></i></a>
+                <a href="tel:01581703822" class="btn btn-sm btn-light border"><i class="bi bi-telephone"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+document.getElementById('product-search-input')?.addEventListener('input', renderProducts);
+
+// Modal logic with auto slideshow
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  activeModalProd = p;
+  activeModalIdx = 0;
+
+  document.getElementById('m-cat').innerText = p.categoryBn;
+  document.getElementById('m-title').innerText = p.title;
+  document.getElementById('m-price').innerText = `৳${p.salePrice.toLocaleString()}`;
+  document.getElementById('m-reg').innerText = `৳${p.regularPrice.toLocaleString()}`;
+  document.getElementById('m-desc').innerText = p.description;
+
+  document.getElementById('m-colors').innerHTML = p.colors.map((c, i) => `
+    <span class="variant-chip ${i===0?'active':''}" onclick="setVariant(this)">${c}</span>
+  `).join('');
+
+  document.getElementById('m-sizes').innerHTML = p.sizes.map((s, i) => `
+    <span class="variant-chip ${i===0?'active':''}" onclick="setVariant(this)">${s}</span>
+  `).join('');
+
+  document.getElementById('m-wa-btn').href = `https://wa.me/8801581703822?text=${encodeURIComponent('আসসালামু আলাইকুম, আমি ' + p.title + ' অর্ডার করতে চাই।')}`;
+
+  renderModalGallery();
+  startModalSlide();
+
+  const m = new bootstrap.Modal(document.getElementById('productModal'));
+  m.show();
+  document.getElementById('productModal').addEventListener('hidden.bs.modal', stopModalSlide, { once: true });
+}
+
+function renderModalGallery() {
+  if (!activeModalProd) return;
+  document.getElementById('m-main-img').src = activeModalProd.images[activeModalIdx];
+  document.getElementById('m-thumbs').innerHTML = activeModalProd.images.map((img, i) => `
+    <div class="thumb-item ${i===activeModalIdx?'active':''}" onclick="setModalIdx(${i})">
+      <img src="${img}">
+    </div>
+  `).join('');
+}
+
+function setModalIdx(i) {
+  activeModalIdx = i;
+  renderModalGallery();
+}
+
+function prevModalImg() {
+  activeModalIdx = (activeModalIdx - 1 + activeModalProd.images.length) % activeModalProd.images.length;
+  renderModalGallery();
+}
+
+function nextModalImg() {
+  activeModalIdx = (activeModalIdx + 1) % activeModalProd.images.length;
+  renderModalGallery();
+}
+
+function startModalSlide() {
+  stopModalSlide();
+  modalSlideTimer = setInterval(nextModalImg, 3500);
+}
+
+function stopModalSlide() {
+  if (modalSlideTimer) clearInterval(modalSlideTimer);
+}
+
+function setVariant(el) {
+  el.parentElement.querySelectorAll('.variant-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function orderFromModal() {
+  if (!activeModalProd) return;
+  const col = document.querySelector('#m-colors .variant-chip.active')?.innerText || activeModalProd.colors[0];
+  const sz = document.querySelector('#m-sizes .variant-chip.active')?.innerText || activeModalProd.sizes[0];
+  checkout.directItem = {
+    productId: activeModalProd.id,
+    title: activeModalProd.title,
+    color: col,
+    size: sz,
+    price: activeModalProd.salePrice,
+    image: activeModalProd.images[0],
+    quantity: 1
+  };
+  bootstrap.Modal.getInstance(document.getElementById('productModal'))?.hide();
+  calcCheckout();
+  document.getElementById('checkout-anchor').scrollIntoView({ behavior: 'smooth' });
+}
+
+function addCartFromModal() {
+  if (!activeModalProd) return;
+  const col = document.querySelector('#m-colors .variant-chip.active')?.innerText || activeModalProd.colors[0];
+  const sz = document.querySelector('#m-sizes .variant-chip.active')?.innerText || activeModalProd.sizes[0];
+  addToCartItem(activeModalProd, col, sz, 1);
+  bootstrap.Modal.getInstance(document.getElementById('productModal'))?.hide();
+  openCartDrawer();
+}
+
+function quickBuy(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  checkout.directItem = {
+    productId: p.id,
+    title: p.title,
+    color: p.colors[0],
+    size: p.sizes[0],
+    price: p.salePrice,
+    image: p.images[0],
+    quantity: 1
+  };
+  calcCheckout();
+  document.getElementById('checkout-anchor').scrollIntoView({ behavior: 'smooth' });
+}
+
+function addCart(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  addToCartItem(p, p.colors[0], p.sizes[0], 1);
+  alert(`"${p.title.slice(0, 25)}..." কার্টে যোগ হয়েছে!`);
+}
+
+function addToCartItem(p, col, sz, qty) {
+  const ex = cart.find(x => x.productId === p.id && x.color === col && x.size === sz);
+  if (ex) ex.quantity += qty;
+  else cart.push({ productId: p.id, title: p.title, color: col, size: sz, price: p.salePrice, image: p.images[0], quantity: qty });
+  localStorage.setItem('dreamcart_cart', JSON.stringify(cart));
+  updateCartBadges();
+}
+
+function updateCartBadges() {
+  const count = cart.reduce((a, b) => a + b.quantity, 0);
+  document.getElementById('header-cart-count').innerText = count;
+  document.getElementById('float-cart-count').innerText = count;
+}
+
+function openCartDrawer() {
+  renderCartDrawer();
+  new bootstrap.Offcanvas(document.getElementById('cartOffcanvas')).show();
+}
+
+function renderCartDrawer() {
+  const box = document.getElementById('cart-drawer-items');
+  const sub = document.getElementById('cart-drawer-subtotal');
+  if (cart.length === 0) {
+    box.innerHTML = '<div class="text-center py-5 text-muted"><i class="bi bi-cart-x fs-1"></i><p>কার্ট খালি আছে!</p></div>';
+    sub.innerText = '৳০';
+    return;
+  }
+  let s = 0;
+  box.innerHTML = cart.map((item, idx) => {
+    const tot = item.price * item.quantity;
+    s += tot;
+    return `
+      <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+        <img src="${item.image}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+        <div class="flex-grow-1">
+          <div class="fw-bold small text-truncate" style="max-width: 170px;">${item.title}</div>
+          <div class="text-muted small">${item.color} | ${item.size}</div>
+          <div class="text-danger fw-bold small">৳${item.price} × ${item.quantity} = ৳${tot}</div>
+        </div>
+        <button class="btn btn-sm btn-outline-danger border-0" onclick="delCart(${idx})"><i class="bi bi-trash"></i></button>
+      </div>
+    `;
+  }).join('');
+  sub.innerText = `৳${s.toLocaleString()}`;
+}
+
+function delCart(idx) {
+  cart.splice(idx, 1);
+  localStorage.setItem('dreamcart_cart', JSON.stringify(cart));
+  updateCartBadges();
+  renderCartDrawer();
+  calcCheckout();
+}
+
+function proceedCheckout() {
+  checkout.directItem = null;
+  bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas'))?.hide();
+  calcCheckout();
+  document.getElementById('checkout-anchor').scrollIntoView({ behavior: 'smooth' });
+}
+
+// AI Address Detection
+function runAIAddressDetection(text) {
+  const t = (text || '').toLowerCase();
+  const box = document.getElementById('ai-status-box');
+  const stText = document.getElementById('ai-status-text');
+  if (!t || t.length < 3) { box.style.display = 'none'; return; }
+
+  const cumillaWords = ['কুমিল্লা', 'comilla', 'cumilla', 'পদুয়ার বাজার', 'শাসনগাছা', 'কান্দিরপাড়', 'লাকসাম', 'বরুড়া', 'চৌদ্দগ্রাম', 'মুরাদনগর', 'দাউদকান্দি', 'চান্দিনা'];
+  const dhakaWords = ['ঢাকা', 'dhaka', 'মিরপুর', 'mirpur', 'উত্তরা', 'uttara', 'ধানমন্ডি', 'গুলশান', 'বনানী', 'মতিঝিল', 'গাজীপুর', 'সাভার', 'বাড্ডা', 'মোহাম্মদপুর', 'কেরানীগঞ্জ'];
+
+  let area = 'outside';
+  let reason = '';
+  if (cumillaWords.some(w => t.includes(w))) {
+    area = 'cumilla';
+    reason = '✨ ঠিকানা বিশ্লেষণ করে কুমিল্লা এরিয়া চিহ্নিত হয়েছে (চার্জ ৯০৳)';
+  } else if (dhakaWords.some(w => t.includes(w))) {
+    area = 'dhaka';
+    reason = '✨ ঠিকানা বিশ্লেষণ করে ঢাকা মেট্রো এরিয়া চিহ্নিত হয়েছে (চার্জ ১১০৳)';
+  } else {
+    area = 'outside';
+    reason = '✨ কুমিল্লা ও ঢাকার বাইরের জেলা চিহ্নিত হয়েছে (চার্জ ১৩৫৳)';
+  }
+
+  setDeliveryArea(area);
+  box.style.display = 'flex';
+  stText.innerHTML = `<strong>${reason}</strong>`;
+}
+
+function setDeliveryArea(area) {
+  checkout.area = area;
+  checkout.fee = area === 'cumilla' ? 90 : (area === 'dhaka' ? 110 : 135);
+  document.querySelectorAll('input[name="areaRadio"]').forEach(r => r.checked = (r.value === area));
+  document.querySelectorAll('.delivery-radio-card').forEach(c => {
+    c.classList.toggle('active', c.querySelector(`input[value="${area}"]`) !== null);
+  });
+  calcCheckout();
+}
+
+function setPaymentMethod(method) {
+  checkout.method = method;
+  checkout.isOnline = (method !== 'cod');
+
+  document.querySelectorAll('.payment-card-opt').forEach(c => {
+    c.classList.toggle('active', c.getAttribute('onclick').includes(method));
+  });
+
+  const inst = document.getElementById('payment-instructions');
+  const instTitle = document.getElementById('payment-inst-title');
+  const instDetails = document.getElementById('payment-inst-details');
+  const trxBox = document.getElementById('online-trx-inputs');
+  const saveBanner = document.getElementById('online-save-banner');
+
+  if (checkout.isOnline) {
+    inst.style.display = 'block';
+    trxBox.style.display = 'block';
+    saveBanner.style.display = 'flex';
+
+    if (method === 'bkash') {
+      instTitle.innerText = 'বিকাশ (bKash) পেমেন্ট নির্দেশিকা:';
+      instDetails.innerHTML = `
+        <div>1. পার্সোনাল বিকাশ: <strong>01879653143</strong> (Send Money)</div>
+        <div>2. বিকাশ পেমেন্ট শুধুমাত্র: <strong>01581703822</strong> (Make Payment)</div>
+        <small class="text-muted">* টাকা পাঠানোর পর TrxID ও নম্বর নিচে লিখুন।</small>
+      `;
+    } else if (method === 'nagad') {
+      instTitle.innerText = 'নগদ (Nagad) পেমেন্ট নির্দেশিকা:';
+      instDetails.innerHTML = `
+        <div>নগদ পার্সোনাল মাত্র: <strong>01879653143</strong> (Send Money)</div>
+        <small class="text-muted">* টাকা পাঠানোর পর TrxID ও নম্বর নিচে লিখুন।</small>
+      `;
+    } else if (method === 'rocket') {
+      instTitle.innerText = 'রকেট (Rocket) পেমেন্ট নির্দেশিকা:';
+      instDetails.innerHTML = `
+        <div>রকেট পার্সোনাল: <strong>01581703822</strong> (Send Money)</div>
+        <small class="text-muted">* টাকা পাঠানোর পর TrxID ও নম্বর নিচে লিখুন।</small>
+      `;
+    } else if (method === 'bank') {
+      instTitle.innerText = 'ব্যাংক পেমেন্ট নির্দেশিকা:';
+      instDetails.innerHTML = `
+        <div>ব্যাংক: <strong>Islami Bank BD Limited</strong></div>
+        <div>একাউন্ট নাম: <strong>Jainal Abedin</strong></div>
+        <div>একাউন্ট নম্বর: <strong>20508070200030208</strong></div>
+      `;
+    }
+  } else {
+    inst.style.display = 'none';
+    trxBox.style.display = 'none';
+    saveBanner.style.display = 'none';
+  }
+
+  calcCheckout();
+}
+
+function calcCheckout() {
+  const items = checkout.directItem ? [checkout.directItem] : cart;
+  const sub = items.reduce((a, b) => a + (b.price * b.quantity), 0);
+  checkout.subtotal = sub;
+  checkout.discount = checkout.isOnline ? Math.round(sub * 0.05) : 0;
+  checkout.total = Math.max(0, sub - checkout.discount + checkout.fee);
+
+  const itemsBox = document.getElementById('checkout-items-box');
+  if (items.length === 0) {
+    itemsBox.innerHTML = '<span class="text-muted small">কোনো প্রোডাক্ট সিলেক্ট করা নেই।</span>';
+  } else {
+    itemsBox.innerHTML = items.map(i => `
+      <div class="d-flex justify-content-between small border-bottom py-1">
+        <span>${i.title} (${i.color}) × ${i.quantity}</span>
+        <strong>৳${i.price * i.quantity}</strong>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('chk-subtotal').innerText = `৳${sub.toLocaleString()}`;
+  document.getElementById('chk-delivery').innerText = `৳${checkout.fee.toLocaleString()}`;
+  document.getElementById('chk-total').innerText = `৳${checkout.total.toLocaleString()}`;
+
+  const discRow = document.getElementById('chk-discount-row');
+  if (checkout.isOnline && checkout.discount > 0) {
+    discRow.style.display = 'flex';
+    document.getElementById('chk-discount').innerText = `-৳${checkout.discount.toLocaleString()}`;
+  } else {
+    discRow.style.display = 'none';
+  }
+}
+
+function handleOrderSubmit(e) {
+  e.preventDefault();
+  const items = checkout.directItem ? [checkout.directItem] : cart;
+  if (items.length === 0) { alert('অনুগ্রহ করে অর্ডার করার জন্য অন্তত একটি প্রোডাক্ট নির্বাচন করুন।'); return; }
+
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const email = document.getElementById('custEmail').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+
+  let sender = '', trx = '';
+  if (checkout.isOnline) {
+    sender = document.getElementById('senderNumber').value.trim();
+    trx = document.getElementById('trxId').value.trim();
+    if (!sender || !trx) { alert('অনলাইন পেমেন্ট সম্পন্ন করতে প্রেরকের নম্বর ও TrxID দেওয়া বাধ্যতামূলক!'); return; }
+  }
+
+  const orderId = `DCB-${Math.floor(10000 + Math.random() * 90000)}`;
+  const areaLabels = { cumilla: 'কুমিল্লার ভিতর (৯০৳)', dhaka: 'ঢাকার ভিতরে (১১০৳)', outside: 'কুমিল্লা ও ঢাকার বাইরে (১৩৫৳)' };
+  const payLabels = { cod: 'ক্যাশ অন ডেলিভারি', bkash: 'বিকাশ পেমেন্ট', nagad: 'নগদ পেমেন্ট', rocket: 'রকেট পেমেন্ট', bank: 'ব্যাংক ট্রান্সফার' };
+
+  const newOrder = {
+    orderId: orderId,
+    orderDate: new Date().toISOString(),
+    customerName: name,
+    phone: phone,
+    email: email || 'N/A',
+    fullAddress: address,
+    deliveryArea: areaLabels[checkout.area],
+    deliveryFee: checkout.fee,
+    paymentMethod: payLabels[checkout.method],
+    senderNumber: sender,
+    trxId: trx,
+    isOnline: checkout.isOnline,
+    items: JSON.parse(JSON.stringify(items)),
+    subtotal: checkout.subtotal,
+    discount: checkout.discount,
+    totalPayable: checkout.total,
+    status: 'Pending'
+  };
+
+  const orders = JSON.parse(localStorage.getItem('dreamcart_orders') || '[]');
+  orders.unshift(newOrder);
+  localStorage.setItem('dreamcart_orders', JSON.stringify(orders));
+
+  cart = [];
+  checkout.directItem = null;
+  localStorage.setItem('dreamcart_cart', '[]');
+  updateCartBadges();
+  calcCheckout();
+  e.target.reset();
+
+  showSuccessModal(newOrder);
+}
+
+function showSuccessModal(o) {
+  document.getElementById('suc-order-id').innerText = o.orderId;
+  document.getElementById('suc-order-date').innerText = new Date(o.orderDate).toLocaleString('bn-BD');
+  document.getElementById('suc-name').innerText = o.customerName;
+  document.getElementById('suc-phone').innerText = o.phone;
+  document.getElementById('suc-address').innerText = o.fullAddress;
+  document.getElementById('suc-payment').innerText = o.paymentMethod;
+
+  const trxBox = document.getElementById('suc-trx-box');
+  if (o.isOnline && o.trxId) {
+    trxBox.style.display = 'block';
+    document.getElementById('suc-trx').innerText = `${o.trxId} (${o.senderNumber})`;
+  } else trxBox.style.display = 'none';
+
+  document.getElementById('suc-items').innerHTML = o.items.map(i => `
+    <tr>
+      <td>${i.title} <small class="text-muted">(${i.color})</small></td>
+      <td class="text-center">${i.quantity}</td>
+      <td class="text-end">৳${i.price}</td>
+      <td class="text-end">৳${i.price * i.quantity}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('suc-subtotal').innerText = `৳${o.subtotal}`;
+  document.getElementById('suc-delivery').innerText = `৳${o.deliveryFee}`;
+  document.getElementById('suc-total').innerText = `৳${o.totalPayable}`;
+
+  const discRow = document.getElementById('suc-disc-row');
+  if (o.discount > 0) {
+    discRow.style.display = 'table-row';
+    document.getElementById('suc-discount').innerText = `-৳${o.discount}`;
+  } else discRow.style.display = 'none';
+
+  // Customer email simulation preview
+  document.getElementById('customer-email-preview').innerHTML = `
+    <strong>প্রাপক:</strong> ${o.email}<br>
+    <strong>বিষয়:</strong> Dream Cart BD - অর্ডার কনফার্মেশন (#${o.orderId})<br>
+    <div class="mt-2">
+      প্রিয় ${o.customerName}, আপনার অর্ডারটি (#${o.orderId}) সফলভাবে গ্রহণ করা হয়েছে। মোট প্রদেয়: ৳${o.totalPayable}। ডেলিভারি ঠিকানা: ${o.fullAddress}। খুব শীঘ্রই আমাদের কাস্টমার কেয়ার থেকে যোগাযোগ করা হবে।
+    </div>
+  `;
+
+  // WhatsApp share
+  const waMsg = `Dream Cart BD নতুন অর্ডার:\\nঅর্ডার আইডি: ${o.orderId}\\nনাম: ${o.customerName}\\nফোন: ${o.phone}\\nঠিকানা: ${o.fullAddress}\\nপেমেন্ট: ${o.paymentMethod}\\nমোট: ৳${o.totalPayable}`;
+  document.getElementById('suc-wa-btn').href = `https://wa.me/8801581703822?text=${encodeURIComponent(waMsg)}`;
+
+  new bootstrap.Modal(document.getElementById('orderSuccessModal')).show();
+}
+
+// ADMIN VIEW TOGGLE & MANAGEMENT
+function toggleAdminView() {
+  const sf = document.getElementById('storefront-view');
+  const adm = document.getElementById('admin-view');
+  if (adm.style.display === 'none') {
+    sf.style.display = 'none';
+    adm.style.display = 'block';
+    window.scrollTo(0, 0);
+  } else {
+    adm.style.display = 'none';
+    sf.style.display = 'block';
+    window.scrollTo(0, 0);
+    renderProducts();
+  }
+}
+
+function loginAdmin() {
+  const pin = document.getElementById('admPin').value;
+  if (pin === '1234') {
+    document.getElementById('admin-auth-box').style.display = 'none';
+    document.getElementById('admin-main-body').style.display = 'block';
+    renderAdmin();
+  } else alert('ভুল পিন! সঠিক পিন: 1234');
+}
+
+function adminLogout() {
+  document.getElementById('admin-main-body').style.display = 'none';
+  document.getElementById('admin-auth-box').style.display = 'block';
+  toggleAdminView();
+}
+
+function switchAdmSubTab(tab, btn) {
+  document.getElementById('adm-subtab-orders').style.display = (tab === 'orders' ? 'block' : 'none');
+  document.getElementById('adm-subtab-products').style.display = (tab === 'products' ? 'block' : 'none');
+  btn.parentElement.parentElement.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function renderAdmin() {
+  const orders = JSON.parse(localStorage.getItem('dreamcart_orders') || '[]');
+  const rev = orders.reduce((a, b) => a + (b.totalPayable || 0), 0);
+  const pending = orders.filter(o => o.status === 'Pending').length;
+
+  document.getElementById('adm-stat-rev').innerText = `৳${rev.toLocaleString()}`;
+  document.getElementById('adm-stat-orders').innerText = orders.length;
+  document.getElementById('adm-stat-pending').innerText = pending;
+  document.getElementById('adm-stat-prods').innerText = products.length;
+
+  // Orders Table
+  const ot = document.getElementById('adm-orders-table');
+  if (orders.length === 0) {
+    ot.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-muted">কোনো অর্ডার আসেনি এখনো।</td></tr>';
+  } else {
+    ot.innerHTML = orders.map(o => `
+      <tr>
+        <td><strong>${o.orderId}</strong></td>
+        <td>${o.customerName}<br><small class="text-muted">${o.phone}</small></td>
+        <td><small>${o.fullAddress}</small><br><span class="badge bg-light text-dark border">${o.deliveryArea}</span></td>
+        <td><span class="badge ${o.isOnline?'bg-success':'bg-secondary'}">${o.paymentMethod}</span>${o.trxId?'<br><small class="text-danger fw-bold">Trx:'+o.trxId+'</small>':''}</td>
+        <td class="fw-bold text-danger">৳${o.totalPayable}</td>
+        <td>
+          <select class="form-select form-select-sm" onchange="updateOrderStatus('${o.orderId}', this.value)">
+            <option value="Pending" ${o.status==='Pending'?'selected':''}>নতুন (Pending)</option>
+            <option value="Processing" ${o.status==='Processing'?'selected':''}>প্রসেসিং</option>
+            <option value="Shipped" ${o.status==='Shipped'?'selected':''}>কুরিয়ারে পাঠানো</option>
+            <option value="Delivered" ${o.status==='Delivered'?'selected':''}>ডেলিভারড</option>
+            <option value="Cancelled" ${o.status==='Cancelled'?'selected':''}>বাতিল</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-sm btn-outline-danger" onclick="delOrder('${o.orderId}')"><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  // Products Table
+  const pt = document.getElementById('adm-products-table');
+  pt.innerHTML = products.map(p => `
+    <tr>
+      <td><img src="${p.images[0]}" style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px;"></td>
+      <td><strong>${p.title}</strong><br><small class="text-muted">${p.categoryBn}</small></td>
+      <td class="text-muted text-decoration-line-through">৳${p.regularPrice}</td>
+      <td class="fw-bold">৳${p.salePrice}</td>
+      <td><span class="badge bg-success">${p.stock} টি</span></td>
+      <td>
+        <button class="btn btn-sm btn-outline-danger" onclick="delProduct('${p.id}')"><i class="bi bi-trash"></i></button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function updateOrderStatus(id, st) {
+  const orders = JSON.parse(localStorage.getItem('dreamcart_orders') || '[]');
+  const o = orders.find(x => x.orderId === id);
+  if (o) { o.status = st; localStorage.setItem('dreamcart_orders', JSON.stringify(orders)); renderAdmin(); }
+}
+
+function delOrder(id) {
+  if (!confirm('অর্ডারটি মুছে ফেলতে চান?')) return;
+  let orders = JSON.parse(localStorage.getItem('dreamcart_orders') || '[]');
+  orders = orders.filter(x => x.orderId !== id);
+  localStorage.setItem('dreamcart_orders', JSON.stringify(orders));
+  renderAdmin();
+}
+
+function delProduct(id) {
+  if (!confirm('প্রোডাক্টটি ডিলিট করতে চান?')) return;
+  products = products.filter(x => x.id !== id);
+  localStorage.setItem('dreamcart_products', JSON.stringify(products));
+  renderAdmin();
+  renderProducts();
+}
+
+function resetDefaultProducts() {
+  if (!confirm('ডিফল্ট ২০টি অফিস ইকুইপমেন্ট প্রোডাক্ট ফিরিয়ে আনতে চান?')) return;
+  products = DEFAULT_PRODUCTS;
+  localStorage.setItem('dreamcart_products', JSON.stringify(products));
+  renderAdmin();
+  renderProducts();
+  alert('ডিফল্ট ২০টি প্রোডাক্ট রিস্টোর হয়েছে!');
+}
+
+function exportOrdersCSV() {
+  const orders = JSON.parse(localStorage.getItem('dreamcart_orders') || '[]');
+  if (orders.length === 0) { alert('কোনো অর্ডার নেই!'); return; }
+  let csv = 'Order ID,Customer,Phone,Address,Area,Payment,TrxID,Total,Status\\n';
+  orders.forEach(o => {
+    csv += `"${o.orderId}","${o.customerName}","${o.phone}","${o.fullAddress}","${o.deliveryArea}","${o.paymentMethod}","${o.trxId||''}",${o.totalPayable},"${o.status}"\\n`;
+  });
+  const blob = new Blob(["\\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'DreamCartBD_Orders.csv';
+  a.click();
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Dream Cart BD | অ্যাডমিন কন্ট্রোল প্যানেল</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .admin-sidebar {
+      min-height: calc(100vh - 70px);
+      background: #0f172a;
+      color: #94a3b8;
+    }
+    .admin-nav-item {
+      color: #94a3b8;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .admin-nav-item:hover, .admin-nav-item.active {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    .stat-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stat-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .login-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.95);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- Admin Login Protection Overlay -->
+  <div id="admin-login-overlay" class="login-overlay">
+    <div class="card p-4 shadow-lg border-0" style="max-width: 420px; width: 90%; border-radius: 16px;">
+      <div class="text-center mb-4">
+        <div class="brand-icon-box mx-auto mb-2" style="width: 54px; height: 54px; font-size: 26px;">
+          <i class="bi bi-shield-lock-fill"></i>
+        </div>
+        <h4 class="fw-bold mb-1">Dream Cart BD</h4>
+        <p class="text-muted small mb-0">অ্যাডমিন কন্ট্রোল প্যানেল লগইন (Admin Final)</p>
+      </div>
+      <form id="admin-login-form">
+        <div class="mb-3">
+          <label class="form-label small fw-bold">অ্যাডমিন পিন / পাসওয়ার্ড (PIN):</label>
+          <input type="password" id="admin-pin-input" class="form-control form-control-lg text-center" placeholder="যেমন: 1234" value="1234" required autofocus>
+          <div class="form-text text-center">ডিফল্ট পাসওয়ার্ড: <strong>1234</strong></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">
+          <i class="bi bi-box-arrow-in-right me-1"></i> লগইন করুন
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Top Navbar -->
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top px-3 py-2 shadow-sm" style="background:#0f172a !important;">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="admin.html">
+        <div class="bg-primary text-white p-2 rounded-2 d-flex align-items-center justify-content-center" style="width: 34px; height: 34px;">
+          <i class="bi bi-cart3"></i>
+        </div>
+        <div>
+          <span class="fw-bold">Dream Cart BD</span> <span class="badge bg-danger">Admin Panel</span>
+          <div style="font-size: 0.72rem; color: #94a3b8;">স্লোগান: you make. | শপ: পদুয়ার বাজার বিশ্বরোড, কুমিল্লা</div>
+        </div>
+      </a>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="btn btn-outline-light btn-sm d-flex align-items-center gap-1">
+          <i class="bi bi-shop"></i> মূল ওয়েবসাইট দেখুন (View Shop)
+        </a>
+        <button class="btn btn-danger btn-sm" onclick="adminLogout()">
+          <i class="bi bi-power"></i> লগআউট
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Admin Sidebar Navigation -->
+      <nav class="col-md-3 col-lg-2 d-md-block admin-sidebar py-3 px-2">
+        <div class="position-sticky">
+          <div class="px-3 mb-3 text-uppercase text-secondary small fw-bold">ম্যানেজমেন্ট মেনু</div>
+          <a href="#section-dashboard" class="admin-nav-item active" onclick="switchAdminTab('dashboard', this)">
+            <i class="bi bi-speedometer2"></i> ড্যাশবোর্ড ওভারভিউ
+          </a>
+          <a href="#section-orders" class="admin-nav-item" onclick="switchAdminTab('orders', this)">
+            <i class="bi bi-bag-check"></i> অর্ডার ম্যানেজমেন্ট
+            <span class="badge bg-danger ms-auto" id="sidebar-pending-badge">0</span>
+          </a>
+          <a href="#section-products" class="admin-nav-item" onclick="switchAdminTab('products', this)">
+            <i class="bi bi-box-seam"></i> প্রোডাক্ট ম্যানেজমেন্ট
+            <span class="badge bg-primary ms-auto" id="sidebar-product-count">20</span>
+          </a>
+          <a href="#section-settings" class="admin-nav-item" onclick="switchAdminTab('settings', this)">
+            <i class="bi bi-gear-fill"></i> শপ সেটিংস ও গাইড
+          </a>
+
+          <hr class="border-secondary my-3">
+          <div class="px-3 text-muted small">
+            <div><strong>হটলাইন:</strong> 01581 703 822</div>
+            <div>0181 827 3838</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+
+        <!-- TAB 1: Dashboard Overview -->
+        <div id="tab-dashboard" class="admin-tab-content">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-3 mb-4 border-bottom">
+            <h2 class="h3 fw-bold">ড্যাশবোর্ড অ্যানালিটিক্স</h2>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <button type="button" class="btn btn-sm btn-outline-secondary me-2" onclick="refreshAdminData()">
+                <i class="bi bi-arrow-clockwise"></i> রিফ্রেশ ডাটা
+              </button>
+              <button type="button" class="btn btn-sm btn-primary" onclick="openAddProductModal()">
+                <i class="bi bi-plus-circle me-1"></i> নতুন প্রোডাক্ট যোগ করুন
+              </button>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-card">
+                <div class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-cash-stack"></i></div>
+                <div>
+                  <div class="text-muted small">সর্বমোট সেলস / রেভিনিউ</div>
+                  <h3 class="fw-bold mb-0 text-dark" id="stat-total-revenue">৳০</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-card">
+                <div class="stat-icon bg-success-subtle text-success"><i class="bi bi-bag-check-fill"></i></div>
+                <div>
+                  <div class="text-muted small">মোট অর্ডার সংখ্যা</div>
+                  <h3 class="fw-bold mb-0 text-dark" id="stat-total-orders">০</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-card">
+                <div class="stat-icon bg-danger-subtle text-danger"><i class="bi bi-hourglass-split"></i></div>
+                <div>
+                  <div class="text-muted small">পেন্ডিং / নতুন অর্ডার</div>
+                  <h3 class="fw-bold mb-0 text-danger" id="stat-pending-orders">০</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="stat-card">
+                <div class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-box-seam-fill"></i></div>
+                <div>
+                  <div class="text-muted small">লাইভ প্রোডাক্ট ক্যাটালগ</div>
+                  <h3 class="fw-bold mb-0 text-dark" id="stat-total-products">২০</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Orders Table in Dashboard -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+              <h5 class="fw-bold mb-0"><i class="bi bi-clock-history me-2 text-primary"></i> সাম্প্রতিক অর্ডারসমূহ (Recent Orders)</h5>
+              <button class="btn btn-sm btn-link text-decoration-none" onclick="switchAdminTab('orders')">সবগুলো দেখুন →</button>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>অর্ডার আইডি</th>
+                    <th>গ্রাহকের নাম ও ফোন</th>
+                    <th>ডেলিভারি এরিয়া</th>
+                    <th>পেমেন্ট মেথড ও TrxID</th>
+                    <th>মোট টাকা</th>
+                    <th>স্ট্যাটাস</th>
+                    <th class="text-end">অ্যাকশন</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-recent-orders-tbody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Orders Management -->
+        <div id="tab-orders" class="admin-tab-content" style="display: none;">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-3 mb-4 border-bottom">
+            <h2 class="h3 fw-bold">অর্ডার ম্যানেজমেন্ট (Order Management)</h2>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-success" onclick="exportOrdersToCSV()">
+                <i class="bi bi-file-earmark-spreadsheet me-1"></i> এক্সেল / CSV ডাউনলোড
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Filters -->
+          <div class="card border-0 shadow-sm p-3 mb-4">
+            <div class="row g-3 align-items-center">
+              <div class="col-md-4">
+                <div class="input-group">
+                  <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                  <input type="text" id="order-search-input" class="form-control" placeholder="অর্ডার আইডি, গ্রাহকের নাম বা ফোন দিয়ে খুঁজুন...">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <select id="order-status-filter" class="form-select">
+                  <option value="all">সকল স্ট্যাটাস</option>
+                  <option value="Pending">নতুন (Pending)</option>
+                  <option value="Confirmed">কনফার্মড (Confirmed)</option>
+                  <option value="Processing">প্রসেসিং (Processing)</option>
+                  <option value="Shipped">কুরিয়ারে পাঠানো (Shipped)</option>
+                  <option value="Delivered">ডেলিভারড (Delivered)</option>
+                  <option value="Cancelled">বাতিল (Cancelled)</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select id="order-payment-filter" class="form-select">
+                  <option value="all">সকল পেমেন্ট পদ্ধতি</option>
+                  <option value="cod">ক্যাশ অন ডেলিভারি (COD)</option>
+                  <option value="bkash">বিকাশ (bKash)</option>
+                  <option value="nagad">নগদ (Nagad)</option>
+                  <option value="rocket">রকেট (Rocket)</option>
+                  <option value="bank">ব্যাংক ট্রান্সফার</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <span class="text-muted small" id="orders-count-text">০ টি অর্ডার</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full Orders Table -->
+          <div class="card border-0 shadow-sm">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>অর্ডার আইডি</th>
+                    <th>তারিখ</th>
+                    <th>গ্রাহকের তথ্য ও ঠিকানা</th>
+                    <th>পেমেন্ট মেথড</th>
+                    <th>TrxID / প্রেরক</th>
+                    <th>মূল্য</th>
+                    <th>স্ট্যাটাস আপডেট</th>
+                    <th class="text-end">অ্যাকশন</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-orders-tbody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: Products Management -->
+        <div id="tab-products" class="admin-tab-content" style="display: none;">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-3 mb-4 border-bottom">
+            <div>
+              <h2 class="h3 fw-bold mb-1">প্রোডাক্ট ম্যানেজমেন্ট (Product Management)</h2>
+              <p class="text-muted small mb-0">হোমপেজের ২০টি প্রোডাক্ট আপলোড, এডিট ও পরিবর্তন করুন</p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-danger btn-sm" onclick="confirmResetProducts()">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> ডিফল্ট ২০ প্রোডাক্ট রিস্টোর
+              </button>
+              <button class="btn btn-primary btn-sm fw-bold" onclick="openAddProductModal()">
+                <i class="bi bi-plus-lg me-1"></i> নতুন প্রোডাক্ট যুক্ত করুন
+              </button>
+            </div>
+          </div>
+
+          <!-- Products Filter Bar -->
+          <div class="card border-0 shadow-sm p-3 mb-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" id="admin-product-search" class="form-control" placeholder="প্রোডাক্টের নাম দিয়ে খুঁজুন...">
+              </div>
+              <div class="col-md-4">
+                <select id="admin-product-cat-filter" class="form-select">
+                  <option value="all">সকল ক্যাটাগরি</option>
+                  <option value="Cash & Security">ক্যাশ ও সিকিউরিটি</option>
+                  <option value="Paper & Shredders">পেপার ও শ্রেডার</option>
+                  <option value="Office Furniture">অফিস ফার্নিচার</option>
+                  <option value="POS & Barcode">পিওএস ও বারকোড</option>
+                  <option value="Electronics & Presentation">ইলেকট্রনিক্স ও প্রযুক্তি</option>
+                  <option value="Binding & Lamination">বাইন্ডিং ও লেমিনেশন</option>
+                </select>
+              </div>
+              <div class="col-md-2 text-end">
+                <span class="badge bg-secondary p-2" id="admin-products-count-badge">২০ টি প্রোডাক্ট</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products Table -->
+          <div class="card border-0 shadow-sm">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th style="width: 70px;">ছবি</th>
+                    <th>প্রোডাক্টের নাম ও ক্যাটাগরি</th>
+                    <th>রেগুলার প্রাইস</th>
+                    <th>সেলিং প্রাইস (৫% ছাড়া)</th>
+                    <th>স্টক</th>
+                    <th>স্ট্যাটাস</th>
+                    <th class="text-end" style="width: 150px;">অ্যাকশন</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-products-tbody">
+                  <!-- Rendered via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: Shop Settings & Help -->
+        <div id="tab-settings" class="admin-tab-content" style="display: none;">
+          <div class="pt-2 pb-3 mb-4 border-bottom">
+            <h2 class="h3 fw-bold">শপ ইনফরমেশন ও গিটহাব ডিপ্লয়মেন্ট গাইড</h2>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="card border-0 shadow-sm p-4 h-100">
+                <h5 class="fw-bold mb-3 text-primary"><i class="bi bi-shop me-2"></i> দোকানের বর্তমান তথ্য</h5>
+                <table class="table table-bordered small">
+                  <tr>
+                    <th style="width: 35%;">দোকানের নাম:</th>
+                    <td><strong>Dream Cart BD</strong></td>
+                  </tr>
+                  <tr>
+                    <th>স্লোগান:</th>
+                    <td class="text-danger"><strong>you make.</strong></td>
+                  </tr>
+                  <tr>
+                    <th>মোবাইল নম্বর:</th>
+                    <td>01581 703 822, 0181 827 3838</td>
+                  </tr>
+                  <tr>
+                    <th>ঠিকানা:</th>
+                    <td>chaudhari plaza ground floor room number 3 paduar Bazar, bishwa Road comilla.</td>
+                  </tr>
+                  <tr>
+                    <th>প্রোডাক্ট ধরন:</th>
+                    <td>অফিস ইকুইপমেন্ট (Office Equipment)</td>
+                  </tr>
+                  <tr>
+                    <th>ডেলিভারি চার্জ:</th>
+                    <td>কুমিল্লার ভিতর: ৯০৳ | ঢাকার ভিতরে: ১১০৳ | বাইরে: ১৩৫৳</td>
+                  </tr>
+                  <tr>
+                    <th>অনলাইন ছাড়:</th>
+                    <td><strong>৫% ক্যাশব্যাক</strong> (স্বয়ংক্রিয়ভাবে ক্যালকুলেট হয়)</td>
+                  </tr>
+                  <tr>
+                    <th>বিকাশ একাউন্ট:</th>
+                    <td>০১৮৭৯৬৫৩১৪৩ (পার্সোনাল), ০১৫৮১৭০৩৮২২ (পেমেন্ট মার্চেন্ট)</td>
+                  </tr>
+                  <tr>
+                    <th>নগদ / রকেট:</th>
+                    <td>নগদ: ০১৮৭৯৬৫৩১৪৩ | রকেট: ০১৫৮১৭০৩৮২২</td>
+                  </tr>
+                  <tr>
+                    <th>ব্যাংক একাউন্ট:</th>
+                    <td>20508070200030208, Islami Bank BD Ltd, Jainal Abedin</td>
+                  </tr>
+                  <tr>
+                    <th>মূল শপ লিংক:</th>
+                    <td><a href="https://tinyurl.com/Dream-Cart-BD" target="_blank">https://tinyurl.com/Dream-Cart-BD</a></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="card border-0 shadow-sm p-4 h-100">
+                <h5 class="fw-bold mb-3 text-success"><i class="bi bi-github me-2"></i> গিটহাব পেজেস (GitHub Pages) ফ্রি হোস্ট গাইড</h5>
+                <p class="small text-muted">এই ওয়েবসাইটটি সম্পূর্ণ স্ট্যাটিক (HTML, CSS, JS) হওয়ায় কোনো সার্ভার ফি ছাড়াই আজীবন ১০০% ফ্রিতে GitHub Pages-এ লাইভ রাখতে পারবেন:</p>
+                <ol class="small text-muted ps-3">
+                  <li class="mb-2">আপনার GitHub অ্যাকাউন্টে যান এবং একটি নতুন রিপোজিটরি তৈরি করুন (যেমন: <code>dream-cart-bd</code>)।</li>
+                  <li class="mb-2">এই ফোল্ডারের সকল ফাইল (<code>index.html</code>, <code>admin.html</code>, <code>css/</code>, <code>js/</code>, <code>README.md</code>) আপলোড করুন।</li>
+                  <li class="mb-2">রিপোজিটরির <strong>Settings</strong> ট্যাবে ক্লিক করে বাম পাশের মেনু থেকে <strong>Pages</strong> অপশনে যান।</li>
+                  <li class="mb-2"><strong>Build and deployment</strong> সেকশনে <em>Branch: main</em> এবং <em>Folder: /(root)</em> সিলেক্ট করে <strong>Save</strong> বাটনে ক্লিক করুন।</li>
+                  <li class="mb-2">মাত্র ১-২ মিনিটের মধ্যে আপনার ওয়েবসাইট বিশ্বব্যাপী ফ্রি ডোমেইনে লাইভ হয়ে যাবে!</li>
+                </ol>
+                <div class="alert alert-info small mb-0">
+                  <i class="bi bi-info-circle-fill me-1"></i> কাস্টমার ওয়েবসাইট থেকে অর্ডার করলে তা সরাসরি আপনার ব্রাউজারের এই অ্যাডমিন প্যানেলে জমা হবে!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Order Details & Print Invoice Modal -->
+  <div class="modal fade" id="adminOrderDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title fw-bold"><i class="bi bi-receipt me-2"></i> অর্ডার বিস্তারিত ও চালান (#<span id="adm-modal-order-id"></span>)</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="printable-invoice" id="admin-printable-invoice">
+            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+              <div>
+                <h3 class="fw-bold text-primary mb-0">Dream Cart BD</h3>
+                <small class="text-danger fw-bold">you make. | Office Equipment Specialist</small>
+                <div class="small text-muted">চৌধুরী প্লাজা গ্রাউন্ড ফ্লোর রুম নং ৩, পদুয়ার বাজার বিশ্বরোড, কুমিল্লা</div>
+                <div class="small text-muted">ফোন: 01581 703 822, 0181 827 3838</div>
+              </div>
+              <div class="text-end">
+                <span class="badge bg-danger fs-6 mb-1" id="adm-view-order-id"></span>
+                <div class="small text-muted" id="adm-view-order-date"></div>
+                <span class="badge bg-info mt-1" id="adm-view-order-status"></span>
+              </div>
+            </div>
+
+            <!-- Customer and Payment Details -->
+            <div class="row g-3 mb-3">
+              <div class="col-sm-6">
+                <strong>গ্রাহকের তথ্য:</strong>
+                <div id="adm-view-cust-name" class="fw-bold"></div>
+                <div>ফোন: <a href="#" id="adm-view-cust-phone" class="text-decoration-none"></a></div>
+                <div>ইমেইল: <span id="adm-view-cust-email"></span></div>
+                <div class="small text-muted mt-1">ঠিকানা: <span id="adm-view-cust-address"></span></div>
+                <div class="badge bg-light text-dark border mt-1">ডেলিভারি এরিয়া: <span id="adm-view-area-name"></span></div>
+              </div>
+              <div class="col-sm-6 text-sm-end">
+                <strong>পেমেন্ট সংক্রান্ত তথ্য:</strong>
+                <div class="fw-bold text-primary" id="adm-view-payment-method"></div>
+                <div id="adm-view-online-fields" class="mt-1 p-2 bg-light rounded text-start d-inline-block">
+                  <div><strong>প্রেরকের নম্বর:</strong> <span id="adm-view-sender-phone"></span></div>
+                  <div><strong>TrxID:</strong> <span id="adm-view-trx-id" class="text-danger fw-bold"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Items Table -->
+            <table class="table table-bordered table-sm mb-3">
+              <thead class="table-light">
+                <tr>
+                  <th>প্রোডাক্টের নাম ও ভ্যারিয়েন্ট</th>
+                  <th class="text-center">পরিমাণ</th>
+                  <th class="text-end">একক দাম</th>
+                  <th class="text-end">মোট টাকা</th>
+                </tr>
+              </thead>
+              <tbody id="adm-view-items-tbody">
+                <!-- Injected via JS -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="3" class="text-end">সাবটোটাল:</th>
+                  <td class="text-end fw-bold" id="adm-view-subtotal">৳০</td>
+                </tr>
+                <tr id="adm-view-discount-row" style="display: none;">
+                  <th colspan="3" class="text-end text-success">অনলাইন পেমেন্ট ৫% ছাড়:</th>
+                  <td class="text-end text-success fw-bold" id="adm-view-discount">-৳০</td>
+                </tr>
+                <tr>
+                  <th colspan="3" class="text-end">ডেলিভারি চার্জ:</th>
+                  <td class="text-end" id="adm-view-delivery">৳০</td>
+                </tr>
+                <tr class="table-danger">
+                  <th colspan="3" class="text-end fs-6">সর্বমোট প্রদেয় বিল:</th>
+                  <th class="text-end fs-6 text-danger" id="adm-view-total">৳০</th>
+                </tr>
+              </tfoot>
+            </table>
+
+            <!-- Customer Notes -->
+            <div id="adm-view-notes-box" class="p-2 bg-light rounded small mb-3" style="display: none;">
+              <strong>গ্রাহকের বিশেষ নোট:</strong> <span id="adm-view-notes"></span>
+            </div>
+          </div>
+
+          <!-- Status Update Box -->
+          <div class="card p-3 border-0 bg-light mt-3">
+            <h6 class="fw-bold mb-2">অর্ডার স্ট্যাটাস পরিবর্তন করুন:</h6>
+            <div class="d-flex gap-2 align-items-center">
+              <select id="adm-modal-status-select" class="form-select w-auto">
+                <option value="Pending">নতুন অর্ডার (Pending)</option>
+                <option value="Confirmed">কনফার্মড (Confirmed)</option>
+                <option value="Processing">প্রসেসিং (Processing)</option>
+                <option value="Shipped">কুরিয়ারে পাঠানো হয়েছে (Shipped)</option>
+                <option value="Delivered">ডেলিভারড সম্পন্ন (Delivered)</option>
+                <option value="Cancelled">বাতিল করা হয়েছে (Cancelled)</option>
+              </select>
+              <button class="btn btn-primary" onclick="updateOrderStatusFromModal()">
+                <i class="bi bi-check2"></i> সেভ করুন
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <div class="d-flex gap-2">
+            <button class="btn btn-dark" onclick="window.print()">
+              <i class="bi bi-printer me-1"></i> ইনভয়েস প্রিন্ট
+            </button>
+            <a href="#" id="adm-modal-btn-wa" target="_blank" class="btn btn-success" style="background:#25d366; border:none;">
+              <i class="bi bi-whatsapp me-1"></i> কাস্টমারকে WhatsApp মেসেজ
+            </a>
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বন্ধ করুন</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add / Edit Product Modal -->
+  <div class="modal fade" id="productFormModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title fw-bold" id="productFormModalTitle">নতুন প্রোডাক্ট যোগ করুন</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="product-edit-form" onsubmit="handleProductFormSubmit(event)">
+          <div class="modal-body p-4">
+            <input type="hidden" id="pf-product-id">
+
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="form-label fw-bold">প্রোডাক্টের শিরোনাম (Title in Bangla) <span class="text-danger">*</span></label>
+                <input type="text" id="pf-title" class="form-control" required placeholder="যেমন: ডুয়াল সেন্সর মানি কাউন্টিং মেশিন">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold">ক্যাটাগরি (Category) <span class="text-danger">*</span></label>
+                <select id="pf-category" class="form-select" required>
+                  <option value="Cash & Security">ক্যাশ ও সিকিউরিটি</option>
+                  <option value="Paper & Shredders">পেপার ও শ্রেডার</option>
+                  <option value="Office Furniture">অফিস ফার্নিচার</option>
+                  <option value="POS & Barcode">পিওএস ও বারকোড</option>
+                  <option value="Electronics & Presentation">ইলেকট্রনিক্স ও প্রযুক্তি</option>
+                  <option value="Binding & Lamination">বাইন্ডিং ও লেমিনেশন</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fw-bold">রেগুলার প্রাইস (৳) <span class="text-danger">*</span></label>
+                <input type="number" id="pf-regular-price" class="form-control" required placeholder="16500">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold">সেলিং প্রাইস (৳) <span class="text-danger">*</span></label>
+                <input type="number" id="pf-sale-price" class="form-control" required placeholder="13800">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold">স্টক পরিমাণ (Stock) <span class="text-danger">*</span></label>
+                <input type="number" id="pf-stock" class="form-control" required placeholder="15">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold">কালার ভ্যারিয়েন্ট (কমা দিয়ে আলাদা করুন)</label>
+                <input type="text" id="pf-colors" class="form-control" placeholder="ম্যাট ব্ল্যাক, সিলভার গ্রে, আইভরি হোয়াইট">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">সাইজ / মডেল স্পেক (কমা দিয়ে আলাদা করুন)</label>
+                <input type="text" id="pf-sizes" class="form-control" placeholder="স্ট্যান্ডার্ড, হেভি ডিউটি, প্রো ম্যাক্স">
+              </div>
+
+              <!-- Multi-Image URLs (5-10 images) -->
+              <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label class="form-label fw-bold mb-0">প্রোডাক্টের ছবিসমূহ (৫ থেকে ১০টি ইমেজ লিঙ্ক দিন) <span class="text-danger">*</span></label>
+                  <button type="button" class="btn btn-sm btn-outline-primary" onclick="addImageUrlInput()">
+                    <i class="bi bi-plus-circle me-1"></i> আরও ছবি যোগ করুন
+                  </button>
+                </div>
+                <small class="text-muted d-block mb-2">প্রতিটি প্রোডাক্টে ৫-১০ টি ছবি থাকলে কাস্টমার ডিটেইলস পেজে স্বয়ংক্রিয়ভাবে স্লাইডারে প্রদর্শিত হবে।</small>
+                <div id="pf-images-container">
+                  <!-- Inputs dynamically added -->
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold">ব্যাজ (Badge Text)</label>
+                <input type="text" id="pf-badge" class="form-control" placeholder="যেমন: বেস্ট সেলার, হট ডিল">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold">ওয়ারেন্টি তথ্য</label>
+                <input type="text" id="pf-warranty" class="form-control" placeholder="১ বছরের অফিসিয়াল সার্ভিস ওয়ারেন্টি">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold">প্রধান ফিচারসমূহ (প্রতি লাইনে একটি করে)</label>
+                <textarea id="pf-highlights" class="form-control" rows="3" placeholder="প্রতি মিনিটে ১০০০ নোট গণনার গতি&#10;ইউভি এবং এমজি ফেক নোট সেন্সর&#10;এক্সটার্নাল কাস্টমার ডিসপ্লে ফ্রি"></textarea>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold">বিস্তারিত বর্ণনা (Description)</label>
+                <textarea id="pf-desc" class="form-control" rows="3" placeholder="প্রোডাক্টের বিস্তারিত বিবরণ লিখুন..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
+            <button type="submit" class="btn btn-primary fw-bold px-4">
+              <i class="bi bi-save me-1"></i> প্রোডাক্ট সেভ করুন
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Store Data & Admin Logic -->
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
