@@ -913,20 +913,30 @@ const STORE_CONFIG = {
   }
 };
 
-// Database Initializer (Sync with localStorage)
+// Database Initializer (Sync with localStorage & GitHub Updates)
+const DCB_DATA_VERSION = "2026.09.25.1";
+
 function getStoredProducts() {
+  const storedVersion = localStorage.getItem('dreamcart_data_version');
   const stored = localStorage.getItem('dreamcart_products');
-  if (stored) {
+  
+  // If version matches and data exists, return stored (supports active admin edits)
+  if (stored && storedVersion === DCB_DATA_VERSION) {
     try {
       const parsed = JSON.parse(stored);
-      // Ensure all products have isActive flag
       return parsed.map(p => ({ isActive: p.isActive !== false, ...p }));
     } catch (e) {
       console.error('Error parsing stored products', e);
     }
   }
-  localStorage.setItem('dreamcart_products', JSON.stringify(INITIAL_PRODUCTS));
-  return INITIAL_PRODUCTS;
+  
+  // Otherwise, load fresh updated products from repository data.js
+  if (typeof INITIAL_PRODUCTS !== 'undefined' && Array.isArray(INITIAL_PRODUCTS)) {
+    localStorage.setItem('dreamcart_products', JSON.stringify(INITIAL_PRODUCTS));
+    localStorage.setItem('dreamcart_data_version', DCB_DATA_VERSION);
+    return INITIAL_PRODUCTS;
+  }
+  return [];
 }
 
 function saveStoredProducts(products) {
@@ -1057,16 +1067,20 @@ function saveStoredOrders(orders) {
 
 
 function getStoredCategories() {
+  const storedVersion = localStorage.getItem('dreamcart_data_version');
   const stored = localStorage.getItem('dreamcart_categories');
-  if (stored) {
+  if (stored && storedVersion === DCB_DATA_VERSION) {
     try {
       return JSON.parse(stored);
     } catch (e) {
       console.error('Error parsing stored categories', e);
     }
   }
-  localStorage.setItem('dreamcart_categories', JSON.stringify(INITIAL_CATEGORIES));
-  return INITIAL_CATEGORIES;
+  if (typeof INITIAL_CATEGORIES !== 'undefined' && Array.isArray(INITIAL_CATEGORIES)) {
+    localStorage.setItem('dreamcart_categories', JSON.stringify(INITIAL_CATEGORIES));
+    return INITIAL_CATEGORIES;
+  }
+  return [];
 }
 
 function saveStoredCategories(categories) {
